@@ -2,9 +2,12 @@ package com.cyrilpillai.androidplayground.social_media.state
 
 import com.cyrilpillai.androidplayground.R
 import com.cyrilpillai.androidplayground.social_media.model.BottomNavItem
+import com.cyrilpillai.androidplayground.social_media.model.PostItem
+import com.cyrilpillai.androidplayground.social_media.model.PostType
 import com.cyrilpillai.androidplayground.social_media.ui.components.AccountBarState
 import com.cyrilpillai.androidplayground.social_media.ui.components.BottomBarState
 import com.cyrilpillai.androidplayground.social_media.ui.components.EditProfileState
+import com.cyrilpillai.androidplayground.social_media.ui.components.PostState
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileDetailsState
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileImageState
 import com.cyrilpillai.androidplayground.social_media.ui.components.StatisticsState
@@ -71,5 +74,84 @@ fun getProfileDetailsState(): ProfileDetailsState {
 fun getEditProfileState(): EditProfileState {
     return EditProfileState(
         cta = "Edit Profile"
+    )
+}
+
+fun getPostsState(): PostState {
+    return PostState(
+        posts = listOf(
+            PostItem(
+                imageUrl = "https://i.pinimg.com/736x/79/5b/53/795b5303feaf37283b0f07229a009150.jpg",
+                postType = PostType.SINGLE_IMAGE
+            ),
+            PostItem(
+                imageUrl = "https://occ-0-41-395.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABeDvcGkr2O4GMnBn0qBwNNSR_M0wGOcbyJ8J1hzlCpXKF_1JIxSUJjnsDMkc-f5ulXBPLynkyl5VgbvNHCkcx-BbJ-_Ls4ndYuU98kPZq9yhOZM9iWfyyHeR.jpg?r=43c",
+                postType = PostType.MULTIPLE_IMAGES
+            ),
+            PostItem(
+                imageUrl = "https://i.pinimg.com/originals/29/2a/f0/292af0f3389ac96039fdcc35d3726171.png",
+                postType = PostType.SINGLE_IMAGE
+            ),
+            PostItem(
+                imageUrl = "https://i.pinimg.com/originals/9b/e9/7c/9be97c78e019329b4055c55a9b4504b1.jpg",
+                postType = PostType.VIDEO
+            ),
+            PostItem(
+                imageUrl = "https://media.proprofs.com/images/QM/user_images/2503852/New%20Project%20(71)(6).jpg",
+                postType = PostType.SINGLE_IMAGE
+            ),
+            PostItem(
+                imageUrl = "https://i6.tagstat.com/p1/p/7HkgZgefrcnsHLZiyJ7bOVv9NQEWldblc4SwWPDwwVkG0IzvkaMHQypaqS3ItmBp.jpg",
+                postType = PostType.SINGLE_IMAGE
+            ),
+            PostItem(
+                imageUrl = "https://i.pinimg.com/736x/79/5b/53/795b5303feaf37283b0f07229a009150.jpg",
+                postType = PostType.SINGLE_IMAGE
+            ),
+            PostItem(
+                imageUrl = "https://occ-0-41-395.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABeDvcGkr2O4GMnBn0qBwNNSR_M0wGOcbyJ8J1hzlCpXKF_1JIxSUJjnsDMkc-f5ulXBPLynkyl5VgbvNHCkcx-BbJ-_Ls4ndYuU98kPZq9yhOZM9iWfyyHeR.jpg?r=43c",
+                postType = PostType.MULTIPLE_IMAGES
+            ),
+            PostItem(
+                imageUrl = "https://i.pinimg.com/originals/29/2a/f0/292af0f3389ac96039fdcc35d3726171.png",
+                postType = PostType.SINGLE_IMAGE
+            ),
+            PostItem(
+                imageUrl = "https://i.pinimg.com/originals/9b/e9/7c/9be97c78e019329b4055c55a9b4504b1.jpg",
+                postType = PostType.VIDEO
+            ),
+            PostItem(
+                imageUrl = "https://media.proprofs.com/images/QM/user_images/2503852/New%20Project%20(71)(6).jpg",
+                postType = PostType.SINGLE_IMAGE
+            ),
+            PostItem(
+                imageUrl = "https://i6.tagstat.com/p1/p/7HkgZgefrcnsHLZiyJ7bOVv9NQEWldblc4SwWPDwwVkG0IzvkaMHQypaqS3ItmBp.jpg",
+                postType = PostType.SINGLE_IMAGE
+            ),
+            PostItem(
+                imageUrl = "https://i.pinimg.com/736x/79/5b/53/795b5303feaf37283b0f07229a009150.jpg",
+                postType = PostType.SINGLE_IMAGE
+            ),
+            PostItem(
+                imageUrl = "https://occ-0-41-395.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABeDvcGkr2O4GMnBn0qBwNNSR_M0wGOcbyJ8J1hzlCpXKF_1JIxSUJjnsDMkc-f5ulXBPLynkyl5VgbvNHCkcx-BbJ-_Ls4ndYuU98kPZq9yhOZM9iWfyyHeR.jpg?r=43c",
+                postType = PostType.MULTIPLE_IMAGES
+            ),
+            PostItem(
+                imageUrl = "https://i.pinimg.com/originals/29/2a/f0/292af0f3389ac96039fdcc35d3726171.png",
+                postType = PostType.SINGLE_IMAGE
+            ),
+            PostItem(
+                imageUrl = "https://i.pinimg.com/originals/9b/e9/7c/9be97c78e019329b4055c55a9b4504b1.jpg",
+                postType = PostType.VIDEO
+            ),
+            PostItem(
+                imageUrl = "https://media.proprofs.com/images/QM/user_images/2503852/New%20Project%20(71)(6).jpg",
+                postType = PostType.SINGLE_IMAGE
+            ),
+            PostItem(
+                imageUrl = "https://i6.tagstat.com/p1/p/7HkgZgefrcnsHLZiyJ7bOVv9NQEWldblc4SwWPDwwVkG0IzvkaMHQypaqS3ItmBp.jpg",
+                postType = PostType.SINGLE_IMAGE
+            )
+        )
     )
 }

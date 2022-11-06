@@ -3,26 +3,26 @@ package com.cyrilpillai.androidplayground.social_media
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import com.cyrilpillai.androidplayground.R
 import com.cyrilpillai.androidplayground.social_media.state.getAccountBarState
 import com.cyrilpillai.androidplayground.social_media.state.getBottomBarState
 import com.cyrilpillai.androidplayground.social_media.state.getEditProfileState
+import com.cyrilpillai.androidplayground.social_media.state.getPostsState
 import com.cyrilpillai.androidplayground.social_media.state.getProfileDetailsState
 import com.cyrilpillai.androidplayground.social_media.state.getProfileImageState
 import com.cyrilpillai.androidplayground.social_media.state.getStatisticsState
 import com.cyrilpillai.androidplayground.social_media.ui.components.AccountBarSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.BottomBarSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.EditProfileSection
+import com.cyrilpillai.androidplayground.social_media.ui.components.PostItemSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileAndStatsSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileDetailsSection
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
@@ -37,6 +37,7 @@ class SocialMediaActivity : ComponentActivity() {
             val profileImageState = getProfileImageState()
             val profileDetailsState = getProfileDetailsState()
             val editProfileState = getEditProfileState()
+            val postsState = getPostsState()
 
             AndroidPlaygroundTheme(
                 statusBarColor = Color.Black,
@@ -52,21 +53,34 @@ class SocialMediaActivity : ComponentActivity() {
                     bottomBar = {
                         BottomBarSection(state = bottomBarState)
                     }) {
-                    Column(
+                    LazyVerticalGrid(
+                        columns = GridCells.Fixed(3),
                         modifier = Modifier
                             .padding(it)
                     ) {
-                        ProfileAndStatsSection(
-                            profileImageState = profileImageState,
-                            statisticsState = statisticsState
-                        )
-                        ProfileDetailsSection(
-                            state = profileDetailsState
-                        )
-                        EditProfileSection(
-                            state = editProfileState,
-                        )
+                        item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+                            ProfileAndStatsSection(
+                                profileImageState = profileImageState,
+                                statisticsState = statisticsState
+                            )
+                        }
+
+                        item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+                            ProfileDetailsSection(
+                                state = profileDetailsState
+                            )
+                        }
+                        item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+                            EditProfileSection(
+                                state = editProfileState,
+                            )
+                        }
+
+                        items(postsState.posts) { postItem ->
+                            PostItemSection(postItem = postItem)
+                        }
                     }
+
                 }
             }
         }
