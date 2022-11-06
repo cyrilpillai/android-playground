@@ -3,7 +3,7 @@ package com.cyrilpillai.androidplayground.food_delivery
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Text
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,14 +37,14 @@ import com.cyrilpillai.androidplayground.food_delivery.ui.components.LocationBar
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.RestaurantItemSection
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.SearchBar
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.TopRatedRestaurantSection
-import com.cyrilpillai.androidplayground.food_delivery.ui.theme.AndroidPlaygroundTheme
+import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlin.random.Random
 
 class FoodDeliveryActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
             var locationBarState by remember { mutableStateOf(getLocationBarState()) }
 
             val searchBarState by remember { mutableStateOf(getSearchBarState()) }
