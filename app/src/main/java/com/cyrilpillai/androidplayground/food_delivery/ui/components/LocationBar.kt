@@ -88,7 +88,9 @@ fun LocationBar(
             )
         }
         Icon(
-            imageVector = Icons.Default.AccountCircle,
+            painter = painterResource(
+                id = R.drawable.ic_account_circle
+            ),
             contentDescription = "Profile",
             tint = Color.DarkGray,
             modifier = Modifier.size(32.dp)

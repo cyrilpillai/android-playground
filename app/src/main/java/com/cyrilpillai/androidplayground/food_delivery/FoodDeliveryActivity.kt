@@ -3,7 +3,6 @@ package com.cyrilpillai.androidplayground.food_delivery
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,13 +10,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Text
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -38,7 +35,6 @@ import com.cyrilpillai.androidplayground.food_delivery.ui.components.RestaurantI
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.SearchBar
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.TopRatedRestaurantSection
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlin.random.Random
 
 class FoodDeliveryActivity : ComponentActivity() {

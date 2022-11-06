@@ -19,13 +19,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidPlayground">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.AndroidPlayground"></activity>
         <activity
             android:name=".food_delivery.FoodDeliveryActivity"
             android:exported="false"
@@ -33,9 +27,15 @@
             android:theme="@style/Theme.AndroidPlayground" />
         <activity
             android:name=".social_media.SocialMediaActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_social_media"
-            android:theme="@style/Theme.AndroidPlayground" />
+            android:theme="@style/Theme.AndroidPlayground">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
