@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -42,6 +43,7 @@ import com.cyrilpillai.androidplayground.food_delivery.ui.components.LocationBar
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.RestaurantItemSection
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.SearchBar
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.TopRatedRestaurantSection
+import com.cyrilpillai.androidplayground.social_media.SocialMediaActivity
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
 import kotlin.random.Random
 
@@ -55,16 +57,37 @@ class MainActivity : ComponentActivity() {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
                         .fillMaxSize()
+                        .padding(16.dp)
                 ) {
-                    Button(onClick = { showFoodDelivery() }) {
+                    Button(
+                        onClick = {
+                            startActivity(
+                                Intent(
+                                    this@MainActivity,
+                                    FoodDeliveryActivity::class.java
+                                )
+                            )
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
                         Text("Food Delivery")
+                    }
+
+                    Button(
+                        onClick = {
+                            startActivity(
+                                Intent(
+                                    this@MainActivity,
+                                    SocialMediaActivity::class.java
+                                )
+                            )
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text("Social Media")
                     }
                 }
             }
         }
-    }
-
-    private fun showFoodDelivery() {
-        startActivity(Intent(this, FoodDeliveryActivity::class.java))
     }
 }

@@ -26,11 +26,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".food_delivery.FoodDeliveryActivity"
             android:exported="false"
-            android:label="@string/app_name"
+            android:label="@string/title_activity_food_delivery"
+            android:theme="@style/Theme.AndroidPlayground" />
+        <activity
+            android:name=".social_media.SocialMediaActivity"
+            android:exported="false"
+            android:label="@string/title_activity_social_media"
             android:theme="@style/Theme.AndroidPlayground" />
     </application>
 
