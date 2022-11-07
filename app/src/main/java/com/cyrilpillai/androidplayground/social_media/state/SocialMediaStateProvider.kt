@@ -7,6 +7,7 @@ import com.cyrilpillai.androidplayground.social_media.model.CtaItem
 import com.cyrilpillai.androidplayground.social_media.model.HighlightItem
 import com.cyrilpillai.androidplayground.social_media.model.PostItem
 import com.cyrilpillai.androidplayground.social_media.model.PostType
+import com.cyrilpillai.androidplayground.social_media.model.TabItem
 import com.cyrilpillai.androidplayground.social_media.ui.components.TopBarState
 import com.cyrilpillai.androidplayground.social_media.ui.components.BottomBarState
 import com.cyrilpillai.androidplayground.social_media.ui.components.CtaState
@@ -15,6 +16,7 @@ import com.cyrilpillai.androidplayground.social_media.ui.components.PostState
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileDetailsState
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileImageState
 import com.cyrilpillai.androidplayground.social_media.ui.components.StatisticsState
+import com.cyrilpillai.androidplayground.social_media.ui.components.TabsState
 
 
 fun getTopBarState(): TopBarState {
@@ -25,23 +27,33 @@ fun getBottomBarState(): BottomBarState {
     return BottomBarState(
         listOf(
             BottomNavItem(
-                icon = R.drawable.ic_home,
+                id = 1,
+                selectedIcon = R.drawable.ic_home_filled,
+                unselectedIcon = R.drawable.ic_home_outline,
                 isSelected = false
             ),
             BottomNavItem(
-                icon = R.drawable.ic_search,
+                id = 2,
+                selectedIcon = R.drawable.ic_search,
+                unselectedIcon = R.drawable.ic_search,
                 isSelected = false
             ),
             BottomNavItem(
-                icon = R.drawable.ic_video_outlined,
+                id = 3,
+                selectedIcon = R.drawable.ic_video_filled,
+                unselectedIcon = R.drawable.ic_video_outlined,
                 isSelected = false
             ),
             BottomNavItem(
-                icon = R.drawable.ic_favorite_unselected,
+                id = 4,
+                selectedIcon = R.drawable.ic_favorite_filled,
+                unselectedIcon = R.drawable.ic_favorite_outline,
                 isSelected = false
             ),
             BottomNavItem(
-                icon = R.drawable.ic_account_circle,
+                id = 5,
+                selectedIcon = R.drawable.ic_account_circle_filled,
+                unselectedIcon = R.drawable.ic_account_circle_outline,
                 isSelected = true
             ),
         )
@@ -102,6 +114,31 @@ fun getHighlightsState(): HighlightState {
             HighlightItem(
                 imageUrl = "https://qph.cf2.quoracdn.net/main-qimg-e58bccaca0d5861ebff576567a64e8e1-lq",
                 description = "Training"
+            )
+        )
+    )
+}
+
+fun getTabsState(): TabsState {
+    return TabsState(
+        listOf(
+            TabItem(
+                position = 0,
+                isSelected = true,
+                icon = R.drawable.ic_grid,
+                contentDescription = "posts"
+            ),
+            TabItem(
+                position = 1,
+                isSelected = false,
+                icon = R.drawable.ic_video_filled,
+                contentDescription = "reels"
+            ),
+            TabItem(
+                position = 2,
+                isSelected = false,
+                icon = R.drawable.ic_account_square,
+                contentDescription = "tagged"
             )
         )
     )

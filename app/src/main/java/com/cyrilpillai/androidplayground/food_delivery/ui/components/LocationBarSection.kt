@@ -10,8 +10,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -83,7 +81,7 @@ fun LocationBar(
         }
         Icon(
             painter = painterResource(
-                id = R.drawable.ic_account_circle
+                id = R.drawable.ic_account_circle_filled
             ),
             contentDescription = "Profile",
             tint = Color.DarkGray,

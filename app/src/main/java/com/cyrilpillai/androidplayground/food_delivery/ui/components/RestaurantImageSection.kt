@@ -75,9 +75,9 @@ fun RestaurantImageSection(
                         .fillMaxWidth()
                 ) {
                     val drawable = if (isFavorite) {
-                        R.drawable.ic_favorite_selected
+                        R.drawable.ic_favorite_filled
                     } else {
-                        R.drawable.ic_favorite_unselected
+                        R.drawable.ic_favorite_outline
                     }
                     Icon(
                         painter = painterResource(id = drawable),

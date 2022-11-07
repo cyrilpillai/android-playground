@@ -83,10 +83,9 @@ class FoodDeliveryActivity : ComponentActivity() {
                     },
                     bottomBar = {
                         BottomBarSection(state = bottomBarState) { id ->
-                            bottomBarState =
-                                BottomBarState(bottomBarState.items.map {
-                                    it.copy(isSelected = it.id == id)
-                                })
+                            bottomBarState = BottomBarState(bottomBarState.items.map {
+                                it.copy(isSelected = it.id == id)
+                            })
                         }
                     }) {
 

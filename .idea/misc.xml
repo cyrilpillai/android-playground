@@ -218,8 +218,14 @@
         <entry key="../../../../../layout/compose-model-1667838390729.xml" value="0.1" />
         <entry key="../../../../../layout/compose-model-1667838625120.xml" value="0.1" />
         <entry key="../../../../../layout/compose-model-1667839146959.xml" value="0.2574074074074074" />
+        <entry key="../../../../../layout/compose-model-1667840339428.xml" value="0.2574074074074074" />
+        <entry key="../../../../../layout/compose-model-1667840451140.xml" value="0.2574074074074074" />
+        <entry key="../../../../../layout/compose-model-1667840875866.xml" value="0.2574074074074074" />
+        <entry key="../../../../../layout/compose-model-1667842424224.xml" value="0.2574074074074074" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_account_circle.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_account_circle_outline.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_account_square.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_add_circle.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_add_person.xml" value="0.105" />
@@ -234,7 +240,9 @@
         <entry key="app/src/main/res/drawable/ic_favorite_unselected.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_filter.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/ic_food.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_grid.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_home_filled.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.172" />
         <entry key="app/src/main/res/drawable/ic_mart.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.105" />
