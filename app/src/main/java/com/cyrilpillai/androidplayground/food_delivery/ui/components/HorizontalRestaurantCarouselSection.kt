@@ -30,30 +30,33 @@ import com.cyrilpillai.androidplayground.food_delivery.model.RestaurantItem
 import com.cyrilpillai.androidplayground.food_delivery.state.getTopRatedRestaurantState
 import com.cyrilpillai.androidplayground.ui.theme.Green700
 
-data class TopRatedRestaurantState(
+data class HorizontalRestaurantCarouselState(
     val header: String,
     val restaurants: List<RestaurantItem>
 )
 
 @Composable
-fun TopRatedRestaurantSection(
-    state: TopRatedRestaurantState,
+fun HorizontalRestaurantCarouselSection(
+    state: HorizontalRestaurantCarouselState,
     modifier: Modifier = Modifier,
     onClick: (position: Int) -> Unit
 ) {
-    Column(modifier = modifier) {
+    Column(
+        modifier = modifier
+    ) {
         Text(
             text = state.header,
             fontWeight = FontWeight.Bold,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
-            modifier = Modifier
-                .padding(16.dp)
+            modifier = modifier
+                .padding(horizontal = 16.dp)
         )
         LazyRow(
             contentPadding = PaddingValues(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             modifier = Modifier
+                .padding(top = 16.dp)
                 .wrapContentSize()
         ) {
             itemsIndexed(state.restaurants) { index, item ->
@@ -73,7 +76,7 @@ private fun TopRatedRestaurantItemSection(
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
-            .width(120.dp)
+            .width(110.dp)
             .wrapContentHeight()
     ) {
         RestaurantImageSection(
@@ -84,7 +87,7 @@ private fun TopRatedRestaurantItemSection(
             onClick = onClick,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(140.dp)
+                .height(130.dp)
         )
         Text(
             text = restaurantItem.name,
@@ -121,6 +124,10 @@ private fun TopRatedRestaurantItemSection(
 
 @Preview(showBackground = true)
 @Composable
-private fun TopRatedRestaurantSectionPreview() {
-    TopRatedRestaurantSection(state = getTopRatedRestaurantState()) {}
+private fun HorizontalRestaurantCarouselSectionPreview() {
+    HorizontalRestaurantCarouselSection(
+        state = getTopRatedRestaurantState(),
+        modifier = Modifier
+            .padding(16.dp)
+    ) {}
 }

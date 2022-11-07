@@ -36,7 +36,7 @@ import com.cyrilpillai.androidplayground.ui.theme.Grey100
 import com.cyrilpillai.androidplayground.ui.theme.Grey50
 import com.cyrilpillai.androidplayground.ui.theme.Orange900
 
-data class RestaurantState(
+data class VerticalRestaurantsState(
     val header: String,
     val restaurants: List<RestaurantItem>
 )
@@ -52,11 +52,7 @@ fun RestaurantItemSection(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .fillMaxWidth()
-            .height(180.dp)
-            .padding(
-                horizontal = 16.dp,
-                vertical = 10.dp
-            )
+            .height(130.dp)
     ) {
         RestaurantImageSection(
             imageUrl = restaurantItem.imageUrl,
@@ -65,7 +61,7 @@ fun RestaurantItemSection(
             dealSubTitle = restaurantItem.dealSubTitle,
             onClick = onClick,
             modifier = Modifier
-                .width(120.dp)
+                .width(100.dp)
                 .fillMaxHeight()
         )
         Column(
@@ -73,10 +69,7 @@ fun RestaurantItemSection(
             verticalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(
-                    start = 16.dp,
-                    end = 8.dp
-                )
+                .padding(start = 16.dp)
         ) {
 
             Column(
@@ -175,5 +168,11 @@ fun RestaurantItemSection(
 @Preview(showBackground = true)
 @Composable
 private fun RestaurantItemSectionPreview() {
-    RestaurantItemSection(restaurantItem = getRestaurants()[0]) {}
+    RestaurantItemSection(
+        restaurantItem = getRestaurants()[0],
+        modifier = Modifier.padding(
+            horizontal = 16.dp,
+            vertical = 10.dp
+        )
+    ) {}
 }

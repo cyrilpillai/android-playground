@@ -58,6 +58,10 @@ private fun ProfileDetailsSectionPreview() {
     Box(
         modifier = Modifier.background(Color.Black)
     ) {
-        ProfileDetailsSection(state = getProfileDetailsState())
+        ProfileDetailsSection(
+            state = getProfileDetailsState(),
+            modifier = Modifier
+                .padding(vertical = 16.dp)
+        )
     }
 }

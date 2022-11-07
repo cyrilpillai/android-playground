@@ -1,17 +1,19 @@
 package com.cyrilpillai.androidplayground.food_delivery.state
 
 import com.cyrilpillai.androidplayground.R
+import com.cyrilpillai.androidplayground.food_delivery.model.BottomNavItem
 import com.cyrilpillai.androidplayground.food_delivery.model.CuisineTypeItem
 import com.cyrilpillai.androidplayground.food_delivery.model.FilterItem
 import com.cyrilpillai.androidplayground.food_delivery.model.FoodTypeItem
 import com.cyrilpillai.androidplayground.food_delivery.model.RestaurantItem
+import com.cyrilpillai.androidplayground.food_delivery.ui.components.BottomBarState
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.CuisineTypeState
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.FilterState
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.FoodTypeState
+import com.cyrilpillai.androidplayground.food_delivery.ui.components.HorizontalRestaurantCarouselState
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.LocationBarState
-import com.cyrilpillai.androidplayground.food_delivery.ui.components.RestaurantState
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.SearchBarState
-import com.cyrilpillai.androidplayground.food_delivery.ui.components.TopRatedRestaurantState
+import com.cyrilpillai.androidplayground.food_delivery.ui.components.VerticalRestaurantsState
 
 val locationNames = listOf("Home", "Office", "Work", "Hotel")
 
@@ -44,6 +46,44 @@ fun getFoodTypeState(): FoodTypeState {
         )
     )
 }
+
+fun getBottomBarState(): BottomBarState {
+    return BottomBarState(
+        listOf(
+            BottomNavItem(
+                id = 1,
+                label = "Swiggy",
+                icon = R.drawable.ic_swiggy,
+                isSelected = false
+            ),
+            BottomNavItem(
+                id = 2,
+                label = "Food",
+                icon = R.drawable.ic_food,
+                isSelected = true
+            ),
+            BottomNavItem(
+                id = 3,
+                label = "Instamart",
+                icon = R.drawable.ic_mart,
+                isSelected = false
+            ),
+            BottomNavItem(
+                id = 4,
+                label = "Dineout",
+                icon = R.drawable.ic_dining,
+                isSelected = false
+            ),
+            BottomNavItem(
+                id = 5,
+                label = "Minis",
+                icon = R.drawable.ic_shopping,
+                isSelected = false
+            ),
+        )
+    )
+}
+
 
 fun getCuisineTypeState(): CuisineTypeState {
     return CuisineTypeState(
@@ -172,17 +212,24 @@ fun getFilterState(): FilterState {
     )
 }
 
-fun getTopRatedRestaurantState(): TopRatedRestaurantState {
-    return TopRatedRestaurantState(
+fun getTopRatedRestaurantState(): HorizontalRestaurantCarouselState {
+    return HorizontalRestaurantCarouselState(
         header = "Top rated near you",
-        restaurants = getRestaurants().toList()
+        restaurants = getRestaurants().toList().shuffled()
     )
 }
 
-fun getRestaurantState(): RestaurantState {
-    return RestaurantState(
+fun getFastDeliveryRestaurantState(): HorizontalRestaurantCarouselState {
+    return HorizontalRestaurantCarouselState(
+        header = "Get it quickly",
+        restaurants = getRestaurants().toList().shuffled()
+    )
+}
+
+fun getRestaurantState(): VerticalRestaurantsState {
+    return VerticalRestaurantsState(
         header = "140 restaurants to explore",
-        restaurants = getRestaurants().toList()
+        restaurants = getRestaurants().toList().shuffled()
     )
 }
 

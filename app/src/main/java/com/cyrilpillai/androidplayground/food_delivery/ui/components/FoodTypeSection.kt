@@ -44,7 +44,6 @@ fun FoodTypeSection(
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(horizontal = 16.dp)
     ) {
         FoodTypeItemSection(foodTypeItem = state.firstFoodType)
         FoodTypeItemSection(foodTypeItem = state.secondFoodType)
@@ -90,5 +89,9 @@ private fun FoodTypeItemSection(foodTypeItem: FoodTypeItem) {
 @Preview(showBackground = true)
 @Composable
 private fun FoodTypeSectionPreview() {
-    FoodTypeSection(state = getFoodTypeState())
+    FoodTypeSection(
+        state = getFoodTypeState(),
+        modifier = Modifier
+            .padding(horizontal = 16.dp)
+    )
 }

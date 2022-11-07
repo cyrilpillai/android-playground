@@ -33,7 +33,6 @@ fun PostItemSection(
     Box(
         modifier = modifier
             .height(130.dp)
-            .padding(1.dp)
     ) {
         AsyncImage(
             model = postItem.imageUrl,

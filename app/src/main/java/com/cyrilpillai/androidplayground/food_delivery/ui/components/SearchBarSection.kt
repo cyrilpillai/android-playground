@@ -38,7 +38,6 @@ fun SearchBar(
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(horizontal = 16.dp)
     ) {
         Surface(
             shape = RoundedCornerShape(12.dp),
@@ -76,5 +75,9 @@ fun SearchBar(
 @Preview(showBackground = true)
 @Composable
 private fun SearchBarPreview() {
-    SearchBar(state = getSearchBarState())
+    SearchBar(
+        state = getSearchBarState(),
+        modifier = Modifier
+            .padding(horizontal = 16.dp)
+    )
 }

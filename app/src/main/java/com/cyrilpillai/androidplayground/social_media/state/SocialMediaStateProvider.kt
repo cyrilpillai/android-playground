@@ -1,22 +1,23 @@
 package com.cyrilpillai.androidplayground.social_media.state
 
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion
 import com.cyrilpillai.androidplayground.R
 import com.cyrilpillai.androidplayground.social_media.model.BottomNavItem
 import com.cyrilpillai.androidplayground.social_media.model.CtaItem
+import com.cyrilpillai.androidplayground.social_media.model.HighlightItem
 import com.cyrilpillai.androidplayground.social_media.model.PostItem
 import com.cyrilpillai.androidplayground.social_media.model.PostType
 import com.cyrilpillai.androidplayground.social_media.ui.components.TopBarState
 import com.cyrilpillai.androidplayground.social_media.ui.components.BottomBarState
 import com.cyrilpillai.androidplayground.social_media.ui.components.CtaState
+import com.cyrilpillai.androidplayground.social_media.ui.components.HighlightState
 import com.cyrilpillai.androidplayground.social_media.ui.components.PostState
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileDetailsState
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileImageState
 import com.cyrilpillai.androidplayground.social_media.ui.components.StatisticsState
 
 
-fun getAccountBarState(): TopBarState {
+fun getTopBarState(): TopBarState {
     return TopBarState("uzumaki.naruto")
 }
 
@@ -24,27 +25,22 @@ fun getBottomBarState(): BottomBarState {
     return BottomBarState(
         listOf(
             BottomNavItem(
-                label = "Home",
                 icon = R.drawable.ic_home,
                 isSelected = false
             ),
             BottomNavItem(
-                label = "Search",
                 icon = R.drawable.ic_search,
                 isSelected = false
             ),
             BottomNavItem(
-                label = "Reels",
                 icon = R.drawable.ic_video_outlined,
                 isSelected = false
             ),
             BottomNavItem(
-                label = "Liked",
                 icon = R.drawable.ic_favorite_unselected,
                 isSelected = false
             ),
             BottomNavItem(
-                label = "Account",
                 icon = R.drawable.ic_account_circle,
                 isSelected = true
             ),
@@ -74,7 +70,7 @@ fun getProfileDetailsState(): ProfileDetailsState {
     )
 }
 
-fun getEditProfileState(): CtaState {
+fun getCtaState(): CtaState {
     return CtaState(
         listOf(
             CtaItem(
@@ -87,6 +83,25 @@ fun getEditProfileState(): CtaState {
             ),
             CtaItem(
                 icon = R.drawable.ic_add_person
+            )
+        )
+    )
+}
+
+fun getHighlightsState(): HighlightState {
+    return HighlightState(
+        listOf(
+            HighlightItem(
+                imageUrl = "https://i.pinimg.com/236x/9c/69/c8/9c69c804217c838adef752ee3cd60cd9.jpg",
+                description = "Kurama"
+            ),
+            HighlightItem(
+                imageUrl = "https://sites.google.com/site/wikyanime/_/rsrc/1468736796534/home/primera-temporada/the-exam-chunin/descarga%20%289%29.jpg?height=266&width=400",
+                description = "Chunin Exams"
+            ),
+            HighlightItem(
+                imageUrl = "https://qph.cf2.quoracdn.net/main-qimg-e58bccaca0d5861ebff576567a64e8e1-lq",
+                description = "Training"
             )
         )
     )

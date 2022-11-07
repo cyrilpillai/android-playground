@@ -42,12 +42,6 @@ fun LocationBar(
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(
-                top = 8.dp,
-                bottom = 16.dp,
-                start = 16.dp,
-                end = 16.dp
-            )
             .clickable(onClick = onClick)
     ) {
         Column(
@@ -106,6 +100,7 @@ private fun LocationBarPreview() {
             "Home",
             "#101, Pinnacle Towers, Avenue Street, India"
         ),
-        onClick = {}
-    )
+        modifier = Modifier
+            .padding(16.dp)
+    ) {}
 }

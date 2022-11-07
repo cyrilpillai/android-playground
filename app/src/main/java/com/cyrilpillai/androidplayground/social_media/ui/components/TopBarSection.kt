@@ -4,10 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -22,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrilpillai.androidplayground.R
-import com.cyrilpillai.androidplayground.social_media.state.getAccountBarState
+import com.cyrilpillai.androidplayground.social_media.state.getTopBarState
 
 data class TopBarState(
     val username: String
@@ -39,7 +37,6 @@ fun TopBarSection(
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(16.dp)
     ) {
         Icon(
             painter = painterResource(
@@ -89,6 +86,10 @@ private fun TopBarSectionPreview() {
     Box(
         modifier = Modifier.background(Color.Black)
     ) {
-        TopBarSection(state = getAccountBarState())
+        TopBarSection(
+            state = getTopBarState(),
+            modifier = Modifier
+                .padding(16.dp)
+        )
     }
 }

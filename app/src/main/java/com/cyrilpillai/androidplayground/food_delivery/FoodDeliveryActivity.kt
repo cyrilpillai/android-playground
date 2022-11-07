@@ -3,23 +3,25 @@ package com.cyrilpillai.androidplayground.food_delivery
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.cyrilpillai.androidplayground.food_delivery.model.RestaurantItem
+import com.cyrilpillai.androidplayground.food_delivery.state.getBottomBarState
 import com.cyrilpillai.androidplayground.food_delivery.state.getCuisineTypeState
+import com.cyrilpillai.androidplayground.food_delivery.state.getFastDeliveryRestaurantState
 import com.cyrilpillai.androidplayground.food_delivery.state.getFilterState
 import com.cyrilpillai.androidplayground.food_delivery.state.getFoodTypeState
 import com.cyrilpillai.androidplayground.food_delivery.state.getLocationBarState
@@ -27,13 +29,14 @@ import com.cyrilpillai.androidplayground.food_delivery.state.getRestaurantState
 import com.cyrilpillai.androidplayground.food_delivery.state.getSearchBarState
 import com.cyrilpillai.androidplayground.food_delivery.state.getTopRatedRestaurantState
 import com.cyrilpillai.androidplayground.food_delivery.state.locationNames
+import com.cyrilpillai.androidplayground.food_delivery.ui.components.BottomBarSection
+import com.cyrilpillai.androidplayground.food_delivery.ui.components.BottomBarState
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.CuisineTypeSection
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.FilterSection
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.FoodTypeSection
-import com.cyrilpillai.androidplayground.food_delivery.ui.components.LocationBar
+import com.cyrilpillai.androidplayground.food_delivery.ui.components.HorizontalRestaurantCarouselSection
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.RestaurantItemSection
-import com.cyrilpillai.androidplayground.food_delivery.ui.components.SearchBar
-import com.cyrilpillai.androidplayground.food_delivery.ui.components.TopRatedRestaurantSection
+import com.cyrilpillai.androidplayground.food_delivery.ui.components.TopBarSection
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
 import kotlin.random.Random
 
@@ -42,50 +45,102 @@ class FoodDeliveryActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             var locationBarState by remember { mutableStateOf(getLocationBarState()) }
-
             val searchBarState by remember { mutableStateOf(getSearchBarState()) }
-
+            var bottomBarState by remember { mutableStateOf(getBottomBarState()) }
             val foodTypeState by remember { mutableStateOf(getFoodTypeState()) }
-
             val cuisineTypeState by remember { mutableStateOf(getCuisineTypeState()) }
-
             val filterState by remember { mutableStateOf(getFilterState()) }
-
             var topRatedRestaurantState by remember { mutableStateOf(getTopRatedRestaurantState()) }
+            var fastDeliveryRestaurantState by remember {
+                mutableStateOf(
+                    getFastDeliveryRestaurantState()
+                )
+            }
 
             var restaurantState by remember { mutableStateOf(getRestaurantState()) }
 
             AndroidPlaygroundTheme {
-                Column(
+                Scaffold(
                     modifier = Modifier
-                        .fillMaxSize()
-                ) {
-                    LocationBar(state = locationBarState) {
-                        locationBarState = locationBarState.copy(
-                            title = locationNames[Random.nextInt(locationNames.size - 1)]
-                        )
-                    }
-
-                    SearchBar(state = searchBarState)
-                    Spacer(modifier = Modifier.padding(6.dp))
+                        .fillMaxSize(),
+                    backgroundColor = Color.White,
+                    topBar = {
+                        TopBarSection(
+                            locationBarState = locationBarState,
+                            searchBarState = searchBarState,
+                            modifier = Modifier
+                                .padding(
+                                    top = 8.dp,
+                                    start = 16.dp,
+                                    end = 16.dp,
+                                    bottom = 16.dp
+                                )
+                        ) {
+                            locationBarState = locationBarState.copy(
+                                title = locationNames[Random.nextInt(locationNames.size - 1)]
+                            )
+                        }
+                    },
+                    bottomBar = {
+                        BottomBarSection(state = bottomBarState) { id ->
+                            bottomBarState =
+                                BottomBarState(bottomBarState.items.map {
+                                    it.copy(isSelected = it.id == id)
+                                })
+                        }
+                    }) {
 
                     LazyColumn(
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier
+                            .padding(it)
                     ) {
-
-                        item { FoodTypeSection(state = foodTypeState) }
+                        item {
+                            FoodTypeSection(
+                                state = foodTypeState,
+                                modifier = Modifier
+                                    .padding(horizontal = 16.dp)
+                            )
+                        }
 
                         item {
-                            TopRatedRestaurantSection(state = topRatedRestaurantState) {
+                            HorizontalRestaurantCarouselSection(
+                                state = topRatedRestaurantState,
+                                modifier = Modifier
+                                    .padding(top = 10.dp)
+                            ) {
                                 topRatedRestaurantState = topRatedRestaurantState.copy(
                                     restaurants = onFavoriteClick(it, restaurantState.restaurants)
                                 )
                             }
                         }
 
-                        item { CuisineTypeSection(state = cuisineTypeState) }
+                        item {
+                            CuisineTypeSection(
+                                state = cuisineTypeState,
+                                modifier = Modifier
+                                    .padding(top = 8.dp)
+                            )
+                        }
 
-                        item { FilterSection(state = filterState) }
+                        item {
+                            HorizontalRestaurantCarouselSection(
+                                state = fastDeliveryRestaurantState,
+                                modifier = Modifier
+                                    .padding(top = 10.dp)
+                            ) {
+                                fastDeliveryRestaurantState = fastDeliveryRestaurantState.copy(
+                                    restaurants = onFavoriteClick(it, restaurantState.restaurants)
+                                )
+                            }
+                        }
+
+                        item {
+                            FilterSection(
+                                state = filterState,
+                                modifier = Modifier
+                                    .padding(top = 32.dp)
+                            )
+                        }
 
                         item {
                             Text(
@@ -99,7 +154,14 @@ class FoodDeliveryActivity : ComponentActivity() {
                         }
 
                         itemsIndexed(restaurantState.restaurants) { index, item ->
-                            RestaurantItemSection(restaurantItem = item) {
+                            RestaurantItemSection(
+                                restaurantItem = item,
+                                modifier = Modifier
+                                    .padding(
+                                        vertical = 8.dp,
+                                        horizontal = 16.dp
+                                    )
+                            ) {
                                 restaurantState = restaurantState.copy(
                                     restaurants = onFavoriteClick(
                                         index,

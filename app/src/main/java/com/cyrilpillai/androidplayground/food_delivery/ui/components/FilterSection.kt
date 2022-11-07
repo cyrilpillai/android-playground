@@ -45,9 +45,6 @@ fun FilterSection(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .wrapContentSize()
-            .padding(
-                top = 24.dp,
-            )
     ) {
         items(state.filters) {
             FilterItemSection(filterItem = it)
@@ -73,7 +70,6 @@ private fun FilterItemSection(filterItem: FilterItem) {
         ) {
             Text(
                 text = filterItem.title,
-                fontWeight = FontWeight.SemiBold,
                 fontSize = 12.sp,
                 color = Color.DarkGray,
                 maxLines = 1,
@@ -103,5 +99,11 @@ private fun FilterItemSection(filterItem: FilterItem) {
 @Preview(showBackground = true)
 @Composable
 private fun FilterSectionPreview() {
-    FilterSection(state = getFilterState())
+    FilterSection(
+        state = getFilterState(),
+        modifier = Modifier
+            .padding(
+                top = 24.dp,
+            )
+    )
 }

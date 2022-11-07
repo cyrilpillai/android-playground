@@ -39,7 +39,6 @@ fun CuisineTypeSection(
 ) {
     Column(
         modifier = modifier
-            .padding(top = 10.dp)
     ) {
         Text(
             text = state.header,
@@ -96,5 +95,9 @@ private fun CuisineTypeItemSection(cuisineTypeItem: CuisineTypeItem) {
 @Preview(showBackground = true)
 @Composable
 private fun CuisineTypeSectionPreview() {
-    CuisineTypeSection(state = getCuisineTypeState())
+    CuisineTypeSection(
+        state = getCuisineTypeState(),
+        modifier = Modifier
+            .padding(top = 10.dp)
+    )
 }

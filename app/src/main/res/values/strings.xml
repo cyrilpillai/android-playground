@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">AndroidPlayground</string>
-    <string name="title_activity_food_delivery">FoodDeliveryActivity</string>
-    <string name="title_activity_social_media">SocialMediaActivity</string>
 </resources>

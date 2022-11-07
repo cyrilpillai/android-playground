@@ -21,8 +21,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrilpillai.androidplayground.R
-import com.cyrilpillai.androidplayground.social_media.state.getAccountBarState
 import com.cyrilpillai.androidplayground.social_media.state.getStatisticsState
 
 data class StatisticsState(
@@ -41,7 +39,6 @@ fun StatisticsSection(
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(16.dp)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -111,6 +108,10 @@ private fun StatisticsSectionPreview() {
     Box(
         modifier = Modifier.background(Color.Black)
     ) {
-        StatisticsSection(state = getStatisticsState())
+        StatisticsSection(
+            state = getStatisticsState(),
+            modifier = Modifier
+                .padding(vertical = 16.dp)
+        )
     }
 }
