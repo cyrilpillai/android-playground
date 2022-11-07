@@ -19,9 +19,9 @@ import com.cyrilpillai.androidplayground.social_media.state.getPostsState
 import com.cyrilpillai.androidplayground.social_media.state.getProfileDetailsState
 import com.cyrilpillai.androidplayground.social_media.state.getProfileImageState
 import com.cyrilpillai.androidplayground.social_media.state.getStatisticsState
-import com.cyrilpillai.androidplayground.social_media.ui.components.AccountBarSection
+import com.cyrilpillai.androidplayground.social_media.ui.components.TopBarSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.BottomBarSection
-import com.cyrilpillai.androidplayground.social_media.ui.components.EditProfileSection
+import com.cyrilpillai.androidplayground.social_media.ui.components.CtaSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.PostItemSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileAndStatsSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileDetailsSection
@@ -48,7 +48,7 @@ class SocialMediaActivity : ComponentActivity() {
                         .fillMaxSize(),
                     backgroundColor = Color.Black,
                     topBar = {
-                        AccountBarSection(state = accountBarState)
+                        TopBarSection(state = accountBarState)
                     },
                     bottomBar = {
                         BottomBarSection(state = bottomBarState)
@@ -71,7 +71,7 @@ class SocialMediaActivity : ComponentActivity() {
                             )
                         }
                         item(span = { GridItemSpan(maxCurrentLineSpan) }) {
-                            EditProfileSection(
+                            CtaSection(
                                 state = editProfileState,
                             )
                         }

@@ -1,20 +1,23 @@
 package com.cyrilpillai.androidplayground.social_media.state
 
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion
 import com.cyrilpillai.androidplayground.R
 import com.cyrilpillai.androidplayground.social_media.model.BottomNavItem
+import com.cyrilpillai.androidplayground.social_media.model.CtaItem
 import com.cyrilpillai.androidplayground.social_media.model.PostItem
 import com.cyrilpillai.androidplayground.social_media.model.PostType
-import com.cyrilpillai.androidplayground.social_media.ui.components.AccountBarState
+import com.cyrilpillai.androidplayground.social_media.ui.components.TopBarState
 import com.cyrilpillai.androidplayground.social_media.ui.components.BottomBarState
-import com.cyrilpillai.androidplayground.social_media.ui.components.EditProfileState
+import com.cyrilpillai.androidplayground.social_media.ui.components.CtaState
 import com.cyrilpillai.androidplayground.social_media.ui.components.PostState
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileDetailsState
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileImageState
 import com.cyrilpillai.androidplayground.social_media.ui.components.StatisticsState
 
 
-fun getAccountBarState(): AccountBarState {
-    return AccountBarState("uzumaki.naruto")
+fun getAccountBarState(): TopBarState {
+    return TopBarState("uzumaki.naruto")
 }
 
 fun getBottomBarState(): BottomBarState {
@@ -32,7 +35,7 @@ fun getBottomBarState(): BottomBarState {
             ),
             BottomNavItem(
                 label = "Reels",
-                icon = R.drawable.ic_video_player,
+                icon = R.drawable.ic_video_outlined,
                 isSelected = false
             ),
             BottomNavItem(
@@ -66,14 +69,26 @@ fun getProfileImageState(): ProfileImageState {
 fun getProfileDetailsState(): ProfileDetailsState {
     return ProfileDetailsState(
         name = "Uzumaki Naruto",
-        bio = "Shinobi / Kyūbi Jinchūriki / Team 7 member\nI will become Hokage one day, dattebayo!",
+        bio = "\uD83C\uDF3F Konoha Shinobi\n\uD83E\uDD8A Kyūbi Jinchūriki\n7️⃣ Team 7 member\nI will become Hokage one day, dattebayo!",
         website = "naruto.com"
     )
 }
 
-fun getEditProfileState(): EditProfileState {
-    return EditProfileState(
-        cta = "Edit Profile"
+fun getEditProfileState(): CtaState {
+    return CtaState(
+        listOf(
+            CtaItem(
+                text = "Following",
+                icon = R.drawable.ic_expand_more,
+                color = Color.Green
+            ),
+            CtaItem(
+                text = "Message"
+            ),
+            CtaItem(
+                icon = R.drawable.ic_add_person
+            )
+        )
     )
 }
 

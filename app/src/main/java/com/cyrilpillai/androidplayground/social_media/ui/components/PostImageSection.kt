@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -42,8 +43,8 @@ fun PostItemSection(
                 .fillMaxSize()
         )
         when (postItem.postType) {
-            PostType.MULTIPLE_IMAGES -> R.drawable.ic_add_square
-            PostType.VIDEO -> R.drawable.ic_video_player
+            PostType.MULTIPLE_IMAGES -> R.drawable.ic_images
+            PostType.VIDEO -> R.drawable.ic_video_filled
             else -> null
         }?.let {
             Icon(
@@ -51,8 +52,9 @@ fun PostItemSection(
                 contentDescription = "post type",
                 tint = Color.White,
                 modifier = Modifier
-                    .align(Alignment.TopEnd)
                     .padding(8.dp)
+                    .align(Alignment.TopEnd)
+                    .size(18.dp)
             )
         }
     }

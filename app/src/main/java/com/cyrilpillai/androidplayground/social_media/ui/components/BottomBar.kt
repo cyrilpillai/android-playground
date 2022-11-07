@@ -35,14 +35,11 @@ fun BottomBarSection(
             BottomNavigationItem(
                 selected = it.isSelected,
                 icon = {
-                    val padding = if (it.label == "Reels") 2.dp else 0.dp
                     Icon(
                         painter = painterResource(id = it.icon),
                         contentDescription = "bottom navigation icon",
                         tint = Color.White,
                         modifier = Modifier
-                            .size(26.dp)
-                            .padding(padding)
                     )
                 },
                 label = { it.label },

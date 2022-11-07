@@ -30,25 +30,14 @@ fun ProfileImageSection(
     state: ProfileImageState,
     modifier: Modifier = Modifier
 ) {
-    Box(modifier = modifier) {
-        AsyncImage(
-            model = state.imageUrl,
-            contentDescription = "profile image",
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .size(80.dp)
-                .clip(CircleShape)
-        )
-        Icon(
-            painter = painterResource(id = R.drawable.ic_add_circle),
-            contentDescription = "change profile photo",
-            tint = Color.White,
-            modifier = Modifier
-                .size(24.dp)
-                .border(BorderStroke(2.dp, Color.Black), shape = CircleShape)
-                .align(Alignment.BottomEnd)
-        )
-    }
+    AsyncImage(
+        model = state.imageUrl,
+        contentDescription = "profile image",
+        contentScale = ContentScale.Crop,
+        modifier = modifier
+            .size(60.dp)
+            .clip(CircleShape)
+    )
 }
 
 @Preview(showBackground = true)

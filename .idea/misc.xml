@@ -145,12 +145,23 @@
         <entry key="../../../../../layout/compose-model-1667752971108.xml" value="0.2574074074074074" />
         <entry key="../../../../../layout/compose-model-1667752982976.xml" value="0.2574074074074074" />
         <entry key="../../../../../layout/compose-model-1667753993861.xml" value="0.1" />
+        <entry key="../../../../../layout/compose-model-1667798793243.xml" value="0.19444444444444445" />
+        <entry key="../../../../../layout/compose-model-1667799482446.xml" value="0.19444444444444445" />
+        <entry key="../../../../../layout/compose-model-1667801136861.xml" value="0.2574074074074074" />
+        <entry key="../../../../../layout/compose-model-1667802274300.xml" value="0.2574074074074074" />
+        <entry key="../../../../../layout/compose-model-1667803668547.xml" value="0.1" />
+        <entry key="../../../../../layout/compose-model-1667805168394.xml" value="0.19444444444444445" />
+        <entry key="../../../../../layout/compose-model-1667806429366.xml" value="0.2574074074074074" />
+        <entry key="../../../../../layout/compose-model-1667806754793.xml" value="0.1" />
+        <entry key="../../../../../layout/compose-model-1667806795733.xml" value="0.19444444444444445" />
+        <entry key="../../../../../layout/compose-model-1667807191111.xml" value="0.19444444444444445" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_account_circle.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_add_circle.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_add_person.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_add_square.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_benefits_logo.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/ic_burger.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_discount.xml" value="0.139" />
@@ -163,9 +174,13 @@
         <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_near_me.xml" value="0.172" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_slideshow_outlined.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_stars.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_sushi.xml" value="0.139" />
+        <entry key="app/src/main/res/drawable/ic_video_filled.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_video_outlined.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_video_player.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/slideshow-24px.xml" value="0.105" />
       </map>
     </option>
   </component>

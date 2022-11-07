@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrilpillai.androidplayground.social_media.state.getProfileDetailsState
+import com.cyrilpillai.androidplayground.ui.theme.Blue100
 
 data class ProfileDetailsState(
     val name: String,
@@ -34,19 +35,19 @@ fun ProfileDetailsSection(
             text = state.name,
             color = Color.White,
             fontWeight = FontWeight.SemiBold,
-            fontSize = 22.sp
+            fontSize = 14.sp
         )
         Text(
             text = state.bio,
             color = Color.White,
-            fontSize = 16.sp,
-            maxLines = 3,
+            fontSize = 12.sp,
+            maxLines = 5,
             overflow = TextOverflow.Ellipsis
         )
         Text(
             text = state.website,
-            color = Color.White,
-            fontSize = 18.sp
+            color = Blue100,
+            fontSize = 12.sp
         )
     }
 }
