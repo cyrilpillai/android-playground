@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -39,7 +40,7 @@ data class HorizontalRestaurantCarouselState(
 fun HorizontalRestaurantCarouselSection(
     state: HorizontalRestaurantCarouselState,
     modifier: Modifier = Modifier,
-    onClick: (position: Int) -> Unit
+    onClick: (id: Int) -> Unit
 ) {
     Column(
         modifier = modifier
@@ -59,9 +60,9 @@ fun HorizontalRestaurantCarouselSection(
                 .padding(top = 16.dp)
                 .wrapContentSize()
         ) {
-            itemsIndexed(state.restaurants) { index, item ->
-                TopRatedRestaurantItemSection(restaurantItem = item) {
-                    onClick(index)
+            items(state.restaurants) {
+                TopRatedRestaurantItemSection(restaurantItem = it) {
+                    onClick(it.id)
                 }
             }
         }

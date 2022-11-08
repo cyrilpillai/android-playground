@@ -1,6 +1,7 @@
 package com.cyrilpillai.androidplayground.food_delivery.model
 
 data class RestaurantItem(
+    val id: Int,
     val name: String,
     val description: String,
     val imageUrl: String,

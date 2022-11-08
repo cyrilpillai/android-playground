@@ -25,9 +25,14 @@ fun ProfileAndStatsSection(
     ) {
         ProfileImageSection(
             state = profileImageState,
-            modifier = Modifier.padding(end = 16.dp)
+            modifier = Modifier
+                .padding(end = 16.dp)
         )
-        StatisticsSection(state = statisticsState)
+        StatisticsSection(
+            state = statisticsState,
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+        )
     }
 }
 

@@ -238,6 +238,7 @@ fun getRestaurantState(): VerticalRestaurantsState {
 fun getRestaurants(): List<RestaurantItem> {
     return listOf(
         RestaurantItem(
+            id = 1,
             name = "McDonald's",
             description = "Burgers, Beverages",
             imageUrl = getQualifiedImageUrl("restaurant_1", FOOD_DELIVERY),
@@ -252,6 +253,7 @@ fun getRestaurants(): List<RestaurantItem> {
             dealSubTitle = "UPTO ₹40",
         ),
         RestaurantItem(
+            id = 2,
             name = "Trupti Sweets and Farsan",
             description = "Sweets, Desserts",
             imageUrl = getQualifiedImageUrl("restaurant_2", FOOD_DELIVERY),
@@ -266,6 +268,7 @@ fun getRestaurants(): List<RestaurantItem> {
             dealSubTitle = "UPTO ₹80",
         ),
         RestaurantItem(
+            id = 3,
             name = "Subway",
             description = "Salads, Snacks",
             imageUrl = getQualifiedImageUrl("restaurant_3", FOOD_DELIVERY),
@@ -280,6 +283,7 @@ fun getRestaurants(): List<RestaurantItem> {
             dealSubTitle = "UPTO ₹50",
         ),
         RestaurantItem(
+            id = 4,
             name = "Jeden - the Cake Expert",
             description = "Desserts, Bakery",
             imageUrl = getQualifiedImageUrl("restaurant_4", FOOD_DELIVERY),
@@ -294,6 +298,7 @@ fun getRestaurants(): List<RestaurantItem> {
             dealSubTitle = "UPTO ₹280",
         ),
         RestaurantItem(
+            id = 5,
             name = "Babu Vada Pav",
             description = "Desserts, Bakery",
             imageUrl = getQualifiedImageUrl("restaurant_5", FOOD_DELIVERY),
@@ -307,6 +312,7 @@ fun getRestaurants(): List<RestaurantItem> {
             dealTitle = "FREE ITEM"
         ),
         RestaurantItem(
+            id = 6,
             name = "Apsara Ice Creams",
             description = "Ice Cream, Desserts",
             imageUrl = getQualifiedImageUrl("restaurant_6", FOOD_DELIVERY),
@@ -321,6 +327,7 @@ fun getRestaurants(): List<RestaurantItem> {
             dealSubTitle = "UPTO ₹150"
         ),
         RestaurantItem(
+            id = 7,
             name = "Persia Darbar",
             description = "Mughlai, North Indian",
             imageUrl = getQualifiedImageUrl("restaurant_7", FOOD_DELIVERY),

@@ -61,12 +61,12 @@ fun FollowersSection(
             FollowerIcon(
                 imageUrl = get(0).imageUrl,
                 modifier = Modifier
-                    .offset(4.dp)
                     .zIndex(1f)
             )
             FollowerIcon(
                 imageUrl = get(1).imageUrl,
                 modifier = Modifier
+                    .offset((-10).dp)
             )
             Text(
                 text = buildAnnotatedString {
@@ -88,7 +88,6 @@ fun FollowersSection(
                 fontSize = 12.sp,
                 color = Color.White,
                 modifier = Modifier
-                    .padding(horizontal = 8.dp)
             )
         }
     }

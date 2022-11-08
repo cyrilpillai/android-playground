@@ -56,12 +56,12 @@ fun StatisticsSection(
                     text = state.posts,
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold,
-                    fontSize = 22.sp
+                    fontSize = 18.sp
                 )
                 Text(
                     text = "Posts",
                     color = Color.White,
-                    fontSize = 18.sp
+                    fontSize = 12.sp
                 )
             }
             Column(
@@ -74,12 +74,12 @@ fun StatisticsSection(
                     text = state.followers,
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold,
-                    fontSize = 22.sp
+                    fontSize = 18.sp
                 )
                 Text(
                     text = "Followers",
                     color = Color.White,
-                    fontSize = 18.sp
+                    fontSize = 12.sp
                 )
             }
             Column(
@@ -90,12 +90,12 @@ fun StatisticsSection(
                     text = state.following,
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold,
-                    fontSize = 22.sp
+                    fontSize = 18.sp
                 )
                 Text(
                     text = "Following",
                     color = Color.White,
-                    fontSize = 18.sp
+                    fontSize = 12.sp
                 )
             }
         }

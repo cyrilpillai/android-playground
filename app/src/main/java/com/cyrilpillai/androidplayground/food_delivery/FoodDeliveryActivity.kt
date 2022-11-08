@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.getValue
@@ -106,9 +106,12 @@ class FoodDeliveryActivity : ComponentActivity() {
                                 state = topRatedRestaurantState,
                                 modifier = Modifier
                                     .padding(top = 10.dp)
-                            ) {
+                            ) { id ->
                                 topRatedRestaurantState = topRatedRestaurantState.copy(
-                                    restaurants = onFavoriteClick(it, restaurantState.restaurants)
+                                    restaurants = onFavoriteClick(
+                                        id,
+                                        topRatedRestaurantState.restaurants
+                                    )
                                 )
                             }
                         }
@@ -126,9 +129,12 @@ class FoodDeliveryActivity : ComponentActivity() {
                                 state = fastDeliveryRestaurantState,
                                 modifier = Modifier
                                     .padding(top = 10.dp)
-                            ) {
+                            ) { id ->
                                 fastDeliveryRestaurantState = fastDeliveryRestaurantState.copy(
-                                    restaurants = onFavoriteClick(it, restaurantState.restaurants)
+                                    restaurants = onFavoriteClick(
+                                        id,
+                                        fastDeliveryRestaurantState.restaurants
+                                    )
                                 )
                             }
                         }
@@ -152,7 +158,7 @@ class FoodDeliveryActivity : ComponentActivity() {
                             )
                         }
 
-                        itemsIndexed(restaurantState.restaurants) { index, item ->
+                        items(restaurantState.restaurants) { item ->
                             RestaurantItemSection(
                                 restaurantItem = item,
                                 modifier = Modifier
@@ -163,7 +169,7 @@ class FoodDeliveryActivity : ComponentActivity() {
                             ) {
                                 restaurantState = restaurantState.copy(
                                     restaurants = onFavoriteClick(
-                                        index,
+                                        item.id,
                                         restaurantState.restaurants
                                     )
                                 )
@@ -177,14 +183,14 @@ class FoodDeliveryActivity : ComponentActivity() {
 }
 
 private fun onFavoriteClick(
-    index: Int,
+    id: Int,
     restaurants: List<RestaurantItem>
 ): List<RestaurantItem> {
-    return restaurants.mapIndexed { i, item ->
-        if (i == index) {
-            item.copy(isFavorite = !item.isFavorite)
+    return restaurants.map {
+        if (it.id == id) {
+            it.copy(isFavorite = !it.isFavorite)
         } else {
-            item
+            it
         }
     }
 }
