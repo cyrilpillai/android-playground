@@ -38,7 +38,6 @@ fun CtaSection(
     Row(
         horizontalArrangement = Arrangement.SpaceAround,
         modifier = modifier
-            .padding(horizontal = 10.dp)
             .height(26.dp)
             .fillMaxWidth()
     ) {

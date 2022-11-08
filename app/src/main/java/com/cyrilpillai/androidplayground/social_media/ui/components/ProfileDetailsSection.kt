@@ -29,7 +29,6 @@ fun ProfileDetailsSection(
 ) {
     Column(
         modifier = modifier
-            .padding(horizontal = 16.dp)
     ) {
         Text(
             text = state.name,
@@ -61,7 +60,7 @@ private fun ProfileDetailsSectionPreview() {
         ProfileDetailsSection(
             state = getProfileDetailsState(),
             modifier = Modifier
-                .padding(vertical = 16.dp)
+                .padding(16.dp)
         )
     }
 }

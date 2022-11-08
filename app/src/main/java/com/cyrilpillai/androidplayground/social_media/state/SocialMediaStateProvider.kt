@@ -1,17 +1,20 @@
 package com.cyrilpillai.androidplayground.social_media.state
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.key.Key.Companion.F
 import com.cyrilpillai.androidplayground.R
 import com.cyrilpillai.androidplayground.StorageBucket.SOCIAL_MEDIA
 import com.cyrilpillai.androidplayground.getQualifiedImageUrl
 import com.cyrilpillai.androidplayground.social_media.model.BottomNavItem
 import com.cyrilpillai.androidplayground.social_media.model.CtaItem
+import com.cyrilpillai.androidplayground.social_media.model.FollowerItem
 import com.cyrilpillai.androidplayground.social_media.model.HighlightItem
 import com.cyrilpillai.androidplayground.social_media.model.PostItem
 import com.cyrilpillai.androidplayground.social_media.model.PostType
 import com.cyrilpillai.androidplayground.social_media.model.TabItem
 import com.cyrilpillai.androidplayground.social_media.ui.components.BottomBarState
 import com.cyrilpillai.androidplayground.social_media.ui.components.CtaState
+import com.cyrilpillai.androidplayground.social_media.ui.components.FollowersState
 import com.cyrilpillai.androidplayground.social_media.ui.components.HighlightState
 import com.cyrilpillai.androidplayground.social_media.ui.components.PostState
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileDetailsState
@@ -98,6 +101,33 @@ fun getCtaState(): CtaState {
             CtaItem(
                 icon = R.drawable.ic_add_person
             )
+        )
+    )
+}
+
+fun getFollowersState(): FollowersState {
+    return FollowersState(
+        listOf(
+            FollowerItem(
+                name = "uchiha.sasuke",
+                imageUrl = getQualifiedImageUrl("follower_1", SOCIAL_MEDIA)
+            ),
+            FollowerItem(
+                "haruno.sakura",
+                imageUrl = getQualifiedImageUrl("follower_2", SOCIAL_MEDIA)
+            ),
+            FollowerItem(
+                "hatake.kakashi",
+                imageUrl = getQualifiedImageUrl("follower_3", SOCIAL_MEDIA)
+            ),
+            FollowerItem(
+                "uchiha.itachi",
+                imageUrl = getQualifiedImageUrl("follower_4", SOCIAL_MEDIA)
+            ),
+            FollowerItem(
+                "nara.shikamaru",
+                imageUrl = getQualifiedImageUrl("follower_5", SOCIAL_MEDIA)
+            ),
         )
     )
 }

@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.cyrilpillai.androidplayground.social_media.state.getBottomBarState
 import com.cyrilpillai.androidplayground.social_media.state.getCtaState
+import com.cyrilpillai.androidplayground.social_media.state.getFollowersState
 import com.cyrilpillai.androidplayground.social_media.state.getHighlightsState
 import com.cyrilpillai.androidplayground.social_media.state.getPostsState
 import com.cyrilpillai.androidplayground.social_media.state.getProfileDetailsState
@@ -29,6 +30,7 @@ import com.cyrilpillai.androidplayground.social_media.state.getTopBarState
 import com.cyrilpillai.androidplayground.social_media.ui.components.BottomBarSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.BottomBarState
 import com.cyrilpillai.androidplayground.social_media.ui.components.CtaSection
+import com.cyrilpillai.androidplayground.social_media.ui.components.FollowersSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.HighlightSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.PostItemSection
 import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileAndStatsSection
@@ -49,6 +51,7 @@ class SocialMediaActivity : ComponentActivity() {
             val profileDetailsState by remember { mutableStateOf(getProfileDetailsState()) }
             val ctaState by remember { mutableStateOf(getCtaState()) }
             val highlightsState by remember { mutableStateOf(getHighlightsState()) }
+            val followersState by remember { mutableStateOf(getFollowersState()) }
             var tabsState by remember { mutableStateOf(getTabsState()) }
             val postsState by remember { mutableStateOf(getPostsState()) }
 
@@ -89,13 +92,34 @@ class SocialMediaActivity : ComponentActivity() {
                         }
 
                         item(span = { GridItemSpan(maxCurrentLineSpan) }) {
-                            ProfileDetailsSection(state = profileDetailsState)
+                            ProfileDetailsSection(
+                                state = profileDetailsState,
+                                modifier = Modifier
+                                    .padding(horizontal = 16.dp)
+                            )
                         }
+
+                        item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+                            FollowersSection(
+                                state = followersState,
+                                modifier = Modifier
+                                    .padding(
+                                        top = 8.dp,
+                                        start = 12.dp,
+                                        end = 12.dp
+                                    )
+                            )
+                        }
+
                         item(span = { GridItemSpan(maxCurrentLineSpan) }) {
                             CtaSection(
                                 state = ctaState,
                                 modifier = Modifier
-                                    .padding(top = 16.dp)
+                                    .padding(
+                                        top = 12.dp,
+                                        start = 12.dp,
+                                        end = 12.dp
+                                    )
                             )
                         }
                         item(span = { GridItemSpan(maxCurrentLineSpan) }) {
