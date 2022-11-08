@@ -13,16 +13,17 @@ import com.google.accompanist.pager.rememberPagerState
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun TabsContentSection(
-    tabs: List<TabItem>,
     pagerState: PagerState,
-    modifier: Modifier = Modifier
+    tabSize: Int,
+    modifier: Modifier = Modifier,
+    onTabSelect: @Composable (position: Int) -> Unit
 ) {
     HorizontalPager(
         state = pagerState,
-        count = tabs.size,
+        count = tabSize,
         modifier = modifier
     ) { page ->
-        tabs[page].screen()
+        onTabSelect(page)
     }
 }
 
@@ -31,7 +32,7 @@ fun TabsContentSection(
 @Composable
 fun TabsContentSectionPreview() {
     TabsContentSection(
-        tabs = getTabs(),
+        tabSize = 5,
         pagerState = rememberPagerState()
-    )
+    ) {}
 }

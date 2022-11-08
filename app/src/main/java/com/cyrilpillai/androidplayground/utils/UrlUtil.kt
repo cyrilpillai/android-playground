@@ -4,7 +4,9 @@ const val STORAGE_BUCKET_BASE_URL =
     "https://firebasestorage.googleapis.com/v0/b/compose-a1b16.appspot.com/o"
 
 enum class StorageBucket(val key: String) {
-    FOOD_DELIVERY("food_delivery"), SOCIAL_MEDIA("social_media")
+    FOOD_DELIVERY("food_delivery"),
+    SOCIAL_MEDIA("social_media"),
+    MESSAGING("messaging")
 }
 
 fun getQualifiedImageUrl(relativeName: String, storageBucket: StorageBucket): String {

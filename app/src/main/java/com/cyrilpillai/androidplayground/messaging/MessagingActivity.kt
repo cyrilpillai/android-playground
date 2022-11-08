@@ -16,11 +16,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
+import com.cyrilpillai.androidplayground.messaging.model.TabItem
+import com.cyrilpillai.androidplayground.messaging.state.getChatState
 import com.cyrilpillai.androidplayground.messaging.state.getFloatingActionButtonState
 import com.cyrilpillai.androidplayground.messaging.state.getTabs
 import com.cyrilpillai.androidplayground.messaging.state.getTopBarState
+import com.cyrilpillai.androidplayground.messaging.ui.components.CallSection
+import com.cyrilpillai.androidplayground.messaging.ui.components.ChatSection
+import com.cyrilpillai.androidplayground.messaging.ui.components.ChatState
+import com.cyrilpillai.androidplayground.messaging.ui.components.CommunitySection
 import com.cyrilpillai.androidplayground.messaging.ui.components.FloatingActionButtonSection
 import com.cyrilpillai.androidplayground.messaging.ui.components.FloatingActionButtonState
+import com.cyrilpillai.androidplayground.messaging.ui.components.StatusSection
 import com.cyrilpillai.androidplayground.messaging.ui.components.TabsContentSection
 import com.cyrilpillai.androidplayground.messaging.ui.components.TabsSection
 import com.cyrilpillai.androidplayground.messaging.ui.components.TopBarSection
@@ -36,6 +43,7 @@ class MessagingActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val topBarState by remember { mutableStateOf(getTopBarState()) }
+            val chatState by remember { mutableStateOf(getChatState()) }
             val tabs = getTabs()
             val pagerState = rememberPagerState(1)
             var floatingActionButtonState by remember {
@@ -64,7 +72,9 @@ class MessagingActivity : ComponentActivity() {
                         )
                     },
                     floatingActionButton = {
-                        FloatingActionButtonSection(state = floatingActionButtonState)
+                        FloatingActionButtonSection(state = floatingActionButtonState) {
+
+                        }
                     }
                 ) {
                     Column(
@@ -76,11 +86,18 @@ class MessagingActivity : ComponentActivity() {
                             pagerState = pagerState
                         )
                         TabsContentSection(
-                            tabs = tabs,
+                            tabSize = tabs.size,
                             pagerState = pagerState,
                             modifier = Modifier
                                 .fillMaxSize()
-                        )
+                        ) { index ->
+                            when (tabs[index]) {
+                                is TabItem.Community -> CommunitySection()
+                                is TabItem.Chat -> ChatSection(chatState)
+                                is TabItem.Status -> StatusSection()
+                                is TabItem.Call -> CallSection()
+                            }
+                        }
                     }
                 }
             }

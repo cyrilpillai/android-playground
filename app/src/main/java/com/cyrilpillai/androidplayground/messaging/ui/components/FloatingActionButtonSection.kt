@@ -21,13 +21,14 @@ data class FloatingActionButtonState(
 @Composable
 fun FloatingActionButtonSection(
     state: FloatingActionButtonState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit
 ) {
     state.icon?.let {
         FloatingActionButton(
             backgroundColor = Teal600,
 
-            onClick = { /*TODO*/ },
+            onClick = onClick,
             modifier = modifier
         ) {
             Icon(
@@ -46,5 +47,5 @@ fun FloatingActionButtonSection(
 private fun FloatingActionButtonSectionPreview() {
     FloatingActionButtonSection(
         state = getFloatingActionButtonState(1)
-    )
+    ) {}
 }
