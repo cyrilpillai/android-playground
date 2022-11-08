@@ -3,41 +3,87 @@ package com.cyrilpillai.androidplayground.messaging
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.FabPosition
+import androidx.compose.material.FabPosition.Companion
+import androidx.compose.material.Scaffold
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.cyrilpillai.androidplayground.messaging.state.getFloatingActionButtonState
+import com.cyrilpillai.androidplayground.messaging.state.getTabs
+import com.cyrilpillai.androidplayground.messaging.state.getTopBarState
+import com.cyrilpillai.androidplayground.messaging.ui.components.FloatingActionButtonSection
+import com.cyrilpillai.androidplayground.messaging.ui.components.FloatingActionButtonState
+import com.cyrilpillai.androidplayground.messaging.ui.components.TabsContentSection
+import com.cyrilpillai.androidplayground.messaging.ui.components.TabsSection
+import com.cyrilpillai.androidplayground.messaging.ui.components.TopBarSection
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
+import com.cyrilpillai.androidplayground.ui.theme.Teal600
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.rememberPagerState
+import kotlinx.coroutines.flow.collect
 
 class MessagingActivity : ComponentActivity() {
+    @OptIn(ExperimentalPagerApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AndroidPlaygroundTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+            val topBarState by remember { mutableStateOf(getTopBarState()) }
+            val tabs = getTabs()
+            val pagerState = rememberPagerState(1)
+            var floatingActionButtonState by remember {
+                mutableStateOf(
+                    getFloatingActionButtonState(
+                        pagerState.currentPage
+                    )
+                )
+            }
+
+            //Change FAB icon when tab is changed
+            LaunchedEffect(pagerState) {
+                snapshotFlow { pagerState.currentPage }.collect { page ->
+                    floatingActionButtonState = getFloatingActionButtonState(page)
+                }
+            }
+
+            AndroidPlaygroundTheme(
+                statusBarColor = Teal600,
+                useDarkIcons = false
+            ) {
+                Scaffold(
+                    topBar = {
+                        TopBarSection(
+                            state = topBarState
+                        )
+                    },
+                    floatingActionButton = {
+                        FloatingActionButtonSection(state = floatingActionButtonState)
+                    }
                 ) {
-                    Greeting("Android")
+                    Column(
+                        modifier = Modifier
+                            .padding(it)
+                    ) {
+                        TabsSection(
+                            tabs = tabs,
+                            pagerState = pagerState
+                        )
+                        TabsContentSection(
+                            tabs = tabs,
+                            pagerState = pagerState,
+                            modifier = Modifier
+                                .fillMaxSize()
+                        )
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    AndroidPlaygroundTheme {
-        Greeting("Android")
     }
 }

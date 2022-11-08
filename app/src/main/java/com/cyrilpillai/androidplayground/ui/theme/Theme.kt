@@ -53,7 +53,7 @@ fun AndroidPlaygroundTheme(
     val systemUiController = rememberSystemUiController()
 
     DisposableEffect(systemUiController, useDarkIcons) {
-        systemUiController.setSystemBarsColor(
+        systemUiController.setStatusBarColor(
             color = statusBarColor,
             darkIcons = useDarkIcons
         )
