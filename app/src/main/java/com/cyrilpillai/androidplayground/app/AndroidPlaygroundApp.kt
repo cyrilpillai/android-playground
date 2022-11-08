@@ -1,4 +1,4 @@
-package com.cyrilpillai.androidplayground
+package com.cyrilpillai.androidplayground.app
 
 import android.app.Application
 import coil.ImageLoader

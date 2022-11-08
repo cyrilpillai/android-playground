@@ -1,10 +1,7 @@
 package com.cyrilpillai.androidplayground.social_media.state
 
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.key.Key.Companion.F
 import com.cyrilpillai.androidplayground.R
-import com.cyrilpillai.androidplayground.StorageBucket.SOCIAL_MEDIA
-import com.cyrilpillai.androidplayground.getQualifiedImageUrl
 import com.cyrilpillai.androidplayground.social_media.model.BottomNavItem
 import com.cyrilpillai.androidplayground.social_media.model.CtaItem
 import com.cyrilpillai.androidplayground.social_media.model.FollowerItem
@@ -22,6 +19,8 @@ import com.cyrilpillai.androidplayground.social_media.ui.components.ProfileImage
 import com.cyrilpillai.androidplayground.social_media.ui.components.StatisticsState
 import com.cyrilpillai.androidplayground.social_media.ui.components.TabsState
 import com.cyrilpillai.androidplayground.social_media.ui.components.TopBarState
+import com.cyrilpillai.androidplayground.utils.StorageBucket.SOCIAL_MEDIA
+import com.cyrilpillai.androidplayground.utils.getQualifiedImageUrl
 
 
 fun getTopBarState(): TopBarState {

@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.cyrilpillai.androidplayground.food_delivery.FoodDeliveryActivity
+import com.cyrilpillai.androidplayground.messaging.MessagingActivity
 import com.cyrilpillai.androidplayground.social_media.SocialMediaActivity
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
 
@@ -56,6 +57,20 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Text("Social Media")
+                    }
+
+                    Button(
+                        onClick = {
+                            startActivity(
+                                Intent(
+                                    this@MainActivity,
+                                    MessagingActivity::class.java
+                                )
+                            )
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text("Messaging")
                     }
                 }
             }

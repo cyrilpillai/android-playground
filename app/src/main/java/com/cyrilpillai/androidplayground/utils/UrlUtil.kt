@@ -1,4 +1,4 @@
-package com.cyrilpillai.androidplayground
+package com.cyrilpillai.androidplayground.utils
 
 const val STORAGE_BUCKET_BASE_URL =
     "https://firebasestorage.googleapis.com/v0/b/compose-a1b16.appspot.com/o"

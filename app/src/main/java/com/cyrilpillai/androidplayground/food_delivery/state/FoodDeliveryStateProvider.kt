@@ -1,7 +1,6 @@
 package com.cyrilpillai.androidplayground.food_delivery.state
 
 import com.cyrilpillai.androidplayground.R
-import com.cyrilpillai.androidplayground.StorageBucket.FOOD_DELIVERY
 import com.cyrilpillai.androidplayground.food_delivery.model.BottomNavItem
 import com.cyrilpillai.androidplayground.food_delivery.model.CuisineTypeItem
 import com.cyrilpillai.androidplayground.food_delivery.model.FilterItem
@@ -15,7 +14,8 @@ import com.cyrilpillai.androidplayground.food_delivery.ui.components.HorizontalR
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.LocationBarState
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.SearchBarState
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.VerticalRestaurantsState
-import com.cyrilpillai.androidplayground.getQualifiedImageUrl
+import com.cyrilpillai.androidplayground.utils.StorageBucket.FOOD_DELIVERY
+import com.cyrilpillai.androidplayground.utils.getQualifiedImageUrl
 
 val locationNames = listOf("Home", "Office", "Work", "Hotel")
 
