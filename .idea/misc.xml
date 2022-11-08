@@ -222,6 +222,8 @@
         <entry key="../../../../../layout/compose-model-1667840451140.xml" value="0.2574074074074074" />
         <entry key="../../../../../layout/compose-model-1667840875866.xml" value="0.2574074074074074" />
         <entry key="../../../../../layout/compose-model-1667842424224.xml" value="0.2574074074074074" />
+        <entry key="../../../../../layout/compose-model-1667877449003.xml" value="0.19444444444444445" />
+        <entry key="../../../../../layout/compose-model-1667884075234.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_account_circle.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_account_circle_outline.xml" value="0.105" />
@@ -248,6 +250,8 @@
         <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_near_me.xml" value="0.172" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_search_filled.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_search_outline.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_slideshow_outlined.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_stars.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_sushi.xml" value="0.139" />

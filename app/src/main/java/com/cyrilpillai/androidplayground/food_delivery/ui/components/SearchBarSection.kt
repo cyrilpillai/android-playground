@@ -61,7 +61,7 @@ fun SearchBar(
                     overflow = TextOverflow.Ellipsis
                 )
                 Icon(
-                    painterResource(id = R.drawable.ic_search),
+                    painterResource(id = R.drawable.ic_search_outline),
                     contentDescription = "Search",
                     tint = Color.DarkGray,
                     modifier = Modifier

@@ -1,6 +1,7 @@
 package com.cyrilpillai.androidplayground.food_delivery.state
 
 import com.cyrilpillai.androidplayground.R
+import com.cyrilpillai.androidplayground.StorageBucket.FOOD_DELIVERY
 import com.cyrilpillai.androidplayground.food_delivery.model.BottomNavItem
 import com.cyrilpillai.androidplayground.food_delivery.model.CuisineTypeItem
 import com.cyrilpillai.androidplayground.food_delivery.model.FilterItem
@@ -14,6 +15,7 @@ import com.cyrilpillai.androidplayground.food_delivery.ui.components.HorizontalR
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.LocationBarState
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.SearchBarState
 import com.cyrilpillai.androidplayground.food_delivery.ui.components.VerticalRestaurantsState
+import com.cyrilpillai.androidplayground.getQualifiedImageUrl
 
 val locationNames = listOf("Home", "Office", "Work", "Hotel")
 
@@ -91,82 +93,82 @@ fun getCuisineTypeState(): CuisineTypeState {
         cuisines = listOf(
             CuisineTypeItem(
                 name = "Biryani",
-                imageUrl = "https://www.pngitem.com/pimgs/m/151-1519906_chicken-biryani-top-view-hd-png-download.png"
+                imageUrl = getQualifiedImageUrl("cuisine_1", FOOD_DELIVERY)
             ), CuisineTypeItem(
                 name = "Pizza",
-                imageUrl = "https://www.dominos.co.in/theme2/front/images/menu-images/my-nonveg.webp"
+                imageUrl = getQualifiedImageUrl("cuisine_2", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Chinese",
-                imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYUyra9cjgThp3HVFh0jlY6JUi4uXeCb4ETw&usqp=CAU"
+                imageUrl = getQualifiedImageUrl("cuisine_3", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "North Indian",
-                imageUrl = "https://img.favpng.com/19/25/17/north-indian-cuisine-vegetarian-cuisine-thali-south-indian-cuisine-png-favpng-jJh0Qjxkr0kzX2v4q1hZefe7R.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_4", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "South Indian",
-                imageUrl = "https://i.pinimg.com/originals/10/31/7b/10317b1eb2d6df590aca903ec599ba2d.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_5", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Pure Veg",
-                imageUrl = "https://theviewfromgreatisland.com/wp-content/uploads/2019/01/roasted-vegetable-bliss-bowl-3937-January-05-2019-2.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_6", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Pasta",
-                imageUrl = "https://www.licious.in/blog/wp-content/uploads/2020/12/Penne-Alfredo-750x750.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_7", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Dosa",
-                imageUrl = "https://www.cookwithmanali.com/wp-content/uploads/2020/05/Masala-Dosa.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_8", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Idli",
-                imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRhienzTJmixP6QxPytA9yuqGS16nvsVtBFA&usqp=CAU"
+                imageUrl = getQualifiedImageUrl("cuisine_9", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Vada",
-                imageUrl = "https://images.herzindagi.info/image/2021/Aug/making-a-medu-vada_g.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_10", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Paratha",
-                imageUrl = "https://www.vidhyashomecooking.com/wp-content/uploads/2020/08/AlooParathaRecipe-500x500.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_11", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Tea",
-                imageUrl = "https://florel-en-provence.fr/img/cms/vert.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_12", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Coffee",
-                imageUrl = "https://www.pngfind.com/pngs/m/59-596246_cup-of-coffee-top-view-png-transparent-png.png"
+                imageUrl = getQualifiedImageUrl("cuisine_13", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Upma",
-                imageUrl = "https://thumbs.dreamstime.com/b/upma-rava-made-samolina-most-famous-south-indian-breakfast-item-which-beautifully-arranged-plate-banana-leaf-216111514.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_14", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Shawarma",
-                imageUrl = "https://just-eat-prod-sg-res.cloudinary.com/image/upload/c_fill,f_auto,q_auto,w_1200,h_630,d_au:cuisines:kebab-1.jpg/v1/au/restaurants/11050161.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_15", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Shakes",
-                imageUrl = "https://previews.123rf.com/images/derkien/derkien1511/derkien151100023/48556164-delicious-milk-shake-raspberry-smoothie-top-view-close-up.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_16", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Pancake",
-                imageUrl = "https://img.freepik.com/free-photo/top-view-yummy-pancakes-with-fruits-honey-light_140725-120949.jpg?w=500"
+                imageUrl = getQualifiedImageUrl("cuisine_17", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Ice Cream",
-                imageUrl = "https://previews.123rf.com/images/baibaz/baibaz1702/baibaz170200063/72491555-bowl-of-various-colorful-ice-cream-and-chocolate-sauce-isolated-on-white-background-from-top-view.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_18", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Khichdi",
-                imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3DZQChcSSyEXJW5P4PQvgL3HGCjwNhO1Ejw&usqp=CAU"
+                imageUrl = getQualifiedImageUrl("cuisine_19", FOOD_DELIVERY)
             ),
             CuisineTypeItem(
                 name = "Rolls",
-                imageUrl = "https://thumbs.dreamstime.com/b/vegetable-indian-rolls-filled-tasty-concoction-car-carrots-potatoes-pepper-peas-cooked-blend-spices-vertical-110010966.jpg"
+                imageUrl = getQualifiedImageUrl("cuisine_20", FOOD_DELIVERY)
             )
         )
     )
@@ -238,7 +240,7 @@ fun getRestaurants(): List<RestaurantItem> {
         RestaurantItem(
             name = "McDonald's",
             description = "Burgers, Beverages",
-            imageUrl = "https://b.zmtcdn.com/data/pictures/chains/1/171/56b717a2094bcb7b5704be31d4108df6_featured_v2.jpg",
+            imageUrl = getQualifiedImageUrl("restaurant_1", FOOD_DELIVERY),
             rating = 4.3,
             reviewCount = "1K+",
             benefit = "EXTRA 10% OFF",
@@ -252,7 +254,7 @@ fun getRestaurants(): List<RestaurantItem> {
         RestaurantItem(
             name = "Trupti Sweets and Farsan",
             description = "Sweets, Desserts",
-            imageUrl = "https://im.whatshot.in/content/2015/Aug/1439797986-sweet-shops.jpg",
+            imageUrl = getQualifiedImageUrl("restaurant_2", FOOD_DELIVERY),
             rating = 4.4,
             reviewCount = "1K+",
             benefit = "FREE DELIVERY",
@@ -266,7 +268,7 @@ fun getRestaurants(): List<RestaurantItem> {
         RestaurantItem(
             name = "Subway",
             description = "Salads, Snacks",
-            imageUrl = "https://content.jdmagicbox.com/comp/def_content/subway/subway-4-subway-4-yotrh.jpg",
+            imageUrl = getQualifiedImageUrl("restaurant_3", FOOD_DELIVERY),
             rating = 4.3,
             reviewCount = "1K+",
             benefit = "EXTRA 10% OFF",
@@ -280,7 +282,7 @@ fun getRestaurants(): List<RestaurantItem> {
         RestaurantItem(
             name = "Jeden - the Cake Expert",
             description = "Desserts, Bakery",
-            imageUrl = "https://cdn.pickuplimes.com/cache/e8/d2/e8d2767ce7ba58f8bf0ffb62b17415c8.jpg",
+            imageUrl = getQualifiedImageUrl("restaurant_4", FOOD_DELIVERY),
             rating = 4.3,
             reviewCount = "100+",
             benefit = "EXTRA 10% OFF",
@@ -294,7 +296,7 @@ fun getRestaurants(): List<RestaurantItem> {
         RestaurantItem(
             name = "Babu Vada Pav",
             description = "Desserts, Bakery",
-            imageUrl = "https://www.cookwithmanali.com/wp-content/uploads/2018/04/Vada-Pav-500x500.jpg",
+            imageUrl = getQualifiedImageUrl("restaurant_5", FOOD_DELIVERY),
             rating = 4.5,
             reviewCount = "500+",
             benefit = "FREE DELIVERY",
@@ -307,7 +309,7 @@ fun getRestaurants(): List<RestaurantItem> {
         RestaurantItem(
             name = "Apsara Ice Creams",
             description = "Ice Cream, Desserts",
-            imageUrl = "https://www.carveyourcraving.com/wp-content/uploads/2021/06/chocolate-icecream-in-an-icecream-maker.jpg",
+            imageUrl = getQualifiedImageUrl("restaurant_6", FOOD_DELIVERY),
             rating = 4.6,
             reviewCount = "100+",
             benefit = "EXTRA 10% OFF",
@@ -321,7 +323,7 @@ fun getRestaurants(): List<RestaurantItem> {
         RestaurantItem(
             name = "Persia Darbar",
             description = "Mughlai, North Indian",
-            imageUrl = "https://www.recipetineats.com/wp-content/uploads/2018/08/Chicken-Biryani_1-1.jpg",
+            imageUrl = getQualifiedImageUrl("restaurant_7", FOOD_DELIVERY),
             rating = 4.1,
             reviewCount = "50+",
             benefit = "EXTRA 10% OFF",
