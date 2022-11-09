@@ -66,9 +66,9 @@ fun getBottomBarState(): BottomBarState {
 
 fun getStatisticsState(): StatisticsState {
     return StatisticsState(
-        posts = "1K",
-        followers = "8K",
-        following = "5K"
+        posts = "1,144",
+        followers = "3.2M",
+        following = "670"
     )
 }
 

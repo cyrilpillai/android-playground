@@ -31,18 +31,22 @@
             android:name=".food_delivery.FoodDeliveryActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidPlayground"></activity>
+            android:theme="@style/Theme.AndroidPlayground" />
         <activity
             android:name=".social_media.SocialMediaActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidPlayground"></activity>
+            android:theme="@style/Theme.AndroidPlayground" />
         <activity
             android:name=".messaging.MessagingActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidPlayground">
-        </activity>
+            android:theme="@style/Theme.AndroidPlayground" />
+        <activity
+            android:name=".payments.PaymentActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AndroidPlayground" />
     </application>
 
 </manifest>
