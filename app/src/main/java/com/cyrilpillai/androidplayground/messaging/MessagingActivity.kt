@@ -17,6 +17,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import com.cyrilpillai.androidplayground.messaging.model.TabItem
+import com.cyrilpillai.androidplayground.messaging.state.getCallState
 import com.cyrilpillai.androidplayground.messaging.state.getChatState
 import com.cyrilpillai.androidplayground.messaging.state.getFloatingActionButtonState
 import com.cyrilpillai.androidplayground.messaging.state.getTabs
@@ -44,6 +45,7 @@ class MessagingActivity : ComponentActivity() {
         setContent {
             val topBarState by remember { mutableStateOf(getTopBarState()) }
             val chatState by remember { mutableStateOf(getChatState()) }
+            val callState by remember { mutableStateOf(getCallState()) }
             val tabs = getTabs()
             val pagerState = rememberPagerState(1)
             var floatingActionButtonState by remember {
@@ -95,7 +97,7 @@ class MessagingActivity : ComponentActivity() {
                                 is TabItem.Community -> CommunitySection()
                                 is TabItem.Chat -> ChatSection(chatState)
                                 is TabItem.Status -> StatusSection()
-                                is TabItem.Call -> CallSection()
+                                is TabItem.Call -> CallSection(callState)
                             }
                         }
                     }

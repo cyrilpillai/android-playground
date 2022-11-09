@@ -5,5 +5,13 @@ data class ChatItem(
     val name: String,
     val imageUrl: String,
     val message: String,
-    val timestamp: String
-)
+    val date: String
+) {
+    constructor(messagingItem: MessagingItem) : this(
+        id = messagingItem.id,
+        name = messagingItem.name,
+        imageUrl = messagingItem.imageUrl,
+        message = messagingItem.message,
+        date = messagingItem.date
+    )
+}

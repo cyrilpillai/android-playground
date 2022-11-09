@@ -88,7 +88,7 @@ fun ChatItemSection(
             )
         }
         Text(
-            text = chatItem.timestamp,
+            text = chatItem.date,
             color = Color.Gray,
             fontSize = 12.sp
         )
