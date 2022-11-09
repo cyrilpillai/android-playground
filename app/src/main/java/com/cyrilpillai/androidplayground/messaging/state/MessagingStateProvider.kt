@@ -8,10 +8,13 @@ import com.cyrilpillai.androidplayground.messaging.model.CallStatus
 import com.cyrilpillai.androidplayground.messaging.model.CallType
 import com.cyrilpillai.androidplayground.messaging.model.ChatItem
 import com.cyrilpillai.androidplayground.messaging.model.MessagingItem
+import com.cyrilpillai.androidplayground.messaging.model.MyStatusItem
+import com.cyrilpillai.androidplayground.messaging.model.StatusItem
 import com.cyrilpillai.androidplayground.messaging.model.TabItem
 import com.cyrilpillai.androidplayground.messaging.ui.components.CallState
 import com.cyrilpillai.androidplayground.messaging.ui.components.ChatState
 import com.cyrilpillai.androidplayground.messaging.ui.components.FloatingActionButtonState
+import com.cyrilpillai.androidplayground.messaging.ui.components.StatusState
 import com.cyrilpillai.androidplayground.messaging.ui.components.TopBarState
 import com.cyrilpillai.androidplayground.utils.StorageBucket.MESSAGING
 import com.cyrilpillai.androidplayground.utils.getQualifiedImageUrl
@@ -31,19 +34,36 @@ fun getTabs(): List<TabItem> {
 }
 
 fun getFloatingActionButtonState(selectedTabPosition: Int): FloatingActionButtonState {
-    return FloatingActionButtonState(
-        when (selectedTabPosition) {
-            1 -> R.drawable.ic_message
-            2 -> R.drawable.ic_camera_filled
-            3 -> R.drawable.ic_add_call
-            else -> null
-        }
-    )
+    val smallFabIcon = if (selectedTabPosition == 2) R.drawable.ic_edit else null
+    val bigFabIcon = when (selectedTabPosition) {
+        1 -> R.drawable.ic_message
+        2 -> R.drawable.ic_camera_filled
+        3 -> R.drawable.ic_add_call
+        else -> null
+    }
+    return FloatingActionButtonState(smallFabIcon, bigFabIcon)
 }
 
 fun getChatState(): ChatState {
     return ChatState(
         getMessagingItems().map { ChatItem(it) }
+    )
+}
+
+fun getStatusState(): StatusState {
+    return StatusState(
+        myStatusItem = MyStatusItem(
+            title = "My status",
+            description = "Tap to add status update",
+            imageUrl = getQualifiedImageUrl("stanley_hudson", MESSAGING)
+        ),
+        headerText = "Recent updates",
+        statuses = getMessagingItems()
+            .shuffled()
+            .take(4)
+            .map {
+                StatusItem(it, Random.nextInt(7))
+            }
     )
 }
 
@@ -55,15 +75,18 @@ fun getCallState(): CallState {
             icon = R.drawable.ic_link
         ),
         headerText = "Recent",
-        calls = getMessagingItems().shuffled().map {
-            val firstRandom = Random.nextInt() % 2 == 0
-            val secondRandom = Random.nextInt() % 2 == 0
-            val callType = if (firstRandom) CallType.INCOMING else CallType.OUTGOING
-            val callMode = if (firstRandom) CallMode.VOICE else CallMode.VIDEO
-            val callStatus = if (callType == CallType.INCOMING && secondRandom) CallStatus.MISSED
-            else CallStatus.PICKED
-            CallItem(it, callType, callMode, callStatus)
-        }
+        calls = getMessagingItems()
+            .shuffled()
+            .map {
+                val firstRandom = Random.nextInt() % 2 == 0
+                val secondRandom = Random.nextInt() % 2 == 0
+                val callType = if (firstRandom) CallType.INCOMING else CallType.OUTGOING
+                val callMode = if (firstRandom) CallMode.VOICE else CallMode.VIDEO
+                val callStatus =
+                    if (callType == CallType.INCOMING && secondRandom) CallStatus.MISSED
+                    else CallStatus.PICKED
+                CallItem(it, callType, callMode, callStatus)
+            }
     )
 }
 

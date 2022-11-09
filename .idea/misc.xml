@@ -276,6 +276,12 @@
         <entry key="../../../../../layout/compose-model-1667973871557.xml" value="0.26851851851851855" />
         <entry key="../../../../../layout/compose-model-1667974715745.xml" value="0.1" />
         <entry key="../../../../../layout/compose-model-1667974796329.xml" value="0.26851851851851855" />
+        <entry key="../../../../../layout/compose-model-1667975648640.xml" value="0.26851851851851855" />
+        <entry key="../../../../../layout/compose-model-1667975858784.xml" value="0.26851851851851855" />
+        <entry key="../../../../../layout/compose-model-1667977059490.xml" value="0.2962962962962963" />
+        <entry key="../../../../../layout/compose-model-1667977116831.xml" value="0.2962962962962963" />
+        <entry key="../../../../../layout/compose-model-1667977588443.xml" value="0.26851851851851855" />
+        <entry key="../../../../../layout/compose-model-1667977741620.xml" value="0.26851851851851855" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_account_circle.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_account_circle_outline.xml" value="0.105" />
@@ -295,6 +301,7 @@
         <entry key="app/src/main/res/drawable/ic_community_illustration.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_dining.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_discount.xml" value="0.139" />
+        <entry key="app/src/main/res/drawable/ic_edit.xml" value="0.11" />
         <entry key="app/src/main/res/drawable/ic_expand_more.xml" value="0.172" />
         <entry key="app/src/main/res/drawable/ic_favorite_selected.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_favorite_unselected.xml" value="0.105" />

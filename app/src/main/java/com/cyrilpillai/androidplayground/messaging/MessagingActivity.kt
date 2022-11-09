@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.FabPosition
 import androidx.compose.material.FabPosition.Companion
 import androidx.compose.material.Scaffold
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
@@ -20,6 +22,7 @@ import com.cyrilpillai.androidplayground.messaging.model.TabItem
 import com.cyrilpillai.androidplayground.messaging.state.getCallState
 import com.cyrilpillai.androidplayground.messaging.state.getChatState
 import com.cyrilpillai.androidplayground.messaging.state.getFloatingActionButtonState
+import com.cyrilpillai.androidplayground.messaging.state.getStatusState
 import com.cyrilpillai.androidplayground.messaging.state.getTabs
 import com.cyrilpillai.androidplayground.messaging.state.getTopBarState
 import com.cyrilpillai.androidplayground.messaging.ui.components.CallSection
@@ -37,14 +40,19 @@ import com.cyrilpillai.androidplayground.ui.theme.Teal600
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class MessagingActivity : ComponentActivity() {
     @OptIn(ExperimentalPagerApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val scaffoldState = rememberScaffoldState()
+            val coroutineScope = rememberCoroutineScope()
+
             val topBarState by remember { mutableStateOf(getTopBarState()) }
             val chatState by remember { mutableStateOf(getChatState()) }
+            val statusState by remember { mutableStateOf(getStatusState()) }
             val callState by remember { mutableStateOf(getCallState()) }
             val tabs = getTabs()
             val pagerState = rememberPagerState(1)
@@ -68,15 +76,29 @@ class MessagingActivity : ComponentActivity() {
                 useDarkIcons = false
             ) {
                 Scaffold(
+                    scaffoldState = scaffoldState,
                     topBar = {
                         TopBarSection(
                             state = topBarState
                         )
                     },
                     floatingActionButton = {
-                        FloatingActionButtonSection(state = floatingActionButtonState) {
-
-                        }
+                        FloatingActionButtonSection(
+                            state = floatingActionButtonState,
+                            onSmallFabClick = {
+                                coroutineScope.launch {
+                                    scaffoldState.snackbarHostState.showSnackbar(
+                                        "Small FAB Clicked"
+                                    )
+                                }
+                            },
+                            onBigFabClick = {
+                                coroutineScope.launch {
+                                    scaffoldState.snackbarHostState.showSnackbar(
+                                        "Big FAB Clicked"
+                                    )
+                                }
+                            })
                     }
                 ) {
                     Column(
@@ -96,7 +118,7 @@ class MessagingActivity : ComponentActivity() {
                             when (tabs[index]) {
                                 is TabItem.Community -> CommunitySection()
                                 is TabItem.Chat -> ChatSection(chatState)
-                                is TabItem.Status -> StatusSection()
+                                is TabItem.Status -> StatusSection(statusState)
                                 is TabItem.Call -> CallSection(callState)
                             }
                         }
