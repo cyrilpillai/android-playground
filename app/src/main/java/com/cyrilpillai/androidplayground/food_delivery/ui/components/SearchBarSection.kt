@@ -28,7 +28,7 @@ data class SearchBarState(
 )
 
 @Composable
-fun SearchBar(
+fun SearchBarSection(
     state: SearchBarState,
     modifier: Modifier = Modifier,
 ) {
@@ -75,7 +75,7 @@ fun SearchBar(
 @Preview(showBackground = true)
 @Composable
 private fun SearchBarPreview() {
-    SearchBar(
+    SearchBarSection(
         state = getSearchBarState(),
         modifier = Modifier
             .padding(horizontal = 16.dp)

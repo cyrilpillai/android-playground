@@ -6,7 +6,8 @@ const val STORAGE_BUCKET_BASE_URL =
 enum class StorageBucket(val key: String) {
     FOOD_DELIVERY("food_delivery"),
     SOCIAL_MEDIA("social_media"),
-    MESSAGING("messaging")
+    MESSAGING("messaging"),
+    PAYMENT("payment")
 }
 
 fun getQualifiedImageUrl(relativeName: String, storageBucket: StorageBucket): String {

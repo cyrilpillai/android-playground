@@ -24,7 +24,7 @@ fun TopBarSection(
             onClick = onLocationClick
         )
 
-        SearchBar(
+        SearchBarSection(
             state = searchBarState,
             modifier = Modifier
                 .padding(top = 16.dp)
