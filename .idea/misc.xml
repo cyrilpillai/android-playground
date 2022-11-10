@@ -311,6 +311,10 @@
         <entry key="../../../../../layout/compose-model-1668067079681.xml" value="0.9830246913580247" />
         <entry key="../../../../../layout/compose-model-1668067145963.xml" value="0.1" />
         <entry key="../../../../../layout/compose-model-1668067993080.xml" value="0.9830246913580247" />
+        <entry key="../../../../../layout/compose-model-1668071495895.xml" value="0.1" />
+        <entry key="../../../../../layout/compose-model-1668073712164.xml" value="0.1" />
+        <entry key="../../../../../layout/compose-model-1668073756193.xml" value="0.22592592592592592" />
+        <entry key="../../../../../layout/compose-model-1668074058345.xml" value="0.26851851851851855" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_account_circle.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_account_circle_outline.xml" value="0.105" />
@@ -341,9 +345,11 @@
         <entry key="app/src/main/res/drawable/ic_filter.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/ic_food.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_grid.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_history.xml" value="0.122" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_home_filled.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_incoming_call.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_keyboard_arrow_right.xml" value="0.122" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.172" />
         <entry key="app/src/main/res/drawable/ic_link.xml" value="0.163" />
         <entry key="app/src/main/res/drawable/ic_mart.xml" value="0.139" />

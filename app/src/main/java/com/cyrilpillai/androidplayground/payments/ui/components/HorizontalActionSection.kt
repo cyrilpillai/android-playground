@@ -15,15 +15,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrilpillai.androidplayground.payments.model.ActionItem
-import com.cyrilpillai.androidplayground.payments.state.getActionState
+import com.cyrilpillai.androidplayground.payments.state.getHorizontalActionState
 
-data class ActionState(
+data class HorizontalActionState(
     val actions: List<ActionItem>,
 )
 
 
 @Composable
-fun ActionItemSection(
+fun HorizontalActionItemSection(
     actionItem: ActionItem,
     modifier: Modifier = Modifier
 ) {
@@ -51,8 +51,8 @@ fun ActionItemSection(
 
 @Preview(showBackground = true)
 @Composable
-private fun ActionItemSectionPreview() {
-    ActionItemSection(
-        actionItem = getActionState().actions[0]
+private fun HorizontalActionItemSectionPreview() {
+    HorizontalActionItemSection(
+        actionItem = getHorizontalActionState().actions[0]
     )
 }

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.getValue
@@ -14,16 +15,20 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.cyrilpillai.androidplayground.payments.state.getActionState
 import com.cyrilpillai.androidplayground.payments.state.getBusinessState
+import com.cyrilpillai.androidplayground.payments.state.getHorizontalActionState
 import com.cyrilpillai.androidplayground.payments.state.getPeopleState
+import com.cyrilpillai.androidplayground.payments.state.getPromotionState
 import com.cyrilpillai.androidplayground.payments.state.getTopBarState
 import com.cyrilpillai.androidplayground.payments.state.getUpiIdState
-import com.cyrilpillai.androidplayground.payments.ui.components.ActionItemSection
+import com.cyrilpillai.androidplayground.payments.state.getVerticalActionState
 import com.cyrilpillai.androidplayground.payments.ui.components.CircularItemSection
+import com.cyrilpillai.androidplayground.payments.ui.components.CircularState
 import com.cyrilpillai.androidplayground.payments.ui.components.HeaderTextSection
+import com.cyrilpillai.androidplayground.payments.ui.components.HorizontalActionItemSection
 import com.cyrilpillai.androidplayground.payments.ui.components.TopBarSection
 import com.cyrilpillai.androidplayground.payments.ui.components.UpiIdSection
+import com.cyrilpillai.androidplayground.payments.ui.components.VerticalActionItemSection
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
 import com.cyrilpillai.androidplayground.ui.theme.BlueBackdrop
 
@@ -32,10 +37,12 @@ class PaymentActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val topBarState by remember { mutableStateOf(getTopBarState()) }
-            val actionState by remember { mutableStateOf(getActionState()) }
+            val horizontalActionState by remember { mutableStateOf(getHorizontalActionState()) }
             val upiIdState by remember { mutableStateOf(getUpiIdState()) }
             val peopleState by remember { mutableStateOf(getPeopleState()) }
             val businessState by remember { mutableStateOf(getBusinessState()) }
+            val promotionState by remember { mutableStateOf(getPromotionState()) }
+            val verticalActionState by remember { mutableStateOf(getVerticalActionState()) }
 
             AndroidPlaygroundTheme(statusBarColor = BlueBackdrop) {
                 LazyVerticalGrid(
@@ -48,9 +55,9 @@ class PaymentActivity : ComponentActivity() {
                     }
 
                     items(
-                        items = actionState.actions,
+                        items = horizontalActionState.actions,
                     ) {
-                        ActionItemSection(
+                        HorizontalActionItemSection(
                             actionItem = it,
                             modifier = Modifier
                                 .padding(top = 18.dp)
@@ -65,50 +72,94 @@ class PaymentActivity : ComponentActivity() {
                         )
                     }
 
-                    item(span = { GridItemSpan(maxCurrentLineSpan) }) {
-                        HeaderTextSection(
-                            text = "People",
-                            modifier = Modifier
-                                .padding(
-                                    start = 24.dp,
-                                    end = 24.dp,
-                                    bottom = 8.dp
-                                )
-                        )
-                    }
+                    addPeople(peopleState)
+                    addBusinesses(businessState)
+                    addPromotions(promotionState)
 
-                    items(
-                        items = peopleState.circularItems,
-                    ) {
-                        CircularItemSection(
-                            circularItem = it,
-                            modifier = Modifier
-                                .padding(top = 8.dp)
-                        )
-                    }
-
-                    item(span = { GridItemSpan(maxCurrentLineSpan) }) {
-                        HeaderTextSection(
-                            text = "Businesses",
-                            modifier = Modifier
-                                .padding(
-                                    horizontal = 24.dp,
-                                    vertical = 16.dp
-                                )
-                        )
-                    }
-
-                    items(
-                        items = businessState.circularItems,
-                    ) {
-                        CircularItemSection(
-                            circularItem = it,
-                            modifier = Modifier
-                                .padding(top = 8.dp)
-                        )
+                    verticalActionState.actions.forEach {
+                        item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+                            VerticalActionItemSection(
+                                actionItem = it,
+                                modifier = Modifier
+                                    .padding(16.dp)
+                            )
+                        }
                     }
                 }
             }
+        }
+    }
+
+    private fun LazyGridScope.addPeople(peopleState: CircularState) {
+        item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+            HeaderTextSection(
+                text = "People",
+                modifier = Modifier
+                    .padding(
+                        start = 24.dp,
+                        end = 24.dp,
+                        bottom = 8.dp
+                    )
+            )
+        }
+
+        items(
+            items = peopleState.circularItems,
+        ) {
+            CircularItemSection(
+                circularItem = it,
+                modifier = Modifier
+                    .padding(top = 8.dp)
+            )
+        }
+    }
+
+    private fun LazyGridScope.addBusinesses(businessState: CircularState) {
+        item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+            HeaderTextSection(
+                text = "Businesses",
+                modifier = Modifier
+                    .padding(
+                        horizontal = 24.dp,
+                        vertical = 16.dp
+                    )
+            )
+        }
+
+        items(
+            items = businessState.circularItems,
+        ) {
+            CircularItemSection(
+                circularItem = it,
+                modifier = Modifier
+                    .padding(top = 8.dp)
+            )
+        }
+    }
+
+    private fun LazyGridScope.addPromotions(promotionState: CircularState) {
+        item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+            HeaderTextSection(
+                text = "Promotions",
+                modifier = Modifier
+                    .padding(
+                        horizontal = 24.dp,
+                        vertical = 16.dp
+                    )
+            )
+        }
+
+        items(
+            items = promotionState.circularItems,
+        ) {
+            CircularItemSection(
+                circularItem = it,
+                modifier = Modifier
+                    .padding(
+                        horizontal = 24.dp,
+                        vertical = 16.dp
+                    )
+            )
         }
     }
 }
