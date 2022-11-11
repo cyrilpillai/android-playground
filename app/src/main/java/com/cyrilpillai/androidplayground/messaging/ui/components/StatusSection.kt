@@ -33,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
@@ -96,7 +97,7 @@ fun MyStatusSection(myStatusItem: MyStatusItem) {
                     .clip(CircleShape)
             )
             Surface(
-                border = BorderStroke(1.dp, Color.White),
+                border = BorderStroke(Dp.Hairline, Color.White),
                 shape = CircleShape,
                 color = Teal600,
                 modifier = Modifier

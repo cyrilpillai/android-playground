@@ -111,8 +111,11 @@ fun getUpiIdState(): UpiIdState {
     )
 }
 
-fun getPeopleState(isCollapsed: Boolean = true): CircularState {
-    val people = if (isCollapsed) getPeople().take(7) else getPeople()
+fun getPeopleState(
+    people: List<CircularItem>,
+    isCollapsed: Boolean = true
+): CircularState {
+    val result = if (isCollapsed) people.take(7) else people
     val toggle = if (isCollapsed) {
         CircularItem.Toggle(
             description = "More",
@@ -124,11 +127,14 @@ fun getPeopleState(isCollapsed: Boolean = true): CircularState {
             icon = R.drawable.ic_expand_less
         )
     }
-    return CircularState(header = "People", circularItems = people + toggle)
+    return CircularState(header = "People", circularItems = result + toggle)
 }
 
-fun getBusinessState(isCollapsed: Boolean = true): CircularState {
-    val businesses = if (isCollapsed) getBusinesses().take(3) else getBusinesses()
+fun getBusinessState(
+    businesses: List<CircularItem>,
+    isCollapsed: Boolean = true
+): CircularState {
+    val result = if (isCollapsed) businesses.take(3) else businesses
     val toggle = if (isCollapsed) {
         CircularItem.Toggle(
             description = "More",
@@ -140,7 +146,7 @@ fun getBusinessState(isCollapsed: Boolean = true): CircularState {
             icon = R.drawable.ic_expand_less
         )
     }
-    return CircularState(header = "Businesses", circularItems = businesses + toggle)
+    return CircularState(header = "Businesses", circularItems = result + toggle)
 }
 
 fun getPromotionState(): CircularState {
@@ -221,7 +227,7 @@ fun getFooterState(): FooterState {
     )
 }
 
-private fun getPeople(): List<CircularItem> {
+fun getPeople(): List<CircularItem> {
     return listOf(
         CircularItem.Info(
             description = "Joey",
@@ -257,16 +263,56 @@ private fun getPeople(): List<CircularItem> {
             description = "Janice",
             backgroundColor = getRandomColor(),
             imageUrl = getQualifiedImageUrl("janice_hosenstein", PAYMENT)
-        )
+        ),
+        CircularItem.Info(
+            description = "Gunther",
+            backgroundColor = getRandomColor(),
+            imageUrl = null
+        ),
+        CircularItem.Info(
+            description = "Jill",
+            backgroundColor = getRandomColor(),
+            imageUrl = getQualifiedImageUrl("jill_green", PAYMENT)
+        ),
+        CircularItem.Info(
+            description = "Judy",
+            backgroundColor = getRandomColor(),
+            imageUrl = null
+        ),
+        CircularItem.Info(
+            description = "Emily",
+            backgroundColor = getRandomColor(),
+            imageUrl = getQualifiedImageUrl("emily_waltham", PAYMENT)
+        ),
+        CircularItem.Info(
+            description = "Ursula",
+            backgroundColor = getRandomColor(),
+            imageUrl = null
+        ),
+        CircularItem.Info(
+            description = "Roy",
+            backgroundColor = getRandomColor(),
+            imageUrl = null
+        ),
+        CircularItem.Info(
+            description = "Jack",
+            backgroundColor = getRandomColor(),
+            imageUrl = getQualifiedImageUrl("jack_geller", PAYMENT)
+        ),
+        CircularItem.Info(
+            description = "Danny",
+            backgroundColor = getRandomColor(),
+            imageUrl = null
+        ),
     )
 }
 
-private fun getBusinesses(): List<CircularItem> {
+fun getBusinesses(): List<CircularItem> {
     return listOf(
         CircularItem.Info(
             description = "Airtel Postpaid",
             backgroundColor = getRandomColor(),
-            imageUrl = null,
+            imageUrl = getQualifiedImageUrl("airtel", PAYMENT)
         ),
         CircularItem.Info(
             description = "Citibank",
@@ -274,14 +320,19 @@ private fun getBusinesses(): List<CircularItem> {
             imageUrl = null
         ),
         CircularItem.Info(
+            description = "Bharatpe",
+            backgroundColor = getRandomColor(),
+            imageUrl = getQualifiedImageUrl("bharatpe", PAYMENT)
+        ),
+        CircularItem.Info(
             description = "Adani Electricity",
             backgroundColor = getRandomColor(),
             imageUrl = null
         ),
         CircularItem.Info(
-            description = "Bharatpe",
+            description = "Apple Inc",
             backgroundColor = getRandomColor(),
-            imageUrl = null
+            imageUrl = getQualifiedImageUrl("apple", PAYMENT)
         ),
         CircularItem.Info(
             description = "HDFC Bank",
@@ -289,9 +340,14 @@ private fun getBusinesses(): List<CircularItem> {
             imageUrl = null
         ),
         CircularItem.Info(
-            description = "Zerodha Broking",
+            description = "Cred",
             backgroundColor = getRandomColor(),
             imageUrl = null
+        ),
+        CircularItem.Info(
+            description = "Zerodha Broking",
+            backgroundColor = getRandomColor(),
+            imageUrl = getQualifiedImageUrl("zerodha", PAYMENT)
         ),
         CircularItem.Info(
             description = "Zomato",
@@ -302,7 +358,12 @@ private fun getBusinesses(): List<CircularItem> {
             description = "HP Gas",
             backgroundColor = getRandomColor(),
             imageUrl = null
-        )
+        ),
+        CircularItem.Info(
+            description = "Swiggy",
+            backgroundColor = getRandomColor(),
+            imageUrl = getQualifiedImageUrl("swiggy", PAYMENT)
+        ),
     )
 }
 

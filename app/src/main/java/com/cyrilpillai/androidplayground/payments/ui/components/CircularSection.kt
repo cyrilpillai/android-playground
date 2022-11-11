@@ -1,6 +1,8 @@
 package com.cyrilpillai.androidplayground.payments.ui.components
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -20,11 +22,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.Dp.Companion
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.cyrilpillai.androidplayground.R
 import com.cyrilpillai.androidplayground.payments.model.CircularItem
-import com.cyrilpillai.androidplayground.payments.state.getPeopleState
+import com.cyrilpillai.androidplayground.payments.state.getPeople
 import com.cyrilpillai.androidplayground.ui.theme.Grey100
 import com.cyrilpillai.androidplayground.ui.theme.Grey700
 import com.cyrilpillai.androidplayground.ui.theme.Grey800
@@ -39,31 +44,37 @@ data class CircularState(
 @Composable
 fun CircularItemSection(
     circularItem: CircularItem,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: (CircularItem) -> Unit
 ) {
     when (circularItem) {
-        is CircularItem.Info -> CircularInfoItemSection(circularItem, modifier)
-        is CircularItem.Toggle -> CircularToggleItemSection(circularItem, modifier)
+        is CircularItem.Info -> CircularInfoItemSection(circularItem, modifier, onClick)
+        is CircularItem.Toggle -> CircularToggleItemSection(circularItem, modifier, onClick)
     }
 }
 
 @Composable
 private fun CircularInfoItemSection(
     circularInfoItem: CircularItem.Info,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: (CircularItem) -> Unit
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
+            .clickable { onClick(circularInfoItem) }
     ) {
         if (circularInfoItem.imageUrl != null) {
-
             AsyncImage(
                 model = circularInfoItem.imageUrl,
                 contentDescription = "circular info icon",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(CIRCLE_SIZE)
+                    .border(
+                        border = BorderStroke(Dp.Hairline, Color.LightGray),
+                        shape = CircleShape
+                    )
                     .clip(CircleShape)
             )
         } else {
@@ -107,26 +118,30 @@ private fun CircularInfoItemSection(
 @Composable
 private fun CircularToggleItemSection(
     circularToggleItem: CircularItem.Toggle,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: (CircularItem) -> Unit
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
+            .clickable { onClick(circularToggleItem) }
     ) {
         Surface(
             color = Grey100,
-            border = BorderStroke(1.dp, Color.LightGray),
+            border = BorderStroke(Dp.Hairline, Color.LightGray),
             shape = CircleShape,
             modifier = Modifier
                 .padding(top = 4.dp)
                 .size(CIRCLE_SIZE)
         ) {
             Icon(
-                painter = painterResource(id = circularToggleItem.icon),
+                painter = painterResource(
+                    id = circularToggleItem.icon
+                ),
                 contentDescription = "circular toggle icon",
                 tint = Color.DarkGray,
                 modifier = Modifier
-                    .padding(8.dp)
+                    .padding(10.dp)
             )
         }
         Text(
@@ -146,10 +161,10 @@ private fun CircularToggleItemSection(
 @Composable
 private fun CircularInfoItemPreview() {
     CircularItemSection(
-        circularItem = getPeopleState().circularItems.first { it is CircularItem.Info },
+        circularItem = getPeople().first { it is CircularItem.Info },
         modifier = Modifier
             .padding(16.dp)
-    )
+    ) {}
 }
 
 
@@ -157,8 +172,11 @@ private fun CircularInfoItemPreview() {
 @Composable
 private fun CircularToggleItemPreview() {
     CircularItemSection(
-        circularItem = getPeopleState().circularItems.first { it is CircularItem.Toggle },
+        circularItem = CircularItem.Toggle(
+            description = "More",
+            icon = R.drawable.ic_expand_more
+        ),
         modifier = Modifier
             .padding(16.dp)
-    )
+    ) {}
 }

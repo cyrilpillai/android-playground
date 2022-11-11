@@ -25,6 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrilpillai.androidplayground.food_delivery.model.FilterItem
@@ -55,7 +56,7 @@ fun FilterSection(
 @Composable
 private fun FilterItemSection(filterItem: FilterItem) {
     Card(
-        border = BorderStroke(1.dp, Color.LightGray),
+        border = BorderStroke(Dp.Hairline, Color.LightGray),
         shape = RoundedCornerShape(24.dp),
         elevation = 0.dp,
         modifier = Modifier

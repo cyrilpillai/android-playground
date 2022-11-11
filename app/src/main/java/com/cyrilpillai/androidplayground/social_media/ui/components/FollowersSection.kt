@@ -30,6 +30,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
@@ -95,7 +96,7 @@ fun FollowerIcon(
             .size(24.dp)
             .clip(CircleShape)
             .border(
-                border = BorderStroke(1.dp, Color.Black),
+                border = BorderStroke(Dp.Hairline, Color.Black),
                 shape = CircleShape
             )
     )
