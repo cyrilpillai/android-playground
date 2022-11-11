@@ -54,7 +54,7 @@ fun FloatingActionButtonSection(
                 onClick = onBigFabClick,
                 modifier = modifier
                     .padding(top = 12.dp)
-                    .size(50.dp)
+                    .size(56.dp)
             ) {
                 Icon(
                     painter = painterResource(id = it),

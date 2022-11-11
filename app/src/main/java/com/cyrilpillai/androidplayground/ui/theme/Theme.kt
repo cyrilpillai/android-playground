@@ -33,8 +33,8 @@ private val LightColorPalette = lightColors(
 @Composable
 fun AndroidPlaygroundTheme(
     statusBarColor: Color = Color.Transparent,
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    useDarkIcons: Boolean = !isSystemInDarkTheme(),
+    darkTheme: Boolean = false,
+    useDarkIcons: Boolean = true,
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {

@@ -6,8 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.FabPosition
-import androidx.compose.material.FabPosition.Companion
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.LaunchedEffect
@@ -27,10 +25,8 @@ import com.cyrilpillai.androidplayground.messaging.state.getTabs
 import com.cyrilpillai.androidplayground.messaging.state.getTopBarState
 import com.cyrilpillai.androidplayground.messaging.ui.components.CallSection
 import com.cyrilpillai.androidplayground.messaging.ui.components.ChatSection
-import com.cyrilpillai.androidplayground.messaging.ui.components.ChatState
 import com.cyrilpillai.androidplayground.messaging.ui.components.CommunitySection
 import com.cyrilpillai.androidplayground.messaging.ui.components.FloatingActionButtonSection
-import com.cyrilpillai.androidplayground.messaging.ui.components.FloatingActionButtonState
 import com.cyrilpillai.androidplayground.messaging.ui.components.StatusSection
 import com.cyrilpillai.androidplayground.messaging.ui.components.TabsContentSection
 import com.cyrilpillai.androidplayground.messaging.ui.components.TabsSection
@@ -39,7 +35,6 @@ import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
 import com.cyrilpillai.androidplayground.ui.theme.Teal600
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.rememberPagerState
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MessagingActivity : ComponentActivity() {

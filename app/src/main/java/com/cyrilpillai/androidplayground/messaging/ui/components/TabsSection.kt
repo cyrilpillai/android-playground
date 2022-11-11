@@ -56,8 +56,7 @@ fun TabsSection(
                 text = {
                     tab.title?.let {
                         Text(
-                            text = it,
-                            fontWeight = FontWeight.SemiBold,
+                            text = it
                         )
                     }
                 },
