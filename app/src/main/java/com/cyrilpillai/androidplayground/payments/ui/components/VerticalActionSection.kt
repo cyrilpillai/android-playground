@@ -19,6 +19,7 @@ import com.cyrilpillai.androidplayground.R
 import com.cyrilpillai.androidplayground.payments.model.ActionItem
 import com.cyrilpillai.androidplayground.payments.state.getVerticalActionState
 import com.cyrilpillai.androidplayground.ui.theme.Blue800
+import com.cyrilpillai.androidplayground.ui.theme.Grey800
 
 data class VerticalActionState(
     val actions: List<ActionItem>,
@@ -44,8 +45,8 @@ fun VerticalActionItemSection(
         )
         Text(
             text = actionItem.description,
-            fontSize = 18.sp,
-            color = Color.DarkGray,
+            fontSize = 16.sp,
+            color = Grey800,
             textAlign = TextAlign.Start,
             modifier = Modifier
                 .weight(1f)
@@ -56,7 +57,7 @@ fun VerticalActionItemSection(
             contentDescription = "action arrow",
             tint = Color.DarkGray,
             modifier = Modifier
-                .size(24.dp)
+                .size(16.dp)
         )
     }
 }

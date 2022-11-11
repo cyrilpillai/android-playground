@@ -15,6 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.cyrilpillai.androidplayground.payments.state.getBillState
 import com.cyrilpillai.androidplayground.payments.state.getBusinessState
 import com.cyrilpillai.androidplayground.payments.state.getHorizontalActionState
 import com.cyrilpillai.androidplayground.payments.state.getPeopleState
@@ -22,6 +23,8 @@ import com.cyrilpillai.androidplayground.payments.state.getPromotionState
 import com.cyrilpillai.androidplayground.payments.state.getTopBarState
 import com.cyrilpillai.androidplayground.payments.state.getUpiIdState
 import com.cyrilpillai.androidplayground.payments.state.getVerticalActionState
+import com.cyrilpillai.androidplayground.payments.ui.components.BillSection
+import com.cyrilpillai.androidplayground.payments.ui.components.BillState
 import com.cyrilpillai.androidplayground.payments.ui.components.CircularItemSection
 import com.cyrilpillai.androidplayground.payments.ui.components.CircularState
 import com.cyrilpillai.androidplayground.payments.ui.components.HeaderTextSection
@@ -41,6 +44,7 @@ class PaymentActivity : ComponentActivity() {
             val upiIdState by remember { mutableStateOf(getUpiIdState()) }
             val peopleState by remember { mutableStateOf(getPeopleState()) }
             val businessState by remember { mutableStateOf(getBusinessState()) }
+            val billState by remember { mutableStateOf(getBillState()) }
             val promotionState by remember { mutableStateOf(getPromotionState()) }
             val verticalActionState by remember { mutableStateOf(getVerticalActionState()) }
 
@@ -74,6 +78,7 @@ class PaymentActivity : ComponentActivity() {
 
                     addPeople(peopleState)
                     addBusinesses(businessState)
+                    addBills(billState)
                     addPromotions(promotionState)
 
                     verticalActionState.actions.forEach {
@@ -93,7 +98,7 @@ class PaymentActivity : ComponentActivity() {
     private fun LazyGridScope.addPeople(peopleState: CircularState) {
         item(span = { GridItemSpan(maxCurrentLineSpan) }) {
             HeaderTextSection(
-                text = "People",
+                text = peopleState.header,
                 modifier = Modifier
                     .padding(
                         start = 24.dp,
@@ -117,7 +122,7 @@ class PaymentActivity : ComponentActivity() {
     private fun LazyGridScope.addBusinesses(businessState: CircularState) {
         item(span = { GridItemSpan(maxCurrentLineSpan) }) {
             HeaderTextSection(
-                text = "Businesses",
+                text = businessState.header,
                 modifier = Modifier
                     .padding(
                         horizontal = 24.dp,
@@ -137,15 +142,34 @@ class PaymentActivity : ComponentActivity() {
         }
     }
 
+    private fun LazyGridScope.addBills(billState: BillState) {
+        item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+            HeaderTextSection(
+                text = billState.header,
+                modifier = Modifier
+                    .padding(
+                        start = 20.dp,
+                        end = 20.dp,
+                        top = 24.dp
+                    )
+            )
+        }
+
+        item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+            BillSection(
+                state = billState,
+                modifier = Modifier
+                    .padding(16.dp)
+            )
+        }
+    }
+
     private fun LazyGridScope.addPromotions(promotionState: CircularState) {
         item(span = { GridItemSpan(maxCurrentLineSpan) }) {
             HeaderTextSection(
-                text = "Promotions",
+                text = promotionState.header,
                 modifier = Modifier
-                    .padding(
-                        horizontal = 24.dp,
-                        vertical = 16.dp
-                    )
+                    .padding(horizontal = 24.dp)
             )
         }
 

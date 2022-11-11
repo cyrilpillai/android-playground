@@ -1,12 +1,10 @@
 package com.cyrilpillai.androidplayground.payments.ui.components
 
-import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Surface
@@ -28,10 +26,13 @@ import coil.compose.AsyncImage
 import com.cyrilpillai.androidplayground.payments.model.CircularItem
 import com.cyrilpillai.androidplayground.payments.state.getPeopleState
 import com.cyrilpillai.androidplayground.ui.theme.Grey100
+import com.cyrilpillai.androidplayground.ui.theme.Grey700
+import com.cyrilpillai.androidplayground.ui.theme.Grey800
 
 val CIRCLE_SIZE = 45.dp
 
 data class CircularState(
+    val header: String,
     val circularItems: List<CircularItem>,
 )
 
@@ -93,7 +94,7 @@ private fun CircularInfoItemSection(
         Text(
             text = circularInfoItem.description,
             fontSize = 12.sp,
-            color = Color.Gray,
+            color = Grey700,
             textAlign = TextAlign.Center,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
@@ -131,7 +132,7 @@ private fun CircularToggleItemSection(
         Text(
             text = circularToggleItem.description,
             fontSize = 12.sp,
-            color = Color.Gray,
+            color = Grey800,
             textAlign = TextAlign.Center,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,

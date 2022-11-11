@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrilpillai.androidplayground.payments.model.ActionItem
 import com.cyrilpillai.androidplayground.payments.state.getHorizontalActionState
+import com.cyrilpillai.androidplayground.ui.theme.Grey700
 
 data class HorizontalActionState(
     val actions: List<ActionItem>,
@@ -41,7 +42,7 @@ fun HorizontalActionItemSection(
         Text(
             text = actionItem.description,
             fontSize = 10.sp,
-            color = Color.Gray,
+            color = Grey700,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .padding(top = 4.dp)

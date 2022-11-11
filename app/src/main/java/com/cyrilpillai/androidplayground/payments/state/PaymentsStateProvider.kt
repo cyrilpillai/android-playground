@@ -3,8 +3,11 @@ package com.cyrilpillai.androidplayground.payments.state
 import androidx.compose.ui.graphics.Color
 import com.cyrilpillai.androidplayground.R
 import com.cyrilpillai.androidplayground.payments.model.ActionItem
+import com.cyrilpillai.androidplayground.payments.model.BillItem
+import com.cyrilpillai.androidplayground.payments.model.BillSuggestion
 import com.cyrilpillai.androidplayground.payments.model.CircularItem
 import com.cyrilpillai.androidplayground.payments.model.SearchBarItem
+import com.cyrilpillai.androidplayground.payments.ui.components.BillState
 import com.cyrilpillai.androidplayground.payments.ui.components.CircularState
 import com.cyrilpillai.androidplayground.payments.ui.components.HorizontalActionState
 import com.cyrilpillai.androidplayground.payments.ui.components.TopBarState
@@ -117,7 +120,7 @@ fun getPeopleState(isCollapsed: Boolean = true): CircularState {
             icon = R.drawable.ic_expand_less
         )
     }
-    return CircularState(circularItems = people + toggle)
+    return CircularState(header = "People", circularItems = people + toggle)
 }
 
 fun getBusinessState(isCollapsed: Boolean = true): CircularState {
@@ -133,11 +136,12 @@ fun getBusinessState(isCollapsed: Boolean = true): CircularState {
             icon = R.drawable.ic_expand_less
         )
     }
-    return CircularState(circularItems = businesses + toggle)
+    return CircularState(header = "Businesses", circularItems = businesses + toggle)
 }
 
 fun getPromotionState(): CircularState {
     return CircularState(
+        header = "Promotions",
         circularItems = listOf(
             CircularItem.Info(
                 description = "Rewards",
@@ -158,6 +162,32 @@ fun getPromotionState(): CircularState {
                 description = "Indi-Home",
                 backgroundColor = getRandomColor(),
                 imageUrl = getQualifiedImageUrl("indi_home", PAYMENT)
+            )
+        )
+    )
+}
+
+fun getBillState(): BillState {
+    return BillState(
+        header = "Bills, recharges and more",
+        BillItem(
+            icon = R.drawable.ic_bills_paid,
+            description = "All your bills are paid and up to\ndate",
+            suggestionHeader = "ALSO TRY ADDING",
+            cta = "See all",
+            billSuggestions = listOf(
+                BillSuggestion(
+                    icon = R.drawable.ic_tv,
+                    description = "DTH /\nCable TV"
+                ),
+                BillSuggestion(
+                    icon = R.drawable.ic_smartphone,
+                    description = "Potspaid\nmobile"
+                ),
+                BillSuggestion(
+                    icon = R.drawable.ic_router,
+                    description = "Broadband/Landline"
+                ),
             )
         )
     )
