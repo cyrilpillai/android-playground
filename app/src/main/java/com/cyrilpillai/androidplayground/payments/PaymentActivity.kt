@@ -17,9 +17,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.cyrilpillai.androidplayground.payments.state.getBillState
 import com.cyrilpillai.androidplayground.payments.state.getBusinessState
+import com.cyrilpillai.androidplayground.payments.state.getFooterState
 import com.cyrilpillai.androidplayground.payments.state.getHorizontalActionState
 import com.cyrilpillai.androidplayground.payments.state.getPeopleState
 import com.cyrilpillai.androidplayground.payments.state.getPromotionState
+import com.cyrilpillai.androidplayground.payments.state.getReferralState
 import com.cyrilpillai.androidplayground.payments.state.getTopBarState
 import com.cyrilpillai.androidplayground.payments.state.getUpiIdState
 import com.cyrilpillai.androidplayground.payments.state.getVerticalActionState
@@ -27,8 +29,10 @@ import com.cyrilpillai.androidplayground.payments.ui.components.BillSection
 import com.cyrilpillai.androidplayground.payments.ui.components.BillState
 import com.cyrilpillai.androidplayground.payments.ui.components.CircularItemSection
 import com.cyrilpillai.androidplayground.payments.ui.components.CircularState
+import com.cyrilpillai.androidplayground.payments.ui.components.FooterSection
 import com.cyrilpillai.androidplayground.payments.ui.components.HeaderTextSection
 import com.cyrilpillai.androidplayground.payments.ui.components.HorizontalActionItemSection
+import com.cyrilpillai.androidplayground.payments.ui.components.ReferralSection
 import com.cyrilpillai.androidplayground.payments.ui.components.TopBarSection
 import com.cyrilpillai.androidplayground.payments.ui.components.UpiIdSection
 import com.cyrilpillai.androidplayground.payments.ui.components.VerticalActionItemSection
@@ -47,6 +51,8 @@ class PaymentActivity : ComponentActivity() {
             val billState by remember { mutableStateOf(getBillState()) }
             val promotionState by remember { mutableStateOf(getPromotionState()) }
             val verticalActionState by remember { mutableStateOf(getVerticalActionState()) }
+            val referralState by remember { mutableStateOf(getReferralState()) }
+            val footerState by remember { mutableStateOf(getFooterState()) }
 
             AndroidPlaygroundTheme(statusBarColor = BlueBackdrop) {
                 LazyVerticalGrid(
@@ -89,6 +95,22 @@ class PaymentActivity : ComponentActivity() {
                                     .padding(16.dp)
                             )
                         }
+                    }
+
+                    item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+                        ReferralSection(
+                            state = referralState,
+                            modifier = Modifier
+                                .padding(top = 16.dp)
+                        )
+                    }
+
+                    item(span = { GridItemSpan(maxCurrentLineSpan) }) {
+                        FooterSection(
+                            state = footerState,
+                            modifier = Modifier
+                                .padding(horizontal = 16.dp,vertical = 24.dp)
+                        )
                     }
                 }
             }

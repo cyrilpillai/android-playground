@@ -24,6 +24,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -54,9 +55,6 @@ fun FollowersSection(
         modifier = modifier
             .fillMaxWidth()
     ) {
-        val spanStyle = SpanStyle(
-            fontWeight = FontWeight.SemiBold
-        )
         with(state.followers) {
             FollowerIcon(
                 imageUrl = get(0).imageUrl,
@@ -69,20 +67,11 @@ fun FollowersSection(
                     .offset((-10).dp)
             )
             Text(
-                text = buildAnnotatedString {
-                    append("Followed by ")
-                    pushStyle(spanStyle)
-                    append(get(0).name)
-                    pop()
-                    append(", ")
-                    pushStyle(spanStyle)
-                    append(get(1).name)
-                    pop()
-                    append(" and ")
-                    pushStyle(spanStyle)
-                    append("${(size - 2)} others")
-                    pop()
-                },
+                text = getAnnotatedFollowersText(
+                    firstFollower = get(0).name,
+                    secondFollower = get(1).name,
+                    remainingFollowerCount = size - 2
+                ),
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
                 fontSize = 12.sp,
@@ -110,6 +99,30 @@ fun FollowerIcon(
                 shape = CircleShape
             )
     )
+}
+
+private fun getAnnotatedFollowersText(
+    firstFollower: String,
+    secondFollower: String,
+    remainingFollowerCount: Int
+): AnnotatedString {
+    val spanStyle = SpanStyle(
+        fontWeight = FontWeight.SemiBold
+    )
+    return buildAnnotatedString {
+        append("Followed by ")
+        pushStyle(spanStyle)
+        append(firstFollower)
+        pop()
+        append(", ")
+        pushStyle(spanStyle)
+        append(secondFollower)
+        pop()
+        append(" and ")
+        pushStyle(spanStyle)
+        append("$remainingFollowerCount others")
+        pop()
+    }
 }
 
 @Preview(showBackground = true)

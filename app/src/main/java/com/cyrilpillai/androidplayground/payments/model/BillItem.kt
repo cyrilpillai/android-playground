@@ -6,7 +6,7 @@ data class BillItem(
     @DrawableRes val icon: Int,
     val description: String,
     val suggestionHeader: String,
-    val cta: String,
+    val ctaItem: CtaItem,
     val billSuggestions: List<BillSuggestion>
 )
 

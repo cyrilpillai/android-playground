@@ -41,7 +41,7 @@ fun VerticalActionItemSection(
             contentDescription = "action icon",
             tint = Blue800,
             modifier = Modifier
-                .size(24.dp)
+                .size(20.dp)
         )
         Text(
             text = actionItem.description,

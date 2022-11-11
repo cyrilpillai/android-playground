@@ -6,10 +6,14 @@ import com.cyrilpillai.androidplayground.payments.model.ActionItem
 import com.cyrilpillai.androidplayground.payments.model.BillItem
 import com.cyrilpillai.androidplayground.payments.model.BillSuggestion
 import com.cyrilpillai.androidplayground.payments.model.CircularItem
+import com.cyrilpillai.androidplayground.payments.model.CtaItem
+import com.cyrilpillai.androidplayground.payments.model.ReferralItem
 import com.cyrilpillai.androidplayground.payments.model.SearchBarItem
 import com.cyrilpillai.androidplayground.payments.ui.components.BillState
 import com.cyrilpillai.androidplayground.payments.ui.components.CircularState
+import com.cyrilpillai.androidplayground.payments.ui.components.FooterState
 import com.cyrilpillai.androidplayground.payments.ui.components.HorizontalActionState
+import com.cyrilpillai.androidplayground.payments.ui.components.ReferralState
 import com.cyrilpillai.androidplayground.payments.ui.components.TopBarState
 import com.cyrilpillai.androidplayground.payments.ui.components.UpiIdState
 import com.cyrilpillai.androidplayground.payments.ui.components.VerticalActionState
@@ -174,7 +178,10 @@ fun getBillState(): BillState {
             icon = R.drawable.ic_bills_paid,
             description = "All your bills are paid and up to\ndate",
             suggestionHeader = "ALSO TRY ADDING",
-            cta = "See all",
+            ctaItem = CtaItem(
+                text = "See all",
+                color = Blue800
+            ),
             billSuggestions = listOf(
                 BillSuggestion(
                     icon = R.drawable.ic_tv,
@@ -190,6 +197,27 @@ fun getBillState(): BillState {
                 ),
             )
         )
+    )
+}
+
+fun getReferralState(): ReferralState {
+    return ReferralState(
+        referralItem = ReferralItem(
+            title = "Invite your friends to Google Pay",
+            description = "Invite friends to Google Pay and get ₹201 when your friend sends their first payment. They get ₹21!",
+            codePrefix = "Copy your code",
+            code = "121qe",
+            ctaItem = CtaItem(
+                text = "Invite",
+                color = Color.DarkGray
+            )
+        )
+    )
+}
+
+fun getFooterState(): FooterState {
+    return FooterState(
+        text = "Showing businesses based on your location - Learn more"
     )
 }
 

@@ -65,10 +65,7 @@ fun BillSection(
                     .padding(top = 4.dp)
             )
             CtaSection(
-                ctaItem = CtaItem(
-                    text = cta,
-                    color = Blue800
-                ),
+                ctaItem = ctaItem,
                 modifier = Modifier
                     .padding(top = 8.dp)
             )
