@@ -43,34 +43,87 @@ fun getBottomBarState(): BottomBarState {
     )
 }
 
+fun getMyListState(): VideoCarouselState {
+    return VideoCarouselState(
+        header = "My List",
+        videos = getVideoItems().shuffled()
+    )
+}
+
 fun getTrendingState(): VideoCarouselState {
     return VideoCarouselState(
         header = "Trending Now",
-        videos = listOf(
-            VideoItem(
-                id = 1,
-                thumbnailUrl = getQualifiedImageUrl("sacred_games", VIDEO_STREAMING)
-            ),
-            VideoItem(
-                id = 2,
-                thumbnailUrl = getQualifiedImageUrl("sacred_games", VIDEO_STREAMING)
-            ),
-            VideoItem(
-                id = 3,
-                thumbnailUrl = getQualifiedImageUrl("sacred_games", VIDEO_STREAMING)
-            ),
-            VideoItem(
-                id = 4,
-                thumbnailUrl = getQualifiedImageUrl("sacred_games", VIDEO_STREAMING)
-            ),
-            VideoItem(
-                id = 5,
-                thumbnailUrl = getQualifiedImageUrl("sacred_games", VIDEO_STREAMING)
-            ),
-            VideoItem(
-                id = 6,
-                thumbnailUrl = getQualifiedImageUrl("sacred_games", VIDEO_STREAMING)
-            )
+        videos = getVideoItems().shuffled()
+    )
+}
+
+fun getDarkDramaState(): VideoCarouselState {
+    return VideoCarouselState(
+        header = "Dark Dramas",
+        videos = getVideoItems().shuffled()
+    )
+}
+
+fun getExcitingState(): VideoCarouselState {
+    return VideoCarouselState(
+        header = "Exciting TV Shows",
+        videos = getVideoItems().shuffled()
+    )
+}
+
+fun getTopPicksState(): VideoCarouselState {
+    return VideoCarouselState(
+        header = "Top Picks for Cyril",
+        videos = getVideoItems().shuffled()
+    )
+}
+
+fun getInternationalState(): VideoCarouselState {
+    return VideoCarouselState(
+        header = "International TV Shows",
+        videos = getVideoItems().shuffled()
+    )
+}
+
+fun getComediesState(): VideoCarouselState {
+    return VideoCarouselState(
+        header = "Comedies",
+        videos = getVideoItems().shuffled()
+    )
+}
+
+fun getActionAdventureState(): VideoCarouselState {
+    return VideoCarouselState(
+        header = "Action & Adventure",
+        videos = getVideoItems().shuffled()
+    )
+}
+
+private fun getVideoItems(): List<VideoItem> {
+    return listOf(
+        VideoItem(
+            id = 1,
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING)
+        ),
+        VideoItem(
+            id = 2,
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING)
+        ),
+        VideoItem(
+            id = 3,
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING)
+        ),
+        VideoItem(
+            id = 4,
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING)
+        ),
+        VideoItem(
+            id = 5,
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING)
+        ),
+        VideoItem(
+            id = 6,
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING)
         )
     )
 }

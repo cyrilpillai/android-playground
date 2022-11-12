@@ -52,7 +52,7 @@ fun VideoCarouselSection(
             contentPadding = PaddingValues(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier
-                .padding(top = 16.dp)
+                .padding(top = 8.dp)
                 .wrapContentSize()
         ) {
             items(state.videos) {
@@ -73,15 +73,15 @@ private fun VideoItemSection(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .clickable { onClick() }
-            .clip(RoundedCornerShape(8.dp))
+            .clip(RoundedCornerShape(6.dp))
     ) {
         AsyncImage(
             model = videoItem.thumbnailUrl,
             contentDescription = "video thumbnail",
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .width(100.dp)
-                .height(16g0.dp)
+                .width(90.dp)
+                .height(140.dp)
         )
     }
 }
