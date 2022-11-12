@@ -7,7 +7,8 @@ enum class StorageBucket(val key: String) {
     FOOD_DELIVERY("food_delivery"),
     SOCIAL_MEDIA("social_media"),
     MESSAGING("messaging"),
-    PAYMENT("payment")
+    PAYMENT("payment"),
+    VIDEO_STREAMING("video_streaming")
 }
 
 fun getQualifiedImageUrl(relativeName: String, storageBucket: StorageBucket): String {
