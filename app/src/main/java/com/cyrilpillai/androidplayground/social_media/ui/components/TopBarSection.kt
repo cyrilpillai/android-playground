@@ -61,7 +61,7 @@ fun TopBarSection(
         ) {
             Icon(
                 painter = painterResource(
-                    id = R.drawable.ic_notification_outline
+                    id = R.drawable.ic_notification_outlined
                 ),
                 contentDescription = "notifications",
                 tint = Color.White,

@@ -373,6 +373,15 @@
         <entry key="../../../../../layout/compose-model-1668166375062.xml" value="0.19166666666666668" />
         <entry key="../../../../../layout/compose-model-1668166376656.xml" value="0.1" />
         <entry key="../../../../../layout/compose-model-1668166378538.xml" value="0.19166666666666668" />
+        <entry key="../../../../../layout/compose-model-1668263274374.xml" value="1.0" />
+        <entry key="../../../../../layout/compose-model-1668263570501.xml" value="0.2962962962962963" />
+        <entry key="../../../../../layout/compose-model-1668263743990.xml" value="0.20185185185185187" />
+        <entry key="../../../../../layout/compose-model-1668263865899.xml" value="0.2962962962962963" />
+        <entry key="../../../../../layout/compose-model-1668263905113.xml" value="0.20185185185185187" />
+        <entry key="../../../../../layout/compose-model-1668264147869.xml" value="0.2962962962962963" />
+        <entry key="../../../../../layout/compose-model-1668264325595.xml" value="0.2962962962962963" />
+        <entry key="../../../../../layout/compose-model-1668264888556.xml" value="0.2962962962962963" />
+        <entry key="../../../../../layout/compose-model-1668265509930.xml" value="0.2962962962962963" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_account_circle.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_account_circle_outline.xml" value="0.105" />
@@ -390,10 +399,13 @@
         <entry key="app/src/main/res/drawable/ic_call.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_camera.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_camera_filled.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_cast.xml" value="0.109" />
         <entry key="app/src/main/res/drawable/ic_community.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/ic_community_illustration.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_dining.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_discount.xml" value="0.139" />
+        <entry key="app/src/main/res/drawable/ic_download_filled.xml" value="0.109" />
+        <entry key="app/src/main/res/drawable/ic_download_outline.xml" value="0.109" />
         <entry key="app/src/main/res/drawable/ic_edit.xml" value="0.11" />
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.122" />
         <entry key="app/src/main/res/drawable/ic_expand_less.xml" value="0.122" />
@@ -415,6 +427,8 @@
         <entry key="app/src/main/res/drawable/ic_message.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_mobile_recharge.xml" value="0.122" />
         <entry key="app/src/main/res/drawable/ic_near_me.xml" value="0.172" />
+        <entry key="app/src/main/res/drawable/ic_netflix.xml" value="0.109" />
+        <entry key="app/src/main/res/drawable/ic_notification_outline.xml" value="0.109" />
         <entry key="app/src/main/res/drawable/ic_outgoing_call.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.122" />
         <entry key="app/src/main/res/drawable/ic_phonebook.xml" value="0.122" />
@@ -425,6 +439,9 @@
         <entry key="app/src/main/res/drawable/ic_send_to_mobile.xml" value="0.122" />
         <entry key="app/src/main/res/drawable/ic_slideshow_outlined.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_smartphone.xml" value="0.122" />
+        <entry key="app/src/main/res/drawable/ic_smile.xml" value="0.109" />
+        <entry key="app/src/main/res/drawable/ic_smiley_filled.xml" value="0.109" />
+        <entry key="app/src/main/res/drawable/ic_smiley_outline.xml" value="0.109" />
         <entry key="app/src/main/res/drawable/ic_stars.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_sushi.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/ic_swiggy.xml" value="0.105" />
@@ -432,6 +449,8 @@
         <entry key="app/src/main/res/drawable/ic_video.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_video_cam.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/ic_video_filled.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/ic_video_library_filled.xml" value="0.109" />
+        <entry key="app/src/main/res/drawable/ic_video_library_outline.xml" value="0.109" />
         <entry key="app/src/main/res/drawable/ic_video_outlined.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/ic_video_player.xml" value="0.105" />
         <entry key="app/src/main/res/drawable/slideshow-24px.xml" value="0.105" />

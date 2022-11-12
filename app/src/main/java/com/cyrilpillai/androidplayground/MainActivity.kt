@@ -18,6 +18,7 @@ import com.cyrilpillai.androidplayground.food_delivery.FoodDeliveryActivity
 import com.cyrilpillai.androidplayground.messaging.MessagingActivity
 import com.cyrilpillai.androidplayground.payments.PaymentActivity
 import com.cyrilpillai.androidplayground.social_media.SocialMediaActivity
+import com.cyrilpillai.androidplayground.video_streaming.VideoStreamingActivity
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
 
 class MainActivity : ComponentActivity() {
@@ -84,7 +85,20 @@ class MainActivity : ComponentActivity() {
                         },
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                        Text("Payment")
+                        Text("Payments")
+                    }
+                    Button(
+                        onClick = {
+                            startActivity(
+                                Intent(
+                                    this@MainActivity,
+                                    VideoStreamingActivity::class.java
+                                )
+                            )
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text("Video Streaming")
                     }
                 }
             }

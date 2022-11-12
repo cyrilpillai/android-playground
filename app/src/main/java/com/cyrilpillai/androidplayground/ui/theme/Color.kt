@@ -16,6 +16,7 @@ val Green700 = Color(0xFF388E3C)
 val Blue100 = Color(0xFFBBDEFB)
 val Blue100Transparent = Color(0x1ABBDEFB)
 val Teal600 = Color(0xFF00897B)
+val Yellow500 = Color(0xFFFFEB3B)
 val BlueBackdrop = Color(0xFFE9F2FC)
 
 val Red800 = Color(0xFFC62828)

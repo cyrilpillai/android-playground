@@ -33,7 +33,7 @@ fun getBottomBarState(): BottomBarState {
             BottomNavItem(
                 id = 1,
                 selectedIcon = R.drawable.ic_home_filled,
-                unselectedIcon = R.drawable.ic_home_outline,
+                unselectedIcon = R.drawable.ic_home_outlined,
                 isSelected = true
             ),
             BottomNavItem(
@@ -51,13 +51,13 @@ fun getBottomBarState(): BottomBarState {
             BottomNavItem(
                 id = 4,
                 selectedIcon = R.drawable.ic_favorite_filled,
-                unselectedIcon = R.drawable.ic_favorite_outline,
+                unselectedIcon = R.drawable.ic_favorite_outlined,
                 isSelected = false
             ),
             BottomNavItem(
                 id = 5,
                 selectedIcon = R.drawable.ic_account_circle_filled,
-                unselectedIcon = R.drawable.ic_account_circle_outline,
+                unselectedIcon = R.drawable.ic_account_circle_outlined,
                 isSelected = false
             ),
         )

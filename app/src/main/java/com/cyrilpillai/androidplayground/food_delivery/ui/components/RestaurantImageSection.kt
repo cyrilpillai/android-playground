@@ -77,7 +77,7 @@ fun RestaurantImageSection(
                     val drawable = if (isFavorite) {
                         R.drawable.ic_favorite_filled
                     } else {
-                        R.drawable.ic_favorite_outline
+                        R.drawable.ic_favorite_outlined
                     }
                     Icon(
                         painter = painterResource(id = drawable),
