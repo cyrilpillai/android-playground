@@ -18,7 +18,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
@@ -35,7 +34,9 @@ import com.cyrilpillai.androidplayground.video_streaming.state.getTopPicksState
 import com.cyrilpillai.androidplayground.video_streaming.state.getTrendingState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.BottomBarSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.BottomBarState
+import com.cyrilpillai.androidplayground.video_streaming.ui.components.FastLaughCrossSellSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.PromotionalVideoSection
+import com.cyrilpillai.androidplayground.video_streaming.ui.components.PromotionalVideoState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.TopBarSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.VideoCarouselSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.VideoCarouselState
@@ -80,13 +81,12 @@ class VideoStreamingActivity : ComponentActivity() {
                         modifier = Modifier
                             .padding(it)
                     ) {
-                        item {
-                            PromotionalVideoSection(state = promotionalVideoState)
-                        }
+                        addPromotionalVideoSection(promotionalVideoState)
                         addVideoCarouselSection(myListState) {}
                         addVideoCarouselSection(trendingState) {}
                         addVideoCarouselSection(darkDramaState) {}
                         addVideoCarouselSection(excitingState) {}
+                        addFastLaughCrossSellSection()
                         addVideoCarouselSection(topPicksState) {}
                         addVideoCarouselSection(comediesState) {}
                         addVideoCarouselSection(internationalState) {}
@@ -111,6 +111,14 @@ class VideoStreamingActivity : ComponentActivity() {
         }
     }
 
+    private fun LazyListScope.addPromotionalVideoSection(
+        promotionalVideoState: PromotionalVideoState
+    ) {
+        item {
+            PromotionalVideoSection(state = promotionalVideoState)
+        }
+    }
+
     private fun LazyListScope.addVideoCarouselSection(
         state: VideoCarouselState,
         onClick: (Int) -> Unit
@@ -121,6 +129,16 @@ class VideoStreamingActivity : ComponentActivity() {
                 onClick = onClick,
                 modifier = Modifier
                     .padding(top = 10.dp)
+            )
+        }
+    }
+
+    private fun LazyListScope.addFastLaughCrossSellSection(
+    ) {
+        item {
+            FastLaughCrossSellSection(
+                modifier = Modifier
+                    .padding(top = 16.dp)
             )
         }
     }
