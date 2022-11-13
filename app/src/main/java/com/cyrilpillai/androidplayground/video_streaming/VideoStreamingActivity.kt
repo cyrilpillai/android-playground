@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
 import com.cyrilpillai.androidplayground.ui.theme.BlackTransparent
+import com.cyrilpillai.androidplayground.video_streaming.model.VideoItem
 import com.cyrilpillai.androidplayground.video_streaming.state.getActionAdventureState
 import com.cyrilpillai.androidplayground.video_streaming.state.getBottomBarState
 import com.cyrilpillai.androidplayground.video_streaming.state.getComediesState
@@ -32,6 +33,7 @@ import com.cyrilpillai.androidplayground.video_streaming.state.getMyListState
 import com.cyrilpillai.androidplayground.video_streaming.state.getPromotionalVideoState
 import com.cyrilpillai.androidplayground.video_streaming.state.getTopPicksState
 import com.cyrilpillai.androidplayground.video_streaming.state.getTrendingState
+import com.cyrilpillai.androidplayground.video_streaming.state.getWatchingState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.BottomBarSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.BottomBarState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.FastLaughCrossSellSection
@@ -54,6 +56,7 @@ class VideoStreamingActivity : ComponentActivity() {
             val myListState by remember { mutableStateOf(getMyListState()) }
             val trendingState by remember { mutableStateOf(getTrendingState()) }
             val darkDramaState by remember { mutableStateOf(getDarkDramaState()) }
+            val watchingState by remember { mutableStateOf(getWatchingState()) }
             val excitingState by remember { mutableStateOf(getExcitingState()) }
             val topPicksState by remember { mutableStateOf(getTopPicksState()) }
             val internationalState by remember { mutableStateOf(getInternationalState()) }
@@ -85,10 +88,11 @@ class VideoStreamingActivity : ComponentActivity() {
                         addVideoCarouselSection(myListState) {}
                         addVideoCarouselSection(trendingState) {}
                         addVideoCarouselSection(darkDramaState) {}
+                        addVideoCarouselSection(watchingState) {}
                         addVideoCarouselSection(excitingState) {}
-                        addFastLaughCrossSellSection()
                         addVideoCarouselSection(topPicksState) {}
                         addVideoCarouselSection(comediesState) {}
+                        addFastLaughCrossSellSection()
                         addVideoCarouselSection(internationalState) {}
                         addVideoCarouselSection(actionAdventureState) {}
                     }
@@ -121,7 +125,7 @@ class VideoStreamingActivity : ComponentActivity() {
 
     private fun LazyListScope.addVideoCarouselSection(
         state: VideoCarouselState,
-        onClick: (Int) -> Unit
+        onClick: (videoItem: VideoItem) -> Unit
     ) {
         item {
             VideoCarouselSection(

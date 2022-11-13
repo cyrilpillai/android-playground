@@ -35,7 +35,7 @@ import com.cyrilpillai.androidplayground.video_streaming.model.VideoItem
 import com.cyrilpillai.androidplayground.video_streaming.state.getPromotionalVideoState
 
 data class PromotionalVideoState(
-    val videoItem: VideoItem,
+    val videoItem: VideoItem.Promotional,
 )
 
 @Composable
@@ -55,7 +55,7 @@ fun PromotionalVideoSection(
                     )
                 )
             )
-            .padding(top = 24.dp)
+            .padding(top = 32.dp)
     ) {
         Row(
             horizontalArrangement = Arrangement.SpaceEvenly,
@@ -77,13 +77,25 @@ fun PromotionalVideoSection(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
-            Text(
-                text = "Categories",
-                color = Color.White,
-                fontSize = 14.sp,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "Categories",
+                    color = Color.White,
+                    fontSize = 14.sp,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+                Icon(
+                    painter = painterResource(
+                        id = R.drawable.ic_expand_more
+                    ),
+                    tint = Color.White,
+                    contentDescription = "categories expand"
+                )
+            }
+
         }
         VideoItemSection(
             videoItem = state.videoItem,
