@@ -7,6 +7,7 @@ import com.cyrilpillai.androidplayground.video_streaming.model.BottomNavItem
 import com.cyrilpillai.androidplayground.video_streaming.model.VideoItem
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.BottomBarState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.VideoCarouselState
+import kotlin.random.Random
 
 fun getBottomBarState(): BottomBarState {
     return BottomBarState(
@@ -103,11 +104,18 @@ private fun getVideoItems(): List<VideoItem> {
     return listOf(
         VideoItem(
             id = 1,
-            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING)
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING),
+            isNetflixOriginal = Random.nextBoolean(),
+            isTopTen = Random.nextBoolean(),
+            primaryPrompt = "New episode",
+            secondaryPrompt = "Watch now"
         ),
         VideoItem(
             id = 2,
-            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING)
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING),
+            isNetflixOriginal = Random.nextBoolean(),
+            isTopTen = Random.nextBoolean(),
+            primaryPrompt = "New seasons"
         ),
         VideoItem(
             id = 3,
@@ -115,15 +123,24 @@ private fun getVideoItems(): List<VideoItem> {
         ),
         VideoItem(
             id = 4,
-            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING)
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING),
+            isNetflixOriginal = Random.nextBoolean(),
+            isTopTen = Random.nextBoolean(),
+            primaryPrompt = "New seasons"
         ),
         VideoItem(
             id = 5,
-            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING)
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING),
+            isNetflixOriginal = Random.nextBoolean(),
+            isTopTen = Random.nextBoolean(),
+            primaryPrompt = "New episode",
+            secondaryPrompt = "Watch now"
         ),
         VideoItem(
             id = 6,
-            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING)
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING),
+            isNetflixOriginal = Random.nextBoolean(),
+            isTopTen = Random.nextBoolean(),
         )
     )
 }

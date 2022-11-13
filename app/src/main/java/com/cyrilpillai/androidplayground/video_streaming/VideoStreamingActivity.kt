@@ -3,6 +3,7 @@ package com.cyrilpillai.androidplayground.video_streaming
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -54,12 +55,6 @@ class VideoStreamingActivity : ComponentActivity() {
                     modifier = Modifier
                         .fillMaxSize(),
                     backgroundColor = Color.Black,
-                    topBar = {
-                        TopBarSection(
-                            modifier = Modifier
-                                .padding(16.dp)
-                        )
-                    },
                     bottomBar = {
                         BottomBarSection(state = bottomBarState) { id ->
                             bottomBarState = BottomBarState(bottomBarState.items.map {
@@ -68,6 +63,7 @@ class VideoStreamingActivity : ComponentActivity() {
                         }
                     }) {
                     LazyColumn(
+                        contentPadding = PaddingValues(top = 16.dp),
                         modifier = Modifier
                             .padding(it)
                     ) {
@@ -76,9 +72,15 @@ class VideoStreamingActivity : ComponentActivity() {
                         addVideoCarouselSection(darkDramaState) {}
                         addVideoCarouselSection(excitingState) {}
                         addVideoCarouselSection(topPicksState) {}
+                        addVideoCarouselSection(comediesState) {}
                         addVideoCarouselSection(internationalState) {}
                         addVideoCarouselSection(actionAdventureState) {}
                     }
+
+                    TopBarSection(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                    )
                 }
             }
         }

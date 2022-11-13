@@ -78,8 +78,8 @@ fun getCallState(): CallState {
         calls = getMessagingItems()
             .shuffled()
             .map {
-                val firstRandom = Random.nextInt() % 2 == 0
-                val secondRandom = Random.nextInt() % 2 == 0
+                val firstRandom = Random.nextBoolean()
+                val secondRandom = Random.nextBoolean()
                 val callType = if (firstRandom) CallType.INCOMING else CallType.OUTGOING
                 val callMode = if (firstRandom) CallMode.VOICE else CallMode.VIDEO
                 val callStatus =

@@ -21,11 +21,6 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AndroidPlayground">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".food_delivery.FoodDeliveryActivity"
@@ -51,7 +46,13 @@
             android:name=".video_streaming.VideoStreamingActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidPlayground"></activity>
+            android:theme="@style/Theme.AndroidPlayground">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
