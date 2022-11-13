@@ -2,11 +2,28 @@ package com.cyrilpillai.androidplayground.video_streaming.state
 
 import com.cyrilpillai.androidplayground.utils.StorageBucket.VIDEO_STREAMING
 import com.cyrilpillai.androidplayground.utils.getQualifiedImageUrl
+import com.cyrilpillai.androidplayground.video_streaming.model.DownloadItem
 import com.cyrilpillai.androidplayground.video_streaming.model.VideoItem
+import com.cyrilpillai.androidplayground.video_streaming.ui.components.DownloadsScreenState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.PromotionalVideoState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.TopBarState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.VideoCarouselState
 import kotlin.random.Random
+
+fun getDownloadsScreenState(): DownloadsScreenState {
+    val videoItems = getVideoItems().shuffled().take(3)
+    return DownloadsScreenState(
+        downloadItem = DownloadItem(
+            title = "Introducing Downloads for You",
+            description = "We'll download a personalised selection of movies and shows for you, so there's always something to watch on your device.",
+            primaryCta = "Set Up",
+            secondaryCta = "See What You\n Can Download",
+            primaryVideoItem = videoItems[0],
+            secondaryStartVideoItem = videoItems[1],
+            secondaryEndVideoItem = videoItems[2],
+        )
+    )
+}
 
 fun getPromotionalVideoState(): PromotionalVideoState {
     return PromotionalVideoState(

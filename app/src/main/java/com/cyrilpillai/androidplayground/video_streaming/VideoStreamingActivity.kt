@@ -26,8 +26,10 @@ import androidx.navigation.compose.rememberNavController
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
 import com.cyrilpillai.androidplayground.ui.theme.BlackTransparent
 import com.cyrilpillai.androidplayground.video_streaming.model.BottomNavItem
+import com.cyrilpillai.androidplayground.video_streaming.state.getDownloadsScreenState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.BottomBarSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.DownloadsScreenSection
+import com.cyrilpillai.androidplayground.video_streaming.ui.components.DownloadsScreenState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.FastLaughsScreenSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.HomeScreenSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.NewAndHotScreenSection
@@ -47,6 +49,7 @@ class VideoStreamingActivity : ComponentActivity() {
                     )
                 )
             }
+            val downloadsScreenState by remember { mutableStateOf(getDownloadsScreenState()) }
             val navController = rememberNavController()
             val listState = rememberLazyListState()
             val firstVisibleIndex by remember {
@@ -71,6 +74,7 @@ class VideoStreamingActivity : ComponentActivity() {
                     NavigationGraph(
                         navController = navController,
                         listState = listState,
+                        downloadsScreenState = downloadsScreenState,
                         modifier = Modifier
                             .padding(it)
                     )
@@ -117,6 +121,7 @@ class VideoStreamingActivity : ComponentActivity() {
     fun NavigationGraph(
         navController: NavHostController,
         listState: LazyListState,
+        downloadsScreenState: DownloadsScreenState,
         modifier: Modifier = Modifier
     ) {
         NavHost(
@@ -135,7 +140,11 @@ class VideoStreamingActivity : ComponentActivity() {
                 FastLaughsScreenSection()
             }
             composable(BottomNavItem.Downloads.screenRoute) {
-                DownloadsScreenSection()
+                DownloadsScreenSection(
+                    state = downloadsScreenState,
+                    modifier = Modifier
+                        .padding(top = 48.dp)
+                )
             }
         }
     }

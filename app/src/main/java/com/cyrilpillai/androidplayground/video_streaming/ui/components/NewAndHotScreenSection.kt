@@ -30,9 +30,9 @@ fun NewAndHotScreenSection(
             text = "New & Hot Screen",
             fontWeight = FontWeight.Bold,
             color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
             textAlign = TextAlign.Center,
-            fontSize = 20.sp
+            fontSize = 20.sp,
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }
 }
