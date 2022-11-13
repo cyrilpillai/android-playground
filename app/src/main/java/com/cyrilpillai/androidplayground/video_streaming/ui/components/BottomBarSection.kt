@@ -8,54 +8,73 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.cyrilpillai.androidplayground.video_streaming.model.BottomNavItem
-import com.cyrilpillai.androidplayground.video_streaming.state.getBottomBarState
-
-data class BottomBarState(
-    val items: List<BottomNavItem>
-)
 
 @Composable
 fun BottomBarSection(
-    state: BottomBarState,
-    modifier: Modifier = Modifier,
-    onClick: (id: Int) -> Unit
+    navController: NavController
 ) {
+    val items = listOf(
+        BottomNavItem.Home,
+        BottomNavItem.NewAndHot,
+        BottomNavItem.FastLaughs,
+        BottomNavItem.Downloads
+    )
     BottomNavigation(
         backgroundColor = Color.Black,
-        modifier = modifier
+        contentColor = Color.White
     ) {
-        state.items.forEach {
-            val iconId = if (it.isSelected) it.selectedIcon else it.unselectedIcon
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentRoute = navBackStackEntry?.destination?.route
+        items.forEach { item ->
+            val isSelected = currentRoute == item.screenRoute
             BottomNavigationItem(
-                selected = it.isSelected,
                 icon = {
                     Icon(
-                        painter = painterResource(id = iconId),
-                        contentDescription = "bottom navigation icon",
-                        tint = Color.White,
+                        painter = painterResource(
+                            id = if (isSelected) item.selectedIcon else item.unselectedIcon
+                        ),
+                        contentDescription = item.title,
                         modifier = Modifier
                             .size(20.dp)
                     )
                 },
                 label = {
                     Text(
-                        text = it.label,
-                        fontSize = 8.sp,
-                        color = Color.White
+                        text = item.title,
+                        fontSize = 9.sp
                     )
                 },
+                selectedContentColor = Color.White,
+                unselectedContentColor = Color.White.copy(0.4f),
                 alwaysShowLabel = true,
-                onClick = { onClick(it.id) },
+                selected = isSelected,
+                onClick = {
+                    navController.navigate(item.screenRoute) {
+
+                        navController.graph.startDestinationRoute?.let { screenRoute ->
+                            popUpTo(screenRoute) {
+                                saveState = true
+                            }
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                }
             )
         }
     }
+
 }
 
 @Preview(showBackground = true)
@@ -64,6 +83,6 @@ private fun BottomBarSectionPreview() {
     Box(
         modifier = Modifier.background(Color.Black)
     ) {
-        BottomBarSection(state = getBottomBarState()) {}
+        BottomBarSection(navController = rememberNavController())
     }
 }
