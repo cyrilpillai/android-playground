@@ -75,136 +75,18 @@ fun VideoCarouselSection(
                 .wrapContentSize()
         ) {
             items(state.videos) {
-                VideoItemSection(videoItem = it) {
-                    onClick(it.id)
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun VideoItemSection(
-    videoItem: VideoItem,
-    onClick: () -> Unit
-) {
-    Box(
-        modifier = Modifier
-            .width(90.dp)
-            .height(140.dp)
-            .clickable { onClick() }
-            .clip(RoundedCornerShape(6.dp))
-    ) {
-        AsyncImage(
-            model = videoItem.thumbnailUrl,
-            contentDescription = "video thumbnail",
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .fillMaxSize()
-        )
-        if (videoItem.isNetflixOriginal) {
-            Image(
-                painter = painterResource(
-                    id = R.drawable.ic_netflix
-                ),
-                contentDescription = "video netflix original",
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .padding(top = 5.dp, start = 1.dp)
-                    .size(14.dp)
-            )
-        }
-
-        if (videoItem.isTopTen) {
-            Box(
-                modifier = Modifier
-                    .background(Red800)
-                    .align(Alignment.TopEnd)
-            ) {
-                Text(
-                    text = getTopTenAnnotatedString(),
-                    color = Color.White,
-                    textAlign = TextAlign.Center,
+                VideoItemSection(
+                    videoItem = it,
                     modifier = Modifier
-                        .padding(2.dp)
+                        .width(90.dp)
+                        .height(130.dp)
+                        .clickable { onClick(it.id) }
                 )
             }
         }
-
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 18.dp)
-                .align(Alignment.BottomCenter)
-        ) {
-            videoItem.primaryPrompt?.let {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(
-                            color = Red800,
-                            shape = RoundedCornerShape(
-                                topStart = 2.dp,
-                                topEnd = 2.dp
-                            )
-                        )
-                ) {
-                    Text(
-                        text = it,
-                        fontSize = 8.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        color = Color.White,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(2.dp)
-                    )
-                }
-
-                videoItem.secondaryPrompt?.let {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(color = Color.White)
-                    ) {
-                        Text(
-                            text = it,
-                            fontSize = 8.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            color = Color.Black,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 1.dp)
-                        )
-                    }
-                }
-            }
-        }
     }
 }
 
-private fun getTopTenAnnotatedString(): AnnotatedString {
-    return buildAnnotatedString {
-        pushStyle(getSpanStyle(5.sp))
-        append("TOP\n")
-        pop()
-        pushStyle(getSpanStyle(8.sp))
-        append("10")
-        pop()
-    }
-}
-
-private fun getSpanStyle(fontSize: TextUnit): SpanStyle {
-    return SpanStyle(
-        fontSize = fontSize,
-        fontWeight = FontWeight.Bold
-    )
-}
 
 @Preview(showBackground = true)
 @Composable

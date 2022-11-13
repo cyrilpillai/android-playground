@@ -3,6 +3,7 @@ package com.cyrilpillai.androidplayground.video_streaming.model
 data class VideoItem(
     val id: Int,
     val thumbnailUrl: String,
+    val genres: List<String> = emptyList(),
     val isNetflixOriginal: Boolean = false,
     val isTopTen: Boolean = false,
     val primaryPrompt: String? = null,

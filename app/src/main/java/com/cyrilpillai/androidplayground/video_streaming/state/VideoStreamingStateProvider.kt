@@ -6,6 +6,7 @@ import com.cyrilpillai.androidplayground.utils.getQualifiedImageUrl
 import com.cyrilpillai.androidplayground.video_streaming.model.BottomNavItem
 import com.cyrilpillai.androidplayground.video_streaming.model.VideoItem
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.BottomBarState
+import com.cyrilpillai.androidplayground.video_streaming.ui.components.PromotionalVideoState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.VideoCarouselState
 import kotlin.random.Random
 
@@ -40,6 +41,20 @@ fun getBottomBarState(): BottomBarState {
                 unselectedIcon = R.drawable.ic_download_outlined,
                 isSelected = false
             ),
+        )
+    )
+}
+
+fun getPromotionalVideoState(): PromotionalVideoState {
+    return PromotionalVideoState(
+        videoItem = VideoItem(
+            id = 1,
+            genres = listOf(
+                "Goofy",
+                "Sitcom",
+                "Crime TV Show",
+            ),
+            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine_promo", VIDEO_STREAMING)
         )
     )
 }
@@ -100,7 +115,7 @@ fun getActionAdventureState(): VideoCarouselState {
     )
 }
 
-private fun getVideoItems(): List<VideoItem> {
+fun getVideoItems(): List<VideoItem> {
     return listOf(
         VideoItem(
             id = 1,
