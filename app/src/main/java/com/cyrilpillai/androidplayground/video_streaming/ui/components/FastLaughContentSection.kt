@@ -84,7 +84,7 @@ fun FastLaughContentSection(
         AsyncImage(
             model = fastLaughItem.logoUrl,
             contentDescription = "fast laugh video logo",
-            contentScale = ContentScale.Fit,
+            contentScale = ContentScale.FillWidth,
             modifier = Modifier
                 .align(Alignment.TopStart)
         )

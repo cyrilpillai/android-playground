@@ -129,11 +129,11 @@ fun getFastLaughsState(): FastLaughsState {
                 id = 1,
                 videoUrl = "Video 1",
                 thumbnailUrl = getQualifiedImageUrl(
-                    relativeName = "the_big_bang_theory",
+                    relativeName = "mr_robot",
                     storageBucket = VIDEO_STREAMING
                 ),
                 logoUrl = getQualifiedImageUrl(
-                    relativeName = "the_big_bang_theory_logo",
+                    relativeName = "mr_robot_logo",
                     storageBucket = VIDEO_STREAMING,
                     ImageType.PNG
                 ),
@@ -144,11 +144,11 @@ fun getFastLaughsState(): FastLaughsState {
                 id = 2,
                 videoUrl = "Video 2",
                 thumbnailUrl = getQualifiedImageUrl(
-                    relativeName = "how_i_met_your_mother",
+                    relativeName = "money_heist",
                     storageBucket = VIDEO_STREAMING
                 ),
                 logoUrl = getQualifiedImageUrl(
-                    relativeName = "how_i_met_your_mother_logo",
+                    relativeName = "money_heist_logo",
                     storageBucket = VIDEO_STREAMING,
                     ImageType.PNG
                 ),

@@ -145,7 +145,7 @@ class VideoStreamingActivity : ComponentActivity() {
     ) {
         NavHost(
             navController = navController,
-            startDestination = BottomNavItem.FastLaughs.screenRoute,
+            startDestination = BottomNavItem.Home.screenRoute,
             modifier = modifier
                 .fillMaxSize()
         ) {
