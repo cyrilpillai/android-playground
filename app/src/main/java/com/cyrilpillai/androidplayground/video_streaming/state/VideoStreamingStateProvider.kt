@@ -1,12 +1,15 @@
 package com.cyrilpillai.androidplayground.video_streaming.state
 
+import com.cyrilpillai.androidplayground.utils.ImageType
 import com.cyrilpillai.androidplayground.utils.StorageBucket.VIDEO_STREAMING
 import com.cyrilpillai.androidplayground.utils.getQualifiedImageUrl
+import com.cyrilpillai.androidplayground.utils.getRandomColor
 import com.cyrilpillai.androidplayground.video_streaming.model.DownloadItem
+import com.cyrilpillai.androidplayground.video_streaming.model.FastLaughItem
 import com.cyrilpillai.androidplayground.video_streaming.model.VideoItem
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.DownloadsScreenState
+import com.cyrilpillai.androidplayground.video_streaming.ui.components.FastLaughsState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.PromotionalVideoState
-import com.cyrilpillai.androidplayground.video_streaming.ui.components.TopBarState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.VideoCarouselState
 import kotlin.random.Random
 
@@ -29,7 +32,10 @@ fun getPromotionalVideoState(): PromotionalVideoState {
     return PromotionalVideoState(
         videoItem = VideoItem.Promotional(
             id = 1,
-            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine_promo", VIDEO_STREAMING),
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "brooklyn_nine_nine_promo",
+                storageBucket = VIDEO_STREAMING
+            ),
             genres = listOf(
                 "Goofy",
                 "Sitcom",
@@ -116,11 +122,111 @@ fun getActionAdventureState(): VideoCarouselState {
     )
 }
 
+fun getFastLaughsState(): FastLaughsState {
+    return FastLaughsState(
+        listOf(
+            FastLaughItem(
+                id = 1,
+                videoUrl = "Video 1",
+                thumbnailUrl = getQualifiedImageUrl(
+                    relativeName = "the_big_bang_theory",
+                    storageBucket = VIDEO_STREAMING
+                ),
+                logoUrl = getQualifiedImageUrl(
+                    relativeName = "the_big_bang_theory_logo",
+                    storageBucket = VIDEO_STREAMING,
+                    ImageType.PNG
+                ),
+                contentType = "U/A 13+",
+                backgroundColor = getRandomColor()
+            ),
+            FastLaughItem(
+                id = 2,
+                videoUrl = "Video 2",
+                thumbnailUrl = getQualifiedImageUrl(
+                    relativeName = "how_i_met_your_mother",
+                    storageBucket = VIDEO_STREAMING
+                ),
+                logoUrl = getQualifiedImageUrl(
+                    relativeName = "how_i_met_your_mother_logo",
+                    storageBucket = VIDEO_STREAMING,
+                    ImageType.PNG
+                ),
+                contentType = "A",
+                backgroundColor = getRandomColor()
+            ),
+            FastLaughItem(
+                id = 3,
+                videoUrl = "Video 3",
+                thumbnailUrl = getQualifiedImageUrl(
+                    relativeName = "rick_and_morty",
+                    storageBucket = VIDEO_STREAMING
+                ),
+                logoUrl = getQualifiedImageUrl(
+                    relativeName = "rick_and_morty_logo",
+                    storageBucket = VIDEO_STREAMING,
+                    ImageType.PNG
+                ),
+                contentType = "U/A 16+",
+                backgroundColor = getRandomColor()
+            ),
+            FastLaughItem(
+                id = 4,
+                videoUrl = "Video 4",
+                thumbnailUrl = getQualifiedImageUrl(
+                    relativeName = "seinfeld",
+                    storageBucket = VIDEO_STREAMING
+                ),
+                logoUrl = getQualifiedImageUrl(
+                    relativeName = "seinfeld_logo",
+                    storageBucket = VIDEO_STREAMING,
+                    ImageType.PNG
+                ),
+                contentType = "A",
+                backgroundColor = getRandomColor()
+            ),
+            FastLaughItem(
+                id = 5,
+                videoUrl = "Video 5",
+                thumbnailUrl = getQualifiedImageUrl(
+                    relativeName = "parks_and_recreation",
+                    storageBucket = VIDEO_STREAMING
+                ),
+                logoUrl = getQualifiedImageUrl(
+                    relativeName = "parks_and_recreation_logo",
+                    storageBucket = VIDEO_STREAMING,
+                    ImageType.PNG
+                ),
+                contentType = "U/A 13+",
+                backgroundColor = getRandomColor()
+            ),
+            FastLaughItem(
+                id = 6,
+                videoUrl = "Video 6",
+                thumbnailUrl = getQualifiedImageUrl(
+                    relativeName = "game_of_thrones",
+                    storageBucket = VIDEO_STREAMING
+                ),
+                logoUrl = getQualifiedImageUrl(
+                    relativeName = "game_of_thrones_logo",
+                    storageBucket = VIDEO_STREAMING,
+                    ImageType.PNG
+                ),
+                contentType = "U/A 16+",
+                backgroundColor = getRandomColor()
+            )
+        )
+    )
+}
+
 fun getVideoItems(): List<VideoItem.Generic> {
     return listOf(
         VideoItem.Generic(
             id = 1,
-            thumbnailUrl = getQualifiedImageUrl("brooklyn_nine_nine", VIDEO_STREAMING),
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "brooklyn_nine_nine",
+                storageBucket = VIDEO_STREAMING
+            ),
             isNetflixOriginal = Random.nextBoolean(),
             isTopTen = Random.nextBoolean(),
             primaryPrompt = "New episode",
@@ -128,37 +234,55 @@ fun getVideoItems(): List<VideoItem.Generic> {
         ),
         VideoItem.Generic(
             id = 2,
-            thumbnailUrl = getQualifiedImageUrl("game_of_thrones", VIDEO_STREAMING),
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "game_of_thrones",
+                storageBucket = VIDEO_STREAMING
+            ),
             isNetflixOriginal = Random.nextBoolean(),
             isTopTen = Random.nextBoolean(),
             primaryPrompt = "New seasons"
         ),
         VideoItem.Generic(
             id = 3,
-            thumbnailUrl = getQualifiedImageUrl("money_heist", VIDEO_STREAMING)
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "money_heist",
+                storageBucket = VIDEO_STREAMING
+            )
         ),
         VideoItem.Generic(
             id = 4,
-            thumbnailUrl = getQualifiedImageUrl("how_i_met_your_mother", VIDEO_STREAMING),
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "how_i_met_your_mother",
+                storageBucket = VIDEO_STREAMING
+            ),
             isNetflixOriginal = Random.nextBoolean(),
             isTopTen = Random.nextBoolean(),
             primaryPrompt = "New seasons"
         ),
         VideoItem.Generic(
             id = 5,
-            thumbnailUrl = getQualifiedImageUrl("mr_robot", VIDEO_STREAMING),
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "mr_robot",
+                storageBucket = VIDEO_STREAMING
+            ),
             isNetflixOriginal = Random.nextBoolean(),
             isTopTen = Random.nextBoolean()
         ),
         VideoItem.Generic(
             id = 6,
-            thumbnailUrl = getQualifiedImageUrl("parks_and_recreation", VIDEO_STREAMING),
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "parks_and_recreation",
+                storageBucket = VIDEO_STREAMING
+            ),
             isNetflixOriginal = Random.nextBoolean(),
             isTopTen = Random.nextBoolean(),
         ),
         VideoItem.Generic(
             id = 7,
-            thumbnailUrl = getQualifiedImageUrl("rick_and_morty", VIDEO_STREAMING),
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "rick_and_morty",
+                storageBucket = VIDEO_STREAMING
+            ),
             isNetflixOriginal = Random.nextBoolean(),
             isTopTen = Random.nextBoolean(),
             primaryPrompt = "New episode",
@@ -166,7 +290,10 @@ fun getVideoItems(): List<VideoItem.Generic> {
         ),
         VideoItem.Generic(
             id = 8,
-            thumbnailUrl = getQualifiedImageUrl("seinfeld", VIDEO_STREAMING),
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "seinfeld",
+                storageBucket = VIDEO_STREAMING
+            ),
             isNetflixOriginal = Random.nextBoolean(),
             isTopTen = Random.nextBoolean(),
             primaryPrompt = "New seasons",
@@ -174,18 +301,27 @@ fun getVideoItems(): List<VideoItem.Generic> {
         ),
         VideoItem.Generic(
             id = 9,
-            thumbnailUrl = getQualifiedImageUrl("squid_game", VIDEO_STREAMING)
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "squid_game",
+                storageBucket = VIDEO_STREAMING
+            )
         ),
         VideoItem.Generic(
             id = 10,
-            thumbnailUrl = getQualifiedImageUrl("the_big_bang_theory", VIDEO_STREAMING),
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "the_big_bang_theory",
+                storageBucket = VIDEO_STREAMING
+            ),
             isNetflixOriginal = Random.nextBoolean(),
             isTopTen = Random.nextBoolean(),
             primaryPrompt = "New seasons"
         ),
         VideoItem.Generic(
             id = 11,
-            thumbnailUrl = getQualifiedImageUrl("the_good_place", VIDEO_STREAMING),
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "the_good_place",
+                storageBucket = VIDEO_STREAMING
+            ),
             isNetflixOriginal = Random.nextBoolean(),
             isTopTen = Random.nextBoolean(),
             primaryPrompt = "New episode",
@@ -193,7 +329,10 @@ fun getVideoItems(): List<VideoItem.Generic> {
         ),
         VideoItem.Generic(
             id = 12,
-            thumbnailUrl = getQualifiedImageUrl("wakanda_forever", VIDEO_STREAMING),
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "wakanda_forever",
+                storageBucket = VIDEO_STREAMING
+            ),
             isNetflixOriginal = Random.nextBoolean(),
             isTopTen = Random.nextBoolean(),
         )

@@ -11,6 +11,15 @@ enum class StorageBucket(val key: String) {
     VIDEO_STREAMING("video_streaming")
 }
 
-fun getQualifiedImageUrl(relativeName: String, storageBucket: StorageBucket): String {
-    return "$STORAGE_BUCKET_BASE_URL/${storageBucket.key}%2F$relativeName.jpeg?alt=media"
+enum class ImageType(val key: String) {
+    JPEG("jpeg"),
+    PNG("png")
+}
+
+fun getQualifiedImageUrl(
+    relativeName: String,
+    storageBucket: StorageBucket,
+    imageType: ImageType = ImageType.JPEG
+): String {
+    return "$STORAGE_BUCKET_BASE_URL/${storageBucket.key}%2F$relativeName.${imageType.key}?alt=media"
 }

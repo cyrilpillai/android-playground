@@ -1,38 +1,32 @@
 package com.cyrilpillai.androidplayground.video_streaming.ui.components
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.cyrilpillai.androidplayground.ui.theme.Teal800
+import com.cyrilpillai.androidplayground.video_streaming.model.FastLaughItem
+import com.cyrilpillai.androidplayground.video_streaming.state.getFastLaughsState
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.VerticalPager
 
+data class FastLaughsState(
+    val fastLaughs: List<FastLaughItem>
+)
+
+@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun FastLaughsScreenSection(
+    state: FastLaughsState,
+    onVolumeToggleClick: (fastLaughItem: FastLaughItem) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(
+    VerticalPager(
+        count = state.fastLaughs.size,
         modifier = modifier
-            .fillMaxSize()
-            .wrapContentSize(Alignment.Center)
-    ) {
-        Text(
-            text = "Fast Laughs Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            textAlign = TextAlign.Center,
-            fontSize = 20.sp,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+    ) { page ->
+        val fastLaughItem = state.fastLaughs[page]
+        FastLaughContentSection(
+            fastLaughItem = fastLaughItem,
+            onVolumeToggleClick = { onVolumeToggleClick(fastLaughItem) }
         )
     }
 }
@@ -41,7 +35,7 @@ fun FastLaughsScreenSection(
 @Composable
 private fun FastLaughsScreenSectionPreview() {
     FastLaughsScreenSection(
-        modifier = Modifier
-            .padding(16.dp)
+        state = getFastLaughsState(),
+        onVolumeToggleClick = {}
     )
 }

@@ -17,28 +17,10 @@ import com.cyrilpillai.androidplayground.payments.ui.components.ReferralState
 import com.cyrilpillai.androidplayground.payments.ui.components.TopBarState
 import com.cyrilpillai.androidplayground.payments.ui.components.UpiIdState
 import com.cyrilpillai.androidplayground.payments.ui.components.VerticalActionState
-import com.cyrilpillai.androidplayground.ui.theme.Amber800
 import com.cyrilpillai.androidplayground.ui.theme.Blue800
-import com.cyrilpillai.androidplayground.ui.theme.BlueGrey800
-import com.cyrilpillai.androidplayground.ui.theme.Brown800
-import com.cyrilpillai.androidplayground.ui.theme.Cyan800
-import com.cyrilpillai.androidplayground.ui.theme.DeepOrange800
-import com.cyrilpillai.androidplayground.ui.theme.DeepPurple800
-import com.cyrilpillai.androidplayground.ui.theme.Green800
-import com.cyrilpillai.androidplayground.ui.theme.Grey800
-import com.cyrilpillai.androidplayground.ui.theme.Indigo800
-import com.cyrilpillai.androidplayground.ui.theme.LightBlue800
-import com.cyrilpillai.androidplayground.ui.theme.LightGreen800
-import com.cyrilpillai.androidplayground.ui.theme.Lime800
-import com.cyrilpillai.androidplayground.ui.theme.Orange800
-import com.cyrilpillai.androidplayground.ui.theme.Pink800
-import com.cyrilpillai.androidplayground.ui.theme.Purple800
-import com.cyrilpillai.androidplayground.ui.theme.Red800
-import com.cyrilpillai.androidplayground.ui.theme.Teal800
-import com.cyrilpillai.androidplayground.ui.theme.Yellow800
 import com.cyrilpillai.androidplayground.utils.StorageBucket.PAYMENT
 import com.cyrilpillai.androidplayground.utils.getQualifiedImageUrl
-import kotlin.random.Random
+import com.cyrilpillai.androidplayground.utils.getRandomColor
 
 fun getTopBarState(): TopBarState {
     return TopBarState(
@@ -46,7 +28,10 @@ fun getTopBarState(): TopBarState {
         searchBarItem = SearchBarItem(
             hint = "Pay by name or phone",
             icon = R.drawable.ic_search_outline,
-            profileImageUrl = getQualifiedImageUrl("chandler_bing", PAYMENT)
+            profileImageUrl = getQualifiedImageUrl(
+                relativeName = "chandler_bing",
+                storageBucket = PAYMENT
+            )
         )
     )
 }
@@ -156,22 +141,34 @@ fun getPromotionState(): CircularState {
             CircularItem.Info(
                 description = "Rewards",
                 backgroundColor = getRandomColor(),
-                imageUrl = getQualifiedImageUrl("rewards", PAYMENT)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "rewards",
+                    storageBucket = PAYMENT
+                )
             ),
             CircularItem.Info(
                 description = "Offers",
                 backgroundColor = getRandomColor(),
-                imageUrl = getQualifiedImageUrl("offers", PAYMENT)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "offers",
+                    storageBucket = PAYMENT
+                )
             ),
             CircularItem.Info(
                 description = "Referrals",
                 backgroundColor = getRandomColor(),
-                imageUrl = getQualifiedImageUrl("referrals", PAYMENT)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "referrals",
+                    storageBucket = PAYMENT
+                )
             ),
             CircularItem.Info(
                 description = "Indi-Home",
                 backgroundColor = getRandomColor(),
-                imageUrl = getQualifiedImageUrl("indi_home", PAYMENT)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "indi_home",
+                    storageBucket = PAYMENT
+                )
             )
         )
     )
@@ -232,12 +229,18 @@ fun getPeople(): List<CircularItem> {
         CircularItem.Info(
             description = "Joey",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("joey_tribbiani", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "joey_tribbiani",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "Monica",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("monica_geller", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "monica_geller",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "Ross",
@@ -247,12 +250,18 @@ fun getPeople(): List<CircularItem> {
         CircularItem.Info(
             description = "Rachel",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("rachel_green", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "rachel_green",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "Phoebe",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("phoebe_buffay", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "phoebe_buffay",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "Mike",
@@ -262,7 +271,10 @@ fun getPeople(): List<CircularItem> {
         CircularItem.Info(
             description = "Janice",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("janice_hosenstein", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "janice_hosenstein",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "Gunther",
@@ -272,7 +284,10 @@ fun getPeople(): List<CircularItem> {
         CircularItem.Info(
             description = "Jill",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("jill_green", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "jill_green",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "Judy",
@@ -282,7 +297,10 @@ fun getPeople(): List<CircularItem> {
         CircularItem.Info(
             description = "Emily",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("emily_waltham", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "emily_waltham",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "Ursula",
@@ -297,7 +315,10 @@ fun getPeople(): List<CircularItem> {
         CircularItem.Info(
             description = "Jack",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("jack_geller", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "jack_geller",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "Danny",
@@ -312,7 +333,10 @@ fun getBusinesses(): List<CircularItem> {
         CircularItem.Info(
             description = "Airtel Postpaid",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("airtel", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "airtel",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "Citibank",
@@ -322,7 +346,10 @@ fun getBusinesses(): List<CircularItem> {
         CircularItem.Info(
             description = "Bharatpe",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("bharatpe", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "bharatpe",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "Adani Electricity",
@@ -332,7 +359,10 @@ fun getBusinesses(): List<CircularItem> {
         CircularItem.Info(
             description = "Apple Inc",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("apple", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "apple",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "HDFC Bank",
@@ -347,7 +377,10 @@ fun getBusinesses(): List<CircularItem> {
         CircularItem.Info(
             description = "Zerodha Broking",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("zerodha", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "zerodha",
+                storageBucket = PAYMENT
+            )
         ),
         CircularItem.Info(
             description = "Zomato",
@@ -362,33 +395,10 @@ fun getBusinesses(): List<CircularItem> {
         CircularItem.Info(
             description = "Swiggy",
             backgroundColor = getRandomColor(),
-            imageUrl = getQualifiedImageUrl("swiggy", PAYMENT)
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "swiggy",
+                storageBucket = PAYMENT
+            )
         ),
     )
 }
-
-private fun getRandomColor(): Color {
-    return colors[Random.nextInt(colors.size)]
-}
-
-private val colors = listOf(
-    Red800,
-    Pink800,
-    Purple800,
-    DeepPurple800,
-    Indigo800,
-    Blue800,
-    LightBlue800,
-    Cyan800,
-    Teal800,
-    Green800,
-    LightGreen800,
-    Lime800,
-    Yellow800,
-    Amber800,
-    Orange800,
-    DeepOrange800,
-    Brown800,
-    Grey800,
-    BlueGrey800
-)

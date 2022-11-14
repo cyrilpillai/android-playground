@@ -93,82 +93,142 @@ fun getCuisineTypeState(): CuisineTypeState {
         cuisines = listOf(
             CuisineTypeItem(
                 name = "Biryani",
-                imageUrl = getQualifiedImageUrl("cuisine_1", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_1",
+                    storageBucket = FOOD_DELIVERY
+                )
             ), CuisineTypeItem(
                 name = "Pizza",
-                imageUrl = getQualifiedImageUrl("cuisine_2", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_2",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Chinese",
-                imageUrl = getQualifiedImageUrl("cuisine_3", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_3",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "North Indian",
-                imageUrl = getQualifiedImageUrl("cuisine_4", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_4",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "South Indian",
-                imageUrl = getQualifiedImageUrl("cuisine_5", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_5",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Pure Veg",
-                imageUrl = getQualifiedImageUrl("cuisine_6", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_6",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Pasta",
-                imageUrl = getQualifiedImageUrl("cuisine_7", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_7",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Dosa",
-                imageUrl = getQualifiedImageUrl("cuisine_8", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_8",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Idli",
-                imageUrl = getQualifiedImageUrl("cuisine_9", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_9",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Vada",
-                imageUrl = getQualifiedImageUrl("cuisine_10", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_10",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Paratha",
-                imageUrl = getQualifiedImageUrl("cuisine_11", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_11",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Tea",
-                imageUrl = getQualifiedImageUrl("cuisine_12", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_12",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Coffee",
-                imageUrl = getQualifiedImageUrl("cuisine_13", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_13",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Upma",
-                imageUrl = getQualifiedImageUrl("cuisine_14", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_14",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Shawarma",
-                imageUrl = getQualifiedImageUrl("cuisine_15", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_15",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Shakes",
-                imageUrl = getQualifiedImageUrl("cuisine_16", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_16",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Pancake",
-                imageUrl = getQualifiedImageUrl("cuisine_17", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_17",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Ice Cream",
-                imageUrl = getQualifiedImageUrl("cuisine_18", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_18",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Khichdi",
-                imageUrl = getQualifiedImageUrl("cuisine_19", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_19",
+                    storageBucket = FOOD_DELIVERY
+                )
             ),
             CuisineTypeItem(
                 name = "Rolls",
-                imageUrl = getQualifiedImageUrl("cuisine_20", FOOD_DELIVERY)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "cuisine_20",
+                    storageBucket = FOOD_DELIVERY
+                )
             )
         )
     )
@@ -241,7 +301,10 @@ fun getRestaurants(): List<RestaurantItem> {
             id = 1,
             name = "McDonald's",
             description = "Burgers, Beverages",
-            imageUrl = getQualifiedImageUrl("restaurant_1", FOOD_DELIVERY),
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "restaurant_1",
+                storageBucket = FOOD_DELIVERY
+            ),
             rating = 4.3,
             reviewCount = "1K+",
             benefit = "EXTRA 10% OFF",
@@ -256,7 +319,10 @@ fun getRestaurants(): List<RestaurantItem> {
             id = 2,
             name = "Trupti Sweets and Farsan",
             description = "Sweets, Desserts",
-            imageUrl = getQualifiedImageUrl("restaurant_2", FOOD_DELIVERY),
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "restaurant_2",
+                storageBucket = FOOD_DELIVERY
+            ),
             rating = 4.4,
             reviewCount = "1K+",
             benefit = "FREE DELIVERY",
@@ -271,7 +337,10 @@ fun getRestaurants(): List<RestaurantItem> {
             id = 3,
             name = "Subway",
             description = "Salads, Snacks",
-            imageUrl = getQualifiedImageUrl("restaurant_3", FOOD_DELIVERY),
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "restaurant_3",
+                storageBucket = FOOD_DELIVERY
+            ),
             rating = 4.3,
             reviewCount = "1K+",
             benefit = "EXTRA 10% OFF",
@@ -286,7 +355,10 @@ fun getRestaurants(): List<RestaurantItem> {
             id = 4,
             name = "Jeden - the Cake Expert",
             description = "Desserts, Bakery",
-            imageUrl = getQualifiedImageUrl("restaurant_4", FOOD_DELIVERY),
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "restaurant_4",
+                storageBucket = FOOD_DELIVERY
+            ),
             rating = 4.3,
             reviewCount = "100+",
             benefit = "EXTRA 10% OFF",
@@ -301,7 +373,10 @@ fun getRestaurants(): List<RestaurantItem> {
             id = 5,
             name = "Babu Vada Pav",
             description = "Desserts, Bakery",
-            imageUrl = getQualifiedImageUrl("restaurant_5", FOOD_DELIVERY),
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "restaurant_5",
+                storageBucket = FOOD_DELIVERY
+            ),
             rating = 4.5,
             reviewCount = "500+",
             benefit = "FREE DELIVERY",
@@ -315,7 +390,10 @@ fun getRestaurants(): List<RestaurantItem> {
             id = 6,
             name = "Apsara Ice Creams",
             description = "Ice Cream, Desserts",
-            imageUrl = getQualifiedImageUrl("restaurant_6", FOOD_DELIVERY),
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "restaurant_6",
+                storageBucket = FOOD_DELIVERY
+            ),
             rating = 4.6,
             reviewCount = "100+",
             benefit = "EXTRA 10% OFF",
@@ -330,7 +408,10 @@ fun getRestaurants(): List<RestaurantItem> {
             id = 7,
             name = "Persia Darbar",
             description = "Mughlai, North Indian",
-            imageUrl = getQualifiedImageUrl("restaurant_7", FOOD_DELIVERY),
+            imageUrl = getQualifiedImageUrl(
+                relativeName = "restaurant_7",
+                storageBucket = FOOD_DELIVERY
+            ),
             rating = 4.1,
             reviewCount = "50+",
             benefit = "EXTRA 10% OFF",

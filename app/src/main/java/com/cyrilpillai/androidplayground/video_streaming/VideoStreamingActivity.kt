@@ -26,11 +26,14 @@ import androidx.navigation.compose.rememberNavController
 import com.cyrilpillai.androidplayground.ui.theme.AndroidPlaygroundTheme
 import com.cyrilpillai.androidplayground.ui.theme.BlackTransparent
 import com.cyrilpillai.androidplayground.video_streaming.model.BottomNavItem
+import com.cyrilpillai.androidplayground.video_streaming.model.FastLaughItem
 import com.cyrilpillai.androidplayground.video_streaming.state.getDownloadsScreenState
+import com.cyrilpillai.androidplayground.video_streaming.state.getFastLaughsState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.BottomBarSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.DownloadsScreenSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.DownloadsScreenState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.FastLaughsScreenSection
+import com.cyrilpillai.androidplayground.video_streaming.ui.components.FastLaughsState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.HomeScreenSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.NewAndHotScreenSection
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.TopBarSection
@@ -49,6 +52,7 @@ class VideoStreamingActivity : ComponentActivity() {
                     )
                 )
             }
+            var fastLaughsState by remember { mutableStateOf(getFastLaughsState()) }
             val downloadsScreenState by remember { mutableStateOf(getDownloadsScreenState()) }
             val navController = rememberNavController()
             val listState = rememberLazyListState()
@@ -75,6 +79,19 @@ class VideoStreamingActivity : ComponentActivity() {
                         navController = navController,
                         listState = listState,
                         downloadsScreenState = downloadsScreenState,
+                        fastLaughsState = fastLaughsState,
+                        onFastLaughVolumeToggleClick = { fastLaughItem ->
+                            fastLaughsState = FastLaughsState(
+                                fastLaughsState.fastLaughs
+                                    .map { item ->
+                                        if (fastLaughItem.id == item.id) {
+                                            item.copy(volumeOn = !item.volumeOn)
+                                        } else {
+                                            item
+                                        }
+                                    }
+                            )
+                        },
                         modifier = Modifier
                             .padding(it)
                     )
@@ -122,11 +139,13 @@ class VideoStreamingActivity : ComponentActivity() {
         navController: NavHostController,
         listState: LazyListState,
         downloadsScreenState: DownloadsScreenState,
+        fastLaughsState: FastLaughsState,
+        onFastLaughVolumeToggleClick: (fastLaughItem: FastLaughItem) -> Unit,
         modifier: Modifier = Modifier
     ) {
         NavHost(
             navController = navController,
-            startDestination = BottomNavItem.Home.screenRoute,
+            startDestination = BottomNavItem.FastLaughs.screenRoute,
             modifier = modifier
                 .fillMaxSize()
         ) {
@@ -137,7 +156,10 @@ class VideoStreamingActivity : ComponentActivity() {
                 NewAndHotScreenSection()
             }
             composable(BottomNavItem.FastLaughs.screenRoute) {
-                FastLaughsScreenSection()
+                FastLaughsScreenSection(
+                    state = fastLaughsState,
+                    onVolumeToggleClick = onFastLaughVolumeToggleClick
+                )
             }
             composable(BottomNavItem.Downloads.screenRoute) {
                 DownloadsScreenSection(

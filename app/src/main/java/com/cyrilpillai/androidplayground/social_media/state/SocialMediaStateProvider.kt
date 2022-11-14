@@ -2,12 +2,14 @@ package com.cyrilpillai.androidplayground.social_media.state
 
 import androidx.compose.ui.graphics.Color
 import com.cyrilpillai.androidplayground.R
+import com.cyrilpillai.androidplayground.R.drawable
 import com.cyrilpillai.androidplayground.social_media.model.BottomNavItem
 import com.cyrilpillai.androidplayground.social_media.model.CtaItem
 import com.cyrilpillai.androidplayground.social_media.model.FollowerItem
 import com.cyrilpillai.androidplayground.social_media.model.HighlightItem
 import com.cyrilpillai.androidplayground.social_media.model.PostItem
 import com.cyrilpillai.androidplayground.social_media.model.PostType
+import com.cyrilpillai.androidplayground.social_media.model.PostType.SINGLE_IMAGE
 import com.cyrilpillai.androidplayground.social_media.model.TabItem
 import com.cyrilpillai.androidplayground.social_media.ui.components.BottomBarState
 import com.cyrilpillai.androidplayground.social_media.ui.components.CtaState
@@ -74,7 +76,10 @@ fun getStatisticsState(): StatisticsState {
 
 fun getProfileImageState(): ProfileImageState {
     return ProfileImageState(
-        imageUrl = getQualifiedImageUrl("profile_photo", SOCIAL_MEDIA)
+        imageUrl = getQualifiedImageUrl(
+            relativeName = "profile_photo",
+            storageBucket = SOCIAL_MEDIA
+        )
     )
 }
 
@@ -109,23 +114,38 @@ fun getFollowersState(): FollowersState {
         listOf(
             FollowerItem(
                 name = "uchiha.sasuke",
-                imageUrl = getQualifiedImageUrl("follower_1", SOCIAL_MEDIA)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "follower_1",
+                    storageBucket = SOCIAL_MEDIA
+                )
             ),
             FollowerItem(
                 "haruno.sakura",
-                imageUrl = getQualifiedImageUrl("follower_2", SOCIAL_MEDIA)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "follower_2",
+                    storageBucket = SOCIAL_MEDIA
+                )
             ),
             FollowerItem(
                 "hatake.kakashi",
-                imageUrl = getQualifiedImageUrl("follower_3", SOCIAL_MEDIA)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "follower_3",
+                    storageBucket = SOCIAL_MEDIA
+                )
             ),
             FollowerItem(
                 "uchiha.itachi",
-                imageUrl = getQualifiedImageUrl("follower_4", SOCIAL_MEDIA)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "follower_4",
+                    storageBucket = SOCIAL_MEDIA
+                )
             ),
             FollowerItem(
                 "nara.shikamaru",
-                imageUrl = getQualifiedImageUrl("follower_5", SOCIAL_MEDIA)
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "follower_5",
+                    storageBucket = SOCIAL_MEDIA
+                )
             ),
         )
     )
@@ -135,39 +155,66 @@ fun getHighlightsState(): HighlightState {
     return HighlightState(
         listOf(
             HighlightItem(
-                imageUrl = getQualifiedImageUrl("highlight_1", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "highlight_1",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 description = "Kurama"
             ),
             HighlightItem(
-                imageUrl = getQualifiedImageUrl("highlight_2", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "highlight_2",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 description = "Chunin Exams"
             ),
             HighlightItem(
-                imageUrl = getQualifiedImageUrl("highlight_3", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "highlight_3",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 description = "Training"
             ),
             HighlightItem(
-                imageUrl = getQualifiedImageUrl("highlight_1", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "highlight_1",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 description = "Kurama"
             ),
             HighlightItem(
-                imageUrl = getQualifiedImageUrl("highlight_2", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "highlight_2",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 description = "Chunin Exams"
             ),
             HighlightItem(
-                imageUrl = getQualifiedImageUrl("highlight_3", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "highlight_3",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 description = "Training"
             ),
             HighlightItem(
-                imageUrl = getQualifiedImageUrl("highlight_1", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "highlight_1",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 description = "Kurama"
             ),
             HighlightItem(
-                imageUrl = getQualifiedImageUrl("highlight_2", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "highlight_2",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 description = "Chunin Exams"
             ),
             HighlightItem(
-                imageUrl = getQualifiedImageUrl("highlight_3", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "highlight_3",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 description = "Training"
             )
         )
@@ -192,7 +239,7 @@ fun getTabsState(): TabsState {
             TabItem(
                 position = 2,
                 isSelected = false,
-                icon = R.drawable.ic_account_square,
+                icon = drawable.ic_account_square,
                 contentDescription = "tagged"
             )
         )
@@ -203,52 +250,88 @@ fun getPostsState(): PostState {
     return PostState(
         posts = listOf(
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_1", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_1",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 postType = PostType.SINGLE_IMAGE
             ),
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_2", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_2",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 postType = PostType.MULTIPLE_IMAGES
             ),
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_3", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_3",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 postType = PostType.SINGLE_IMAGE
             ),
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_4", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_4",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 postType = PostType.VIDEO
             ),
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_5", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_5",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 postType = PostType.SINGLE_IMAGE
             ),
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_6", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_6",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 postType = PostType.SINGLE_IMAGE
             ),
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_1", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_1",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 postType = PostType.SINGLE_IMAGE
             ),
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_2", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_2",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 postType = PostType.MULTIPLE_IMAGES
             ),
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_3", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_3",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 postType = PostType.SINGLE_IMAGE
             ),
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_4", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_4",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 postType = PostType.VIDEO
             ),
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_5", SOCIAL_MEDIA),
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_5",
+                    storageBucket = SOCIAL_MEDIA
+                ),
                 postType = PostType.SINGLE_IMAGE
             ),
             PostItem(
-                imageUrl = getQualifiedImageUrl("post_6", SOCIAL_MEDIA),
-                postType = PostType.SINGLE_IMAGE
+                imageUrl = getQualifiedImageUrl(
+                    relativeName = "post_6",
+                    storageBucket = SOCIAL_MEDIA
+                ),
+                postType = SINGLE_IMAGE
             )
         )
     )
