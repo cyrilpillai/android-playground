@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -62,7 +63,10 @@ fun FastLaughContentSection(
             overflow = TextOverflow.Ellipsis,
             color = Color.White,
             modifier = Modifier
-                .background(Color.Black)
+                .background(
+                    color = Color.Black,
+                    shape = RoundedCornerShape(2.dp)
+                )
                 .padding(horizontal = 6.dp)
                 .align(Alignment.TopEnd)
         )

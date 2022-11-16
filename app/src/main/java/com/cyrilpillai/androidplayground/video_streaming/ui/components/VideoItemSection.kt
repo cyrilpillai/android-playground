@@ -42,9 +42,9 @@ import com.cyrilpillai.androidplayground.R
 import com.cyrilpillai.androidplayground.ui.theme.BlackTransparent
 import com.cyrilpillai.androidplayground.ui.theme.Grey900
 import com.cyrilpillai.androidplayground.ui.theme.Red800
+import com.cyrilpillai.androidplayground.utils.StorageBucket.VIDEO_STREAMING
+import com.cyrilpillai.androidplayground.utils.getQualifiedImageUrl
 import com.cyrilpillai.androidplayground.video_streaming.model.VideoItem
-import com.cyrilpillai.androidplayground.video_streaming.state.getVideoItems
-import com.cyrilpillai.androidplayground.video_streaming.state.getWatchingState
 
 @Composable
 fun VideoItemSection(
@@ -331,7 +331,17 @@ private fun getSpanStyle(fontSize: TextUnit): SpanStyle {
 @Composable
 private fun GenericVideoItemSectionPreview() {
     GenericVideoItemSection(
-        videoItem = getVideoItems()[0],
+        videoItem = VideoItem.Generic(
+            id = 1,
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "brooklyn_nine_nine",
+                storageBucket = VIDEO_STREAMING
+            ),
+            isNetflixOriginal = false,
+            isTopTen = true,
+            primaryPrompt = "New episode",
+            secondaryPrompt = "Watch now"
+        ),
         modifier = Modifier
             .width(100.dp)
             .height(140.dp)
@@ -342,7 +352,17 @@ private fun GenericVideoItemSectionPreview() {
 @Composable
 private fun WatchingVideoItemSectionPreview() {
     WatchingVideoItemSection(
-        videoItem = getWatchingState().videos[0] as VideoItem.Watching,
+        videoItem = VideoItem.Watching(
+            id = 1,
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "brooklyn_nine_nine",
+                storageBucket = VIDEO_STREAMING
+            ),
+            isNetflixOriginal = false,
+            isTopTen = true,
+            progress = 40f,
+            subText = ""
+        ),
         modifier = Modifier
             .width(100.dp)
             .height(140.dp)

@@ -19,6 +19,9 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
@@ -32,6 +35,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.cyrilpillai.androidplayground.R
 import com.cyrilpillai.androidplayground.ui.theme.Indigo500
+import com.cyrilpillai.androidplayground.video_streaming.model.BottomNavItem
 import com.cyrilpillai.androidplayground.video_streaming.model.DownloadItem
 import com.cyrilpillai.androidplayground.video_streaming.model.VideoItem
 import com.cyrilpillai.androidplayground.video_streaming.state.getDownloadsScreenState
@@ -45,14 +49,31 @@ fun DownloadsScreenSection(
     state: DownloadsScreenState,
     modifier: Modifier = Modifier
 ) {
+    val topBarState by remember {
+        mutableStateOf(
+            TopBarState(
+                title = BottomNavItem.Downloads.title,
+                showIcons = true
+            )
+        )
+    }
     Column(
         modifier = modifier
             .fillMaxSize()
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
+        TopBarSection(
+            state = topBarState,
             modifier = Modifier
-                .padding(horizontal = 16.dp)
+                .fillMaxWidth()
+                .background(Color.Black)
+                .padding(
+                    horizontal = 16.dp, vertical = 8.dp
+                )
+        )
+        Row(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth()
         ) {
             Icon(
                 painter = painterResource(
@@ -218,6 +239,5 @@ private fun DownloadsScreenSectionPreview() {
         state = getDownloadsScreenState(),
         modifier = Modifier
             .background(Color.Black)
-            .padding(16.dp)
     )
 }

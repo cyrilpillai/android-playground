@@ -6,9 +6,12 @@ import com.cyrilpillai.androidplayground.utils.getQualifiedImageUrl
 import com.cyrilpillai.androidplayground.utils.getRandomColor
 import com.cyrilpillai.androidplayground.video_streaming.model.DownloadItem
 import com.cyrilpillai.androidplayground.video_streaming.model.FastLaughItem
+import com.cyrilpillai.androidplayground.video_streaming.model.NewAndHotItem
+import com.cyrilpillai.androidplayground.video_streaming.model.NewAndHotType
 import com.cyrilpillai.androidplayground.video_streaming.model.VideoItem
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.DownloadsScreenState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.FastLaughsState
+import com.cyrilpillai.androidplayground.video_streaming.ui.components.NewAndHotState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.PromotionalVideoState
 import com.cyrilpillai.androidplayground.video_streaming.ui.components.VideoCarouselState
 import kotlin.random.Random
@@ -124,102 +127,208 @@ fun getActionAdventureState(): VideoCarouselState {
 
 fun getFastLaughsState(): FastLaughsState {
     return FastLaughsState(
-        listOf(
-            FastLaughItem(
-                id = 1,
-                videoUrl = "Video 1",
-                thumbnailUrl = getQualifiedImageUrl(
-                    relativeName = "mr_robot",
-                    storageBucket = VIDEO_STREAMING
-                ),
-                logoUrl = getQualifiedImageUrl(
-                    relativeName = "mr_robot_logo",
-                    storageBucket = VIDEO_STREAMING,
-                    ImageType.PNG
-                ),
-                contentType = "U/A 13+",
-                backgroundColor = getRandomColor()
+        fastLaughs = getFastLaughItems()
+    )
+}
+
+fun getNewAndHotContentState(): NewAndHotState {
+    return NewAndHotState(
+        newAndHotList = getNewAndHotItems(NewAndHotType.COMING_SOON).shuffled() +
+                getNewAndHotItems(NewAndHotType.EVERYONE_WATCHING).shuffled() +
+                getNewAndHotItems(NewAndHotType.TOP_10_TV_SHOWS).shuffled() +
+                getNewAndHotItems(NewAndHotType.TOP_10_MOVIES).shuffled()
+    )
+}
+
+private fun getFastLaughItems(): List<FastLaughItem> {
+    return listOf(
+        FastLaughItem(
+            id = 1,
+            videoUrl = "Video 1",
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "mr_robot",
+                storageBucket = VIDEO_STREAMING
             ),
-            FastLaughItem(
-                id = 2,
-                videoUrl = "Video 2",
-                thumbnailUrl = getQualifiedImageUrl(
-                    relativeName = "money_heist",
-                    storageBucket = VIDEO_STREAMING
-                ),
-                logoUrl = getQualifiedImageUrl(
-                    relativeName = "money_heist_logo",
-                    storageBucket = VIDEO_STREAMING,
-                    ImageType.PNG
-                ),
-                contentType = "A",
-                backgroundColor = getRandomColor()
+            logoUrl = getQualifiedImageUrl(
+                relativeName = "mr_robot_logo",
+                storageBucket = VIDEO_STREAMING,
+                ImageType.PNG
             ),
-            FastLaughItem(
-                id = 3,
-                videoUrl = "Video 3",
-                thumbnailUrl = getQualifiedImageUrl(
-                    relativeName = "rick_and_morty",
-                    storageBucket = VIDEO_STREAMING
-                ),
-                logoUrl = getQualifiedImageUrl(
-                    relativeName = "rick_and_morty_logo",
-                    storageBucket = VIDEO_STREAMING,
-                    ImageType.PNG
-                ),
-                contentType = "U/A 16+",
-                backgroundColor = getRandomColor()
+            contentType = "U/A 13+",
+            backgroundColor = getRandomColor()
+        ),
+        FastLaughItem(
+            id = 2,
+            videoUrl = "Video 2",
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "money_heist",
+                storageBucket = VIDEO_STREAMING
             ),
-            FastLaughItem(
-                id = 4,
-                videoUrl = "Video 4",
-                thumbnailUrl = getQualifiedImageUrl(
-                    relativeName = "seinfeld",
-                    storageBucket = VIDEO_STREAMING
-                ),
-                logoUrl = getQualifiedImageUrl(
-                    relativeName = "seinfeld_logo",
-                    storageBucket = VIDEO_STREAMING,
-                    ImageType.PNG
-                ),
-                contentType = "A",
-                backgroundColor = getRandomColor()
+            logoUrl = getQualifiedImageUrl(
+                relativeName = "money_heist_logo",
+                storageBucket = VIDEO_STREAMING,
+                ImageType.PNG
             ),
-            FastLaughItem(
-                id = 5,
-                videoUrl = "Video 5",
-                thumbnailUrl = getQualifiedImageUrl(
-                    relativeName = "parks_and_recreation",
-                    storageBucket = VIDEO_STREAMING
-                ),
-                logoUrl = getQualifiedImageUrl(
-                    relativeName = "parks_and_recreation_logo",
-                    storageBucket = VIDEO_STREAMING,
-                    ImageType.PNG
-                ),
-                contentType = "U/A 13+",
-                backgroundColor = getRandomColor()
+            contentType = "A",
+            backgroundColor = getRandomColor()
+        ),
+        FastLaughItem(
+            id = 3,
+            videoUrl = "Video 3",
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "rick_and_morty",
+                storageBucket = VIDEO_STREAMING
             ),
-            FastLaughItem(
-                id = 6,
-                videoUrl = "Video 6",
-                thumbnailUrl = getQualifiedImageUrl(
-                    relativeName = "game_of_thrones",
-                    storageBucket = VIDEO_STREAMING
-                ),
-                logoUrl = getQualifiedImageUrl(
-                    relativeName = "game_of_thrones_logo",
-                    storageBucket = VIDEO_STREAMING,
-                    ImageType.PNG
-                ),
-                contentType = "U/A 16+",
-                backgroundColor = getRandomColor()
-            )
+            logoUrl = getQualifiedImageUrl(
+                relativeName = "rick_and_morty_logo",
+                storageBucket = VIDEO_STREAMING,
+                ImageType.PNG
+            ),
+            contentType = "U/A 16+",
+            backgroundColor = getRandomColor()
+        ),
+        FastLaughItem(
+            id = 4,
+            videoUrl = "Video 4",
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "seinfeld",
+                storageBucket = VIDEO_STREAMING
+            ),
+            logoUrl = getQualifiedImageUrl(
+                relativeName = "seinfeld_logo",
+                storageBucket = VIDEO_STREAMING,
+                ImageType.PNG
+            ),
+            contentType = "A",
+            backgroundColor = getRandomColor()
+        ),
+        FastLaughItem(
+            id = 5,
+            videoUrl = "Video 5",
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "parks_and_recreation",
+                storageBucket = VIDEO_STREAMING
+            ),
+            logoUrl = getQualifiedImageUrl(
+                relativeName = "parks_and_recreation_logo",
+                storageBucket = VIDEO_STREAMING,
+                ImageType.PNG
+            ),
+            contentType = "U/A 13+",
+            backgroundColor = getRandomColor()
+        ),
+        FastLaughItem(
+            id = 6,
+            videoUrl = "Video 6",
+            thumbnailUrl = getQualifiedImageUrl(
+                relativeName = "game_of_thrones",
+                storageBucket = VIDEO_STREAMING
+            ),
+            logoUrl = getQualifiedImageUrl(
+                relativeName = "game_of_thrones_logo",
+                storageBucket = VIDEO_STREAMING,
+                ImageType.PNG
+            ),
+            contentType = "U/A 16+",
+            backgroundColor = getRandomColor()
         )
     )
 }
 
-fun getVideoItems(): List<VideoItem.Generic> {
+private fun getNewAndHotItems(type: NewAndHotType): List<NewAndHotItem> {
+    val prefixId = when (type) {
+        NewAndHotType.COMING_SOON -> 10
+        NewAndHotType.EVERYONE_WATCHING -> 20
+        NewAndHotType.TOP_10_TV_SHOWS -> 30
+        NewAndHotType.TOP_10_MOVIES -> 40
+    }
+    return listOf(
+        NewAndHotItem(
+            id = prefixId + 1,
+            type = type,
+            name = "Mr Robot",
+            description = "Elliot, a brilliant but highly unstable young cyber-security engineer and vigilante hacker, becomes a key figure in a complex game of global dominance when he and his shadowy allies try to take down the corrupt corporation he works for.",
+            subtitle = "Seasons coming on 15 December",
+            videoUrl = "Video 1",
+            logoUrl = getQualifiedImageUrl(
+                relativeName = "mr_robot_logo",
+                storageBucket = VIDEO_STREAMING,
+                ImageType.PNG
+            ),
+            stickyText = "DEC 01",
+            contentType = "U/A 16+",
+            isNetflixOriginal = true,
+            backgroundColor = getRandomColor()
+        ),
+        NewAndHotItem(
+            id = prefixId + 2,
+            type = type,
+            name = "Game of Thrones",
+            description = "Nine noble families wage war against each other in order to gain control over the mythical land of Westeros. Meanwhile, a force is rising after millenniums and threatens the existence of living men.",
+            videoUrl = "Video 2",
+            logoUrl = getQualifiedImageUrl(
+                relativeName = "game_of_thrones_logo",
+                storageBucket = VIDEO_STREAMING,
+                ImageType.PNG
+            ),
+            contentType = "U/A 16+",
+            isNetflixOriginal = false,
+            backgroundColor = getRandomColor()
+        ),
+        NewAndHotItem(
+            id = prefixId + 3,
+            type = type,
+            name = "Money Heist",
+            description = "A criminal mastermind who goes by \"The Professor\" has a plan to pull off the biggest heist in recorded history -- to print billions of euros in the Royal Mint of Spain.",
+            subtitle = "Coming soon",
+            videoUrl = "Video 3",
+            logoUrl = getQualifiedImageUrl(
+                relativeName = "money_heist_logo",
+                storageBucket = VIDEO_STREAMING,
+                ImageType.PNG
+            ),
+            stickyText = "DEC 06",
+            contentType = "U/A 16+",
+            isNetflixOriginal = true,
+            backgroundColor = getRandomColor()
+        ),
+        NewAndHotItem(
+            id = prefixId + 4,
+            type = type,
+            name = "Seinfeld",
+            description = "Stand-up comedian Jerry Seinfeld wrestles with life's most perplexing yet trivial questions with his eccentric friends George, Elaine and Kramer.",
+            videoUrl = "Video 4",
+            logoUrl = getQualifiedImageUrl(
+                relativeName = "seinfeld_logo",
+                storageBucket = VIDEO_STREAMING,
+                ImageType.PNG
+            ),
+            stickyText = "FEB 28",
+            contentType = "A",
+            isNetflixOriginal = true,
+            backgroundColor = getRandomColor()
+        ),
+        NewAndHotItem(
+            id = prefixId + 5,
+            type = type,
+            name = "Rick and Morty",
+            description = "Rick, an alcoholic sociopath and scientist, lives with his daughter Beth's family. Apart from building gadgets, he takes his morally right but dimwit grandson Morty on absurd intergalactic adventures.",
+            subtitle = "New episode on 21 November",
+            videoUrl = "Video 5",
+            logoUrl = getQualifiedImageUrl(
+                relativeName = "rick_and_morty_logo",
+                storageBucket = VIDEO_STREAMING,
+                ImageType.PNG
+            ),
+            stickyText = "NOV 21",
+            contentType = "U/A 16+",
+            isNetflixOriginal = true,
+            backgroundColor = getRandomColor()
+        )
+    )
+}
+
+private fun getVideoItems(): List<VideoItem.Generic> {
     return listOf(
         VideoItem.Generic(
             id = 1,
