@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -37,57 +38,61 @@ class VideoStreamingActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
-
-            var fastLaughsState by remember { mutableStateOf(getFastLaughsState()) }
-            var newAndHotState by remember { mutableStateOf(getNewAndHotContentState()) }
-            val downloadsScreenState by remember { mutableStateOf(getDownloadsScreenState()) }
-            val navController = rememberNavController()
-
             AndroidPlaygroundTheme(
-                statusBarColor = Color.Black, useDarkIcons = false
+                statusBarColor = Color.Black,
+                useDarkIcons = false
             ) {
-                Scaffold(modifier = Modifier.fillMaxSize(),
-                    backgroundColor = Color.Black,
-                    bottomBar = {
-                        BottomBarSection(navController = navController)
-                    }) {
-                    NavigationGraph(
-                        navController = navController,
-                        downloadsScreenState = downloadsScreenState,
-                        fastLaughsState = fastLaughsState,
-                        onFastLaughVolumeToggleClick = { fastLaughItem ->
-                            fastLaughsState =
-                                FastLaughsState(
-                                    fastLaughsState.fastLaughs.map { item ->
-                                        if (fastLaughItem.id == item.id) {
-                                            item.copy(volumeOn = !item.volumeOn)
-                                        } else {
-                                            item
-                                        }
-                                    })
-                        },
-                        newAndHotState = newAndHotState,
-                        onNewAndHotItemVolumeToggleClick = { newAndHotItem ->
-                            newAndHotState =
-                                NewAndHotState(
-                                    newAndHotState.newAndHotList.map { item ->
-                                        if (newAndHotItem.id == item.id) {
-                                            item.copy(volumeOn = !item.volumeOn)
-                                        } else {
-                                            item
-                                        }
-                                    })
-                        },
-                        modifier = Modifier.padding(it)
-                    )
-                }
+                VideoStreamingScreen()
             }
         }
     }
 
     @Composable
-    fun NavigationGraph(
+    private fun VideoStreamingScreen() {
+        var fastLaughsState by remember { mutableStateOf(getFastLaughsState()) }
+        var newAndHotState by remember { mutableStateOf(getNewAndHotContentState()) }
+        val downloadsScreenState by remember { mutableStateOf(getDownloadsScreenState()) }
+        val navController = rememberNavController()
+
+        Scaffold(modifier = Modifier.fillMaxSize(),
+            backgroundColor = Color.Black,
+            bottomBar = {
+                BottomBarSection(navController = navController)
+            }) {
+            NavigationGraph(
+                navController = navController,
+                downloadsScreenState = downloadsScreenState,
+                fastLaughsState = fastLaughsState,
+                onFastLaughVolumeToggleClick = { fastLaughItem ->
+                    fastLaughsState =
+                        FastLaughsState(
+                            fastLaughsState.fastLaughs.map { item ->
+                                if (fastLaughItem.id == item.id) {
+                                    item.copy(volumeOn = !item.volumeOn)
+                                } else {
+                                    item
+                                }
+                            })
+                },
+                newAndHotState = newAndHotState,
+                onNewAndHotItemVolumeToggleClick = { newAndHotItem ->
+                    newAndHotState =
+                        NewAndHotState(
+                            newAndHotState.newAndHotList.map { item ->
+                                if (newAndHotItem.id == item.id) {
+                                    item.copy(volumeOn = !item.volumeOn)
+                                } else {
+                                    item
+                                }
+                            })
+                },
+                modifier = Modifier.padding(it)
+            )
+        }
+    }
+
+    @Composable
+    private fun NavigationGraph(
         navController: NavHostController,
         downloadsScreenState: DownloadsScreenState,
         fastLaughsState: FastLaughsState,
@@ -124,4 +129,9 @@ class VideoStreamingActivity : ComponentActivity() {
         }
     }
 
+    @Preview(showBackground = true)
+    @Composable
+    private fun VideoStreamingScreenPreview() {
+        VideoStreamingScreen()
+    }
 }
